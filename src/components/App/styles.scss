@@ -1,0 +1,17 @@
+.app {
+  margin: 1em auto;
+  text-align: center;
+
+  .nav{
+    border: 1px solid red;
+    height: 3em;
+  }
+  .footer{
+    border: 1px solid blue;
+    height: 3em;
+  }
+}
+
+.app img {
+  max-width: 150px;
+}

@@ -1,12 +1,21 @@
 // == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import './styles.scss';
+import SearchedAnimals from '../SearchedAnimals';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
+    <nav
+      className="nav"
+    >
+      la y a la nav
+    </nav>
+    <SearchedAnimals />
+    <footer
+      className="footer"
+    >
+      la y a le footer
+    </footer>
   </div>
 );
 
