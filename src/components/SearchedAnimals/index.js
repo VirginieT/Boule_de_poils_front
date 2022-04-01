@@ -1,5 +1,7 @@
 const SearchedAnimals = () => (
-  <div>
+  <div
+    className="animal__profil"
+  >
     <div>Animal Picture</div>
     <div>Animal Description</div>
     <div>Contact button</div>
