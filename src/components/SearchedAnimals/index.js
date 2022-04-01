@@ -1,11 +1,16 @@
+import AnimalDescription from './AnimalDescription';
+import AnimalPicture from './AnimalPicture';
+import ContactButton from './ContactButton';
+import AssociationContact from './AssociationContact';
+
 const SearchedAnimals = () => (
   <div
     className="animal__profil"
   >
-    <div>Animal Picture</div>
-    <div>Animal Description</div>
-    <div>Contact button</div>
-    <div>Association Contact</div>
+    <AnimalPicture />
+    <AnimalDescription />
+    <ContactButton />
+    <AssociationContact />
   </div>
 );
 
