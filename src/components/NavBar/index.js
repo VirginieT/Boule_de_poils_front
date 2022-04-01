@@ -2,7 +2,7 @@ import "./navbar.scss";
 
 const NavBar = () => (
   <div className="container">
-    <ul>
+    <ul className="alignement">
       <li>logo</li>
       <li>Boule de poils</li>
       <li>Login</li>

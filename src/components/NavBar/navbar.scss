@@ -2,11 +2,18 @@
 
 display: flex;
 justify-content: space-between;
+padding: 1em;
+}
+
+.alignement {
+
+display:flex;
 
 }
 
-.Navbar-Menu{
 
+li{
 
-
+padding-right: 10px;
+  
 }
