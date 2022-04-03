@@ -5,16 +5,16 @@ import './navbar.scss';
 
 const NavBar = () => {
   
-    const [toggleMenu, setToggleMenu] = useState(false);
+    const [toggleMenu, setToggleMenu] = useState(true);
   
     const toggleNavSmallScreen = () => {
 
       setToggleMenu(!toggleMenu);
     }
   
-    useEffect(() =>{
-
-      const changeWidth = () => {
+    useEffect(() => {
+     
+     const changeWidth = () => {
           setLargeur(window.innerWidth);
 
          if (window.innerWidth > 500) {
