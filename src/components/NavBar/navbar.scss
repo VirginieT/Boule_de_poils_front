@@ -1,8 +1,9 @@
 .container{
 
 display: flex;
-justify-content: space-between;
+
 padding: 1em;
+background-color: grey;
 }
 
 .alignement {
@@ -16,4 +17,72 @@ li{
 
 padding-right: 10px;
   
+}
+
+.Navbar-Menu{
+
+list-style: none;
+
+background-color: grey;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+position: relative;
+
+margin: 0;
+padding: 0;
+
+
+}
+
+.items{
+  margin-right: 10px;
+  color:white;
+  cursor: pointer;
+}
+
+.btn {
+
+    display: none;
+}
+
+
+@media screen and (max-width:500px) {
+
+  
+
+
+  .Navbar-Menu{
+    flex-direction:column;
+    height:210px;
+    
+    
+  }
+
+  .items:nth-child(1){
+    border-top:1px solid green;
+    margin-top: 50px;
+  }
+
+  .items{
+    
+    width: 150px;
+    border-bottom: 1px solid white;
+    line-height: 25px;
+  }
+
+  .btn{
+    display: block;
+    position: absolute;
+    right: 5px;
+    top: 140px;
+    color: black;
+    cursor: pointer;
+
+  }
+
 }
