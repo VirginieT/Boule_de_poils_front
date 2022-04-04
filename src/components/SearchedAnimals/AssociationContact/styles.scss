@@ -4,11 +4,17 @@
   position: relative;
   top: -1em;
   border: 1px solid vars.$lightColorPrimary;
-  margin: 0 vars.$mediumPadding;
+  width: 90%;
   border-radius: vars.$buttonBorderRadius;
   padding: vars.$mainPadding vars.$baseFontSize;
-  text-align: left;
+  text-align: center;
   margin-bottom: vars.$mainPadding;
+  margin: 0 auto;
+
+
+  & p {
+    font-size: vars.$smallFontSize;
+  }
 
   & p:not(:last-child) {
     margin-bottom: vars.$mainPadding / 2;
@@ -18,11 +24,13 @@
 // A partir de la largeur 700px et plus
 @media (min-width: 700px) {
   .association__infos {
-    width: vars.$test;
-    margin: 0 auto;
+    width: 90%;
 
-    & p:not(:last-child) {
-      margin-bottom: vars.$mainPadding / 2;
-    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .association__infos {
+    width: 43em;
   }
 }

@@ -9,6 +9,7 @@
     border-radius: vars.$mainBorderRadius;
     background: vars.$contrastTextPrimary;
     width: 90%;
+    padding: vars.$smallPadding;
 
     & h1 {
       text-align: center;
@@ -34,7 +35,7 @@
 
     & p {
       letter-spacing: vars.$textSpacing;
-      padding: vars.$mediumPadding vars.$bigPadding vars.$bigPadding;
+      padding: vars.$mediumPadding vars.$mediumPadding vars.$bigPadding;
     }
   }
 
