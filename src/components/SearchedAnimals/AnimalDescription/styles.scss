@@ -36,6 +36,10 @@
       text-align: vars.$textAlignLeft;
       z-index: -1;
       margin: 0 auto;
+
+      & p {
+        letter-spacing: vars.$textSpacing;
+      }
     }
 
     &::before {
