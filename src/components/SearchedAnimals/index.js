@@ -1,8 +1,8 @@
 import { animalData } from 'src/data';
 import AnimalDescription from './AnimalDescription';
 import AnimalPicture from './AnimalPicture';
-import ContactButton from './ContactButton';
 import AssociationContact from './AssociationContact';
+import ContactButton from './ContactButton';
 
 console.log(animalData);
 

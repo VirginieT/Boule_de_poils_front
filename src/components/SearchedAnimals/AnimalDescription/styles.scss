@@ -23,7 +23,7 @@
         font-size: vars.$baseFontSize;
         display: flex;
         justify-content: space-between;
-        padding: vars.$mainPadding vars.$bigPadding;
+        padding: vars.$mainPadding vars.$mediumPadding;
       }
 
     }
@@ -31,25 +31,25 @@
     .animal__description {
       position: relative;
       // border: 1px solid green;
-      width: 86%;
-      padding: vars.$mainPadding vars.$mediumPadding vars.$mediumPadding;
       text-align: vars.$textAlignLeft;
       z-index: -1;
       margin: 0 auto;
 
       & p {
         letter-spacing: vars.$textSpacing;
+        padding: vars.$mediumPadding vars.$bigPadding vars.$bigPadding;
+
       }
     }
 
     &::before {
       content: "";
       position: absolute;
-      width: 90%;
+      width: 85%;
       height: 100%;
       background: red;
       z-index: -1;
-      left: 5%;
+      left: 7.5%;
       border-radius: vars.$mainBorderRadius;
     }
   }
