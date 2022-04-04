@@ -7,8 +7,9 @@ import NavBar from '../NavBar';
 // == Composant
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
+
     <NavBar />
+<h1>Boule de poils</h1>
   </div>
 );
 

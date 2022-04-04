@@ -1,13 +1,14 @@
-
-
+@use 'src/styles/vars';
 
 
 .container{
 
 display: flex;
-
+justify-content: space-evenly;
 padding: 1em;
-background-color: grey;
+background-color: vars.$back_color_1 ;
+width:100vw
+
 }
 
 .alignement {
@@ -20,6 +21,8 @@ display:flex;
 li{
 
 padding-right: 10px;
+height: 100%;
+
   
 }
 
@@ -27,7 +30,6 @@ padding-right: 10px;
 
 list-style: none;
 
-background-color: grey;
 
 display: flex;
 
@@ -39,6 +41,7 @@ position: relative;
 
 margin: 0;
 padding: 0;
+height: 100%;
 
 
 }
@@ -54,12 +57,23 @@ padding: 0;
     display: none;
 }
 
+#title{
+
+  display: none;
+
+}
+
+
+
 
 
 @media screen and (max-width:500px) {
 
-  
+  #title{
 
+    display: inline-block;
+  
+  }  
 
   .Navbar-Menu{
     flex-direction:column;
@@ -84,7 +98,6 @@ padding: 0;
     display: block;
     position: absolute;
     right: 5px;
-    top: 140px;
     color: black;
     cursor: pointer;
 
