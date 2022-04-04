@@ -1,56 +1,81 @@
 @use 'src/styles/vars';
 
-@media screen and (max-width: 500px) {
-  .animal__profil__description {
+.animal__profil__description {
+  position: relative;
+  top: -1.5em;
+
+  .animal__caracteristics {
+    margin: 0 auto;
+    border-radius: vars.$mainBorderRadius;
+    background: vars.$contrastTextPrimary;
+    width: 90%;
+
+    & h1 {
+      text-align: center;
+      font-size: vars.$mediumFontSize;
+      padding: vars.$superSmallPadding
+    }
+
+    .animal__caracteristics--details {
+      font-size: vars.$baseFontSize;
+      display: flex;
+      justify-content: space-between;
+      padding: vars.$smallPadding vars.$mediumPadding;
+    }
+
+  }
+
+  .animal__description {
     position: relative;
-    top: -1.5em;
+    text-align: vars.$textAlignLeft;
+    z-index: -1;
+    margin: 0 auto;
+    width: 90%;
 
-    .animal__caracteristics {
-      // border: 1px solid red;
-      margin: 0 auto;
-      border-radius: vars.$mainBorderRadius;
-      background: vars.$contrastTextPrimary;
-      width: 90%;
-
-      & h1 {
-        text-align: center;
-        font-size: vars.$mediumFontSize;
-        padding: vars.$smallPadding
-      }
-
-      .animal__caracteristics--details {
-        // border: 1px solid blue;
-        font-size: vars.$baseFontSize;
-        display: flex;
-        justify-content: space-between;
-        padding: vars.$smallPadding vars.$mediumPadding;
-      }
-
-    }
-
-    .animal__description {
-      position: relative;
-      // border: 1px solid green;
-      text-align: vars.$textAlignLeft;
-      z-index: -1;
-      margin: 0 auto;
-
-      & p {
-        letter-spacing: vars.$textSpacing;
-        padding: vars.$mediumPadding vars.$bigPadding vars.$bigPadding;
-      }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      width: 85%;
-      height: 100%;
-      background: vars.$lightColorPrimary;
-      z-index: -1;
-      left: 7.5%;
-      border-radius: vars.$mainBorderRadius;
+    & p {
+      letter-spacing: vars.$textSpacing;
+      padding: vars.$mediumPadding vars.$bigPadding vars.$bigPadding;
     }
   }
 
+
+}
+
+// A partir de la largeur 700px et plus
+@media (min-width: 700px) {
+  .animal__profil__description {
+    .animal__caracteristics {
+      width: 85%;
+    }
+
+
+
+    .animal__caracteristics {
+
+      & h1 {
+        font-size: vars.$baseFontSize;
+      }
+
+      .animal__caracteristics--details {
+        font-size: vars.$smallFontSize;
+        padding: vars.$smallPadding vars.$bigPadding;
+
+      }
+
+    }
+  }
+}
+
+// A partir de la largeur 1024px et plus
+@media (min-width: 1024px) {
+  .animal__profil__description {
+    .animal__caracteristics {
+      width: 43em;
+    }
+
+    .animal__description {
+      width: 43em;
+    }
+
+  }
 }
