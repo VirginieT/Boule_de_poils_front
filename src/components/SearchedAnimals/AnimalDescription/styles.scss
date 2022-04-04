@@ -1,0 +1,53 @@
+@use 'src/styles/vars';
+
+@media screen and (max-width: 500px) {
+  .animal__profil__description {
+    position: relative;
+    top: -1.5em;
+
+    .animal__caracteristics {
+      // border: 1px solid red;
+      margin: 0 auto;
+      border-radius: vars.$mainBorderRadius;
+      background: white;
+      width: 90%;
+
+      & h1 {
+        text-align: center;
+        font-size: vars.$mediumFontSize;
+        padding: vars.$smallPadding
+      }
+
+      .animal__caracteristics--details {
+        // border: 1px solid blue;
+        font-size: vars.$baseFontSize;
+        display: flex;
+        justify-content: space-between;
+        padding: vars.$mainPadding vars.$bigPadding;
+      }
+
+    }
+
+    .animal__description {
+      position: relative;
+      // border: 1px solid green;
+      width: 86%;
+      padding: vars.$mainPadding vars.$mediumPadding vars.$mediumPadding;
+      text-align: vars.$textAlignLeft;
+      z-index: -1;
+      margin: 0 auto;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 90%;
+      height: 100%;
+      background: red;
+      z-index: -1;
+      left: 5%;
+      border-radius: vars.$mainBorderRadius;
+    }
+  }
+
+}
