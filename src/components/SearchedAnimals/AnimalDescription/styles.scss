@@ -9,7 +9,7 @@
       // border: 1px solid red;
       margin: 0 auto;
       border-radius: vars.$mainBorderRadius;
-      background: white;
+      background: vars.$contrastTextPrimary;
       width: 90%;
 
       & h1 {
@@ -23,7 +23,7 @@
         font-size: vars.$baseFontSize;
         display: flex;
         justify-content: space-between;
-        padding: vars.$mainPadding vars.$mediumPadding;
+        padding: vars.$smallPadding vars.$mediumPadding;
       }
 
     }
@@ -38,7 +38,6 @@
       & p {
         letter-spacing: vars.$textSpacing;
         padding: vars.$mediumPadding vars.$bigPadding vars.$bigPadding;
-
       }
     }
 
@@ -47,7 +46,7 @@
       position: absolute;
       width: 85%;
       height: 100%;
-      background: red;
+      background: vars.$lightColorPrimary;
       z-index: -1;
       left: 7.5%;
       border-radius: vars.$mainBorderRadius;
