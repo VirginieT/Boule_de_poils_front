@@ -3,6 +3,8 @@ import reactLogo from './react-logo.svg';
 import './styles.css';
 
 import NavBar from '../NavBar';
+import Presentation from '../Presentation';
+
 
 // == Composant
 const App = () => (
@@ -10,6 +12,7 @@ const App = () => (
 
     <NavBar />
 <h1>Boule de poils</h1>
+    <Presentation />
   </div>
 );
 

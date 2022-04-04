@@ -1,0 +1,30 @@
+@use 'src/styles/vars';
+
+.box-presentation {
+  width: 80vw;
+  display: flex;
+  margin-top: 1em;
+  background-color: vars.$back_color_1 ;
+  border-radius: 5px;
+}
+
+.firstbox {
+   width: 50%;
+   padding:1em;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+    color:white;
+
+    &__title {
+
+    }
+  }
+  
+
+ .carrousel {
+   width: 50%;
+ }
+
+
+ 
