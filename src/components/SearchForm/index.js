@@ -151,7 +151,6 @@ export default function SignIn() {
               <TextField
                 id="outlined-number"
                 label="Code postal"
-                defaultValue="Code postal"
                 type="number"
                 InputLabelProps={{
                   shrink: true,
