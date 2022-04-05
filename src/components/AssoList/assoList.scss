@@ -1,0 +1,46 @@
+.assoInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+    &__list {
+      background-color: greenyellow;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 100vw;
+      padding: 1vw;
+    }
+
+    &__card {
+      padding: 0.5vw;
+      width: 30%;
+      background-color: fuchsia;
+
+      h3 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+      }
+
+      p {
+        margin-bottom: 0.5em;
+      }
+
+      li {
+        margin-bottom: 0.25em;
+      }
+    }
+}
+
+.leaflet-container {
+  background-color: blue;
+  height: 50vh;
+  width: 80vw;
+  border-radius: 20px;
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}

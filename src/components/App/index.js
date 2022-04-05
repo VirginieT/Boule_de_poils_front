@@ -1,6 +1,6 @@
 // == Import
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SearchForm from '../SearchForm';
+import AssoList from '../AssoList';
 import './styles.css';
 
 const theme = createTheme({
@@ -25,7 +25,7 @@ const theme = createTheme({
 const App = () => (
   <div className="app">
     <ThemeProvider theme={theme}>
-      <SearchForm />
+      <AssoList />
     </ThemeProvider>
   </div>
 );
