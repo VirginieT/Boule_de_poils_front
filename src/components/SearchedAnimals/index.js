@@ -8,14 +8,18 @@ import ContactButton from './ContactButton';
 // console.log(animalData);
 
 const SearchedAnimals = () => {
-  const animalResults = useSelector((state) => (state.SearchedAnimals.currentProfil));
+  const animalResultsTest = useSelector((state) => (
+    state.SearchedAnimals.animalResults[0]
+  ));
+
+  // const animalResults = useSelector((state) => (state.SearchedAnimals.currentProfil));
   return (
     <div
       className="animal__profil"
     >
       <Arrows />
-      <AnimalPicture picture={animalResults.picture} />
-      <AnimalDescription {...animalResults} />
+      <AnimalPicture picture={animalResultsTest.picture} />
+      <AnimalDescription {...animalResultsTest} />
       <ContactButton />
       <AssociationContact />
     </div>
