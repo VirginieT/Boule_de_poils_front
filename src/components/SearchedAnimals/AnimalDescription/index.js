@@ -1,6 +1,6 @@
 import './styles.scss';
 
-const AnimalDescription = () => (
+const AnimalDescription = ({ age, description, gender, name}) => (
   <div
     className="animal__profil__description"
   >
