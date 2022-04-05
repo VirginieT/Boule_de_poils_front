@@ -50,7 +50,7 @@ const NavBar = () => {
       </ul>
       )}
 
-        <ul className="alignement">
+        <ul className="alignementlogin">
 
         <li>Login</li>
         </ul>
