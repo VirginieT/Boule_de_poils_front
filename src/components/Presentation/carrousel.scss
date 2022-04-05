@@ -13,6 +13,17 @@
   border-radius: 10px;
 }
 
+@media screen and (max-width:500px) {
+ .image{
+  width: 100vw;
+  height: 100vw;
+  border-radius: 10px;
+ }
+}
+
+
+
+
 .right-arrow {
   position: absolute;
   top: 50%;
