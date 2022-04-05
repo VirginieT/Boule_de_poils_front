@@ -15,19 +15,19 @@ const AnimalDescription = ({
   let messageStatus = '';
   switch (status) {
     case 0:
-      messageStatus = 'Cet animal est disponible à l\'adoption.';
+      messageStatus = `${name} est disponible à l'adoption.`;
       break;
 
     case 1:
-      messageStatus = 'Cet animal est en cours de réservation.';
+      messageStatus = `${name} est en cours de réservation.`;
       break;
 
     case 2:
-      messageStatus = 'Cet animal est déjà adopté.';
+      messageStatus = `${name} est déjà adopté.`;
       break;
 
     case 3:
-      messageStatus = 'Cet animal n\'est pas disponible à l\'adoption.';
+      messageStatus = `${name} n'est pas disponible à l'adoption.`;
       break;
 
     default:
@@ -70,7 +70,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec des enfants ?
         </p>
         <span className="animal__specificity--answer">
-          {child_compatibility ? 'Cet animal s\' entend bien avec des enfants' : 'Cet animal ne s\'entend pas bien avec des enfants'}
+          {child_compatibility ? `${name} s'entend bien avec des enfants` : `${name} ne s'entend pas bien avec des enfants`}
         </span>
         <p
           className="animal__specificity"
@@ -78,7 +78,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec d'autres animaux ?
         </p>
         <span className="animal__specificity--answer">
-          {other_animal_compatibility ? 'Cet animal s\' entend bien avec d\'autres animaux' : 'Cet animal ne s\'entend pas bien avec d\'autres animaux'}
+          {other_animal_compatibility ? `${name} s' entend bien avec d'autres animaux` : `${name} ne s'entend pas bien avec d'autres animaux`}
         </span>
         <p
           className="animal__specificity"
@@ -86,13 +86,13 @@ const AnimalDescription = ({
           Cet animal a-t-il besoin d'un espace extérieur ?
         </p>
         <span className="animal__specificity--answer">
-          {garden_needed ? 'Cet animal aura besoin d\'un espace extérieur' : 'Cet animal n\'aura pas besoin d\'un espace extérieur'}
+          {garden_needed ? `${name} aura besoin d'un espace extérieur` : `${name} n'aura pas besoin d'un espace extérieur`}
         </span>
 
         <p
           className="animal__specificity"
         >
-          Cet animal est-il disponible ?
+          {name} est-il disponible ?
         </p>
         <span className="animal__specificity--answer">
           {messageStatus}

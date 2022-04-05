@@ -52,11 +52,14 @@ const initialState = {
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case NEXT_PROFILE:
-      console.log('bon déjà est-ce qu\'on arrive là ??!!');
+    case NEXT_PROFILE: {
+      const newState = { ...state };
+      newState.animalResults.shift();
       return {
-        ...state,
+        ...newState,
       };
+    }
+
     default:
       return state;
   }
