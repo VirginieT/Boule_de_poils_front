@@ -6,12 +6,14 @@ import './assoList.scss';
 const AssoList = () => {
   return (
     <div className="assoInfo">
-      <MapContainer center={[46.5, 2.6]} zoom={5}>
+      <div className="assoInfo__map">
+        <MapContainer center={[46.5, 2.6]} zoom={5}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
         </MapContainer>
+      </div>
         <div className="assoInfo__list">
           <div className="assoInfo__card">
             <h3>DisneyLand</h3>
