@@ -49,10 +49,21 @@
     background-color: vars.$lightColorPrimary;
     border-bottom-left-radius: vars.$mainBorderRadius;
     border-bottom-right-radius: vars.$mainBorderRadius;
+    padding: vars.$smallPadding vars.$mediumPadding vars.$bigPadding;
+
+    .animal__specificity--answer {
+      text-align: left;
+      display: block;
+      padding-top: vars.$smallPadding - .2em;
+    }
+
+    .animal__specificity {
+      text-align: left;
+    }
 
     & p {
       letter-spacing: vars.$textSpacing;
-      padding: vars.$mediumPadding vars.$mediumPadding vars.$bigPadding;
+      padding-top: vars.$smallPadding + .8em;
     }
   }
 
