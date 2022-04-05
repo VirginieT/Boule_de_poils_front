@@ -16,6 +16,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import TextField from '@mui/material/TextField';
 
 export default function SignIn() {
   const [species, setSpecies] = React.useState('');
@@ -104,7 +105,7 @@ export default function SignIn() {
                 </Select>
               </FormControl>
               <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Compatibilité enfants</FormLabel>
+                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Sociabilité avec les enfants</FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
@@ -115,7 +116,7 @@ export default function SignIn() {
                 </RadioGroup>
               </FormControl>
               <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Compatibilité autres animaux</FormLabel>
+                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Sociabilité avec les autres animaux</FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
@@ -136,6 +137,28 @@ export default function SignIn() {
                   <FormControlLabel value="male" control={<Radio />} label="Non" />
                 </RadioGroup>
               </FormControl>
+              <FormControl fullWidth>
+                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Disponibilité</FormLabel>
+                <RadioGroup
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="row-radio-buttons-group"
+                >
+                  <FormControlLabel value="female" control={<Radio />} label="Sur site" />
+                  <FormControlLabel value="male" control={<Radio />} label="En famille d'accueil" />
+                </RadioGroup>
+              </FormControl>
+              <TextField
+                id="outlined-number"
+                label="Code postal"
+                defaultValue="Code postal"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth
+                sx={{ mt: 1 }}
+              />
               <Button
                 type="submit"
                 fullWidth
