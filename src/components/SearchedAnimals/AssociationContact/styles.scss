@@ -17,7 +17,7 @@
   }
 
   & p:not(:last-child) {
-    margin-bottom: vars.$mainPadding / 2;
+    margin-bottom: calc(vars.$mainPadding / 2);
   }
 }
 

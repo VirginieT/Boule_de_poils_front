@@ -1,0 +1,28 @@
+.button__arrow {
+  background: none;
+  border: none;
+
+  img {
+    height: 3.5em;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 25%;
+    mix-blend-mode: overlay;
+  }
+}
+
+@media (min-width: 700px) {
+  .button__arrow {
+    img {
+      mix-blend-mode: normal;
+      background: none;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .button__arrow {
+    img {
+      height: 5em;
+    }
+  }
+}

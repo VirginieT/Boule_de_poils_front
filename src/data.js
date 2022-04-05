@@ -1,4 +1,5 @@
 import profilPicture from 'src/assets/images/pexels-helena-lopes.jpg';
+
 export const animalData = {
   name: 'Truc',
   gender: 'female',

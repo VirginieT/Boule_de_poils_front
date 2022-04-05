@@ -1,0 +1,24 @@
+.nav__arrows {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 16em;
+  height: 0;
+
+  :nth-child(2).button__arrow img {
+    transform: rotateZ(180deg);
+  }
+}
+@media (min-width: 700px) {
+  .nav__arrows {
+    top: 10em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav__arrows {
+    top: 20em;
+    width: 65em;
+    margin: 0 auto;
+  }
+}
