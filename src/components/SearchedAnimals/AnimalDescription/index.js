@@ -70,9 +70,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec des enfants ?
         </p>
         <span className="animal__specificity--answer">
-          {/* {child_compatibility ? 'Cet animal s\' entend bien avec des 
-          enfants' : 'Cet animal ne s\' entend pas bien avec des enfants'} */}
-          {child_compatibility}
+          {child_compatibility ? 'Cet animal s\' entend bien avec des enfants' : 'Cet animal ne s\'entend pas bien avec des enfants'}
         </span>
         <p
           className="animal__specificity"
@@ -80,9 +78,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec d'autres animaux ?
         </p>
         <span className="animal__specificity--answer">
-          {/* {other_animal_compatibility ? 'Cet animal s\' entend bien avec 
-          d\'autres animaux' : 'Cet animal ne s\' entend pas bien avec d\'autres animaux'} */}
-          {other_animal_compatibility}
+          {other_animal_compatibility ? 'Cet animal s\' entend bien avec d\'autres animaux' : 'Cet animal ne s\'entend pas bien avec d\'autres animaux'}
         </span>
         <p
           className="animal__specificity"
@@ -90,9 +86,7 @@ const AnimalDescription = ({
           Cet animal a-t-il besoin d'un espace extérieur ?
         </p>
         <span className="animal__specificity--answer">
-          {/* {garden_needed ? 'Cet animal aura besoin d\'un espace extérieur' : 
-          'Cet animal n\'aura pas besoin d\'un espace extérieur'} */}
-          {garden_needed}
+          {garden_needed ? 'Cet animal aura besoin d\'un espace extérieur' : 'Cet animal n\'aura pas besoin d\'un espace extérieur'}
         </span>
 
         <p
@@ -114,10 +108,10 @@ AnimalDescription.propTypes = {
   description: Proptypes.string.isRequired,
   gender: Proptypes.string.isRequired,
   name: Proptypes.string.isRequired,
-  child_compatibility: Proptypes.string.isRequired,
-  garden_needed: Proptypes.string.isRequired,
+  child_compatibility: Proptypes.bool.isRequired,
+  garden_needed: Proptypes.bool.isRequired,
   status: Proptypes.number.isRequired,
-  other_animal_compatibility: Proptypes.string.isRequired,
+  other_animal_compatibility: Proptypes.bool.isRequired,
 };
 
 export default AnimalDescription;
