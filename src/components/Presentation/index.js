@@ -1,21 +1,42 @@
-import Carrousel from './Carrousel';
-import { SliderData } from './SliderData';
-import './presentation.scss';
-import './carrousel.scss';
 
-const Presentation = () => (
+import './team.scss';
 
-  <div className="box-presentation">
-    <div className="firstbox">
-      <h2 className="firstbox__title">Title</h2>
-      <h3 className="firstbox__subtitle">Subtitle</h3>
-      <p className="firstbox__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
+const Team = () => (
+
+  <div className="box-container">
+    <div className="box">
+      <img src='' alt='photoprofil'/>
+      <h3 className="box__name">Julien</h3>
+      <p className="box__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
     </div>
-    <div className="carrousel">
-      <Carrousel slides={SliderData}/>
+  
+    <div className="box">
+      <img src='' alt='photoprofil'/>
+      <h3 className="box__name">Virginie</h3>
+      <p className="box__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
     </div>
+
+    <div className="box">
+      <img src='' alt='photoprofil'/>
+      <h3 className="box__name">François</h3>
+      <p className="box__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
+    </div>
+
+
+    <div className="box">
+      <img src='' alt='photoprofil'/>
+      <h3 className="box__name">Mathilde</h3>
+      <p className="box__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
+    </div>
+
+    <div className="box">
+      <img src='' alt='photoprofil'/>
+      <h3 className="box__name">Anthony</h3>
+      <p className="box__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
+    </div>
+
   </div>
 
 );
 
-export default Presentation;
+export default Team;
