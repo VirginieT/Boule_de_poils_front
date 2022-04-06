@@ -8,6 +8,7 @@ import NavBar from '../NavBar';
 import Presentation from '../Presentation';
 import LoginForm from '../LoginForm';
 import AssoList from '../AssoList';
+import Advices from '../Advices';
 import './styles.css';
 
 const theme = createTheme({
@@ -34,6 +35,7 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <NavBar />
       <Routes>
+        <Route path="/conseils" element={<Advices />} />
         <Route path="/associations" element={<AssoList />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/search" element={<SearchedAnimals />} />
@@ -44,7 +46,7 @@ const App = () => (
       >
         <h3>Qui sommes-nous ?</h3>
         <h4>Mentions Légales</h4>
-      </footer>
+      </footer> 
     </ThemeProvider>
   </div>
 );
