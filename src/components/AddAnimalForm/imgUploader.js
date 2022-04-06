@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+import FormControl from '@mui/material/FormControl';
+import './imgUploader.scss';
 
 const Input = styled('input')({
   display: 'none',
 });
-import './imgUploader.scss';
 
 const ImgUploader = () => {
   const [images, setImages] = useState([]);
@@ -47,12 +47,21 @@ const ImgUploader = () => {
   }
 
   return (
-      <label htmlFor="contained-button-file">
-        <Input accept=".jpg,.jpeg" id="contained-button-file" type="file" />
-        <Button variant="contained" component="span" fullWidth sx={{ mt: 3, mb: 2 }}>
-          Télécharger une photo
-        </Button>
-      </label>
+    <>
+      <div id="photo">
+        { // création de balise img si présence d'URL dans le state
+        imageURLs.map(imageSrc => <img src={imageSrc} />) }
+      </div>
+      <FormControl>
+        <label htmlFor="contained-button-file">
+          {/* eslint-disable-next-line react/jsx-no-bind */}
+          <Input accept=".jpg,.jpeg" id="contained-button-file" type="file" onChange={onFileChange}/>
+          <Button variant="contained" component="span" color="secondary" fullWidth sx={{ mt: 3, mb: 2 }}>
+            Télécharger une photo
+          </Button>
+        </label>
+      </FormControl>
+    </>
   );
 };
 
