@@ -26,6 +26,21 @@ padding:1em;
 }
 
 
+.footer{
+
+  margin-top: 1em;
+  width: 100%;
+  background-color:vars.$cta_color_2 ;
+  color:white;
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width:500px) {
   h1{
     display: none;

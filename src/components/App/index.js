@@ -13,6 +13,11 @@ const App = () => (
     <NavBar />
 <h1>Boule de poils</h1>
     <Presentation />
+    <div className='footer'>
+      <h3>Qui sommes-nous ?</h3>
+      <h4>Mentions Légales</h4>
+    </div>
+  
   </div>
 );
 
