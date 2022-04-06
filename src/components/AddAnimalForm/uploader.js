@@ -65,6 +65,7 @@ export default function Uploader() {
 
   const [image, setImage] = React.useState(null);
   const [croppedArea, setCroppedArea] = React.useState(null);
+  const [resizedImg, setResizedImg] = React.useState('');
   const [crop, setCrop] = React.useState({ x: 0, y: 0 });
   const [zoom, setZoom] = React.useState(1);
 
@@ -116,13 +117,11 @@ export default function Uploader() {
     handleClose();
   };
 
-  console.log(image, croppedArea);
-
   return (
     <FormControl>
       {image ? (
         <Box>
-          <img src="image" alt="bidulle" />
+          <img src='' alt="bidulle" />
         </Box>
       ) : null}
       <Button variant="contained" color="secondary" onClick={handleClickOpen} sx={{ mt: 2 }}>
