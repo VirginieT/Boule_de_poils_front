@@ -1,12 +1,12 @@
 // == Import
 import './styles.scss';
 import { Routes, Route } from 'react-router-dom';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SearchedAnimals from '../SearchedAnimals';
 import SearchForm from '../SearchForm';
-
 import NavBar from '../NavBar';
 import Presentation from '../Presentation';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import LoginForm from '../LoginForm';
 import './styles.css';
 
 const theme = createTheme({
@@ -33,6 +33,7 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <NavBar />
       <Routes>
+        <Route path="/login" element={<LoginForm />} />
         <Route path="/search" element={<SearchedAnimals />} />
         <Route path="/" element={<><Presentation /><SearchForm /></>} />
       </Routes>
