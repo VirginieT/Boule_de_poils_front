@@ -8,8 +8,10 @@ import ContactButton from './ContactButton';
 // console.log(animalData);
 
 const SearchedAnimals = () => {
+  const displayedProfil = useSelector((state) => state.SearchedAnimals.displayProfile);
+
   const animalResultsTest = useSelector((state) => (
-    state.SearchedAnimals.animalResults[0]
+    state.SearchedAnimals.animalResults[displayedProfil]
   ));
 
   // const animalResults = useSelector((state) => (state.SearchedAnimals.currentProfil));

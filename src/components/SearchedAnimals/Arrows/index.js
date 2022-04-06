@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { displayNextProfile } from 'src/actions/animalSearched';
+import { displayNextProfile, displayPreviousProfile } from 'src/actions/animalSearched';
 import Arrow from './Arrow';
 import './styles.scss';
 
@@ -10,7 +10,7 @@ const Arrows = () => {
     <div className="nav__arrows">
       <Arrow
         identifier="left"
-        clickedArrow={() => (console.log('je vais en faire une autre'))}
+        clickedArrow={() => (dispatch(displayPreviousProfile()))}
       />
       <Arrow
         identifier="right"
