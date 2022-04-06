@@ -33,6 +33,7 @@ const initialState = {
   ],
   displayProfile: 0,
   favorites: [],
+  showContact: false,
 };
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {

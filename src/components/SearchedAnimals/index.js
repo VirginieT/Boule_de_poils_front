@@ -14,7 +14,8 @@ const SearchedAnimals = () => {
     state.SearchedAnimals.animalResults[displayedProfil]
   ));
 
-  // const animalResults = useSelector((state) => (state.SearchedAnimals.currentProfil));
+  const showContact = useSelector((state) => (state.SearchedAnimals.showContact));
+
   return (
     <div
       className="animal__profil"
@@ -23,7 +24,7 @@ const SearchedAnimals = () => {
       <AnimalPicture picture={animalResultsTest.picture} />
       <AnimalDescription {...animalResultsTest} />
       <ContactButton />
-      <AssociationContact />
+      {showContact && <AssociationContact />}
     </div>
   );
 };
