@@ -65,7 +65,7 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
         ? newState.displayProfile = 0 : newState.displayProfile + 1;
 
       newState.displayProfile = maxIndex;
-
+      newState.showContact = false;
       return newState;
     }
 
@@ -77,6 +77,7 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
         : newState.displayProfile - 1;
 
       newState.displayProfile = minIndex;
+      newState.showContact = false;
       return newState;
     }
 
