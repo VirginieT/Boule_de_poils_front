@@ -9,6 +9,8 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import FormControl from '@mui/material/FormControl';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Cropper from 'react-easy-crop';
 import Slider from '@mui/material/Slider';
 import { generateDownload } from './utils/cropImage';
@@ -72,16 +74,6 @@ export default function Uploader() {
     setCroppedArea(croppedAreaPixels);
   };
 
-  const onSelectFile = (event) => {
-    if (event.target.files && event.target.files.length > 0) {
-      const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.addEventListener('load', () => {
-        setImage(reader.result);
-      });
-    }
-  };
-
   const validateFile = (e) => {
     // cibler l'input d'upload et sa valeur
     const fileInput = document.getElementById('contained-button-file');
@@ -99,9 +91,16 @@ export default function Uploader() {
       alert('Le format de fichier est invalide !');
       fileInput.value = '';
     }
-    // si tout est ok, ajout dans le state grâce au spread-operator
-    else {
-      onSelectFile();
+  };
+
+  const onSelectFile = (event) => {
+    validateFile(event);
+    if (event.target.files && event.target.files.length > 0) {
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.addEventListener('load', () => {
+        setImage(reader.result);
+      });
     }
   };
 
@@ -117,8 +116,15 @@ export default function Uploader() {
     handleClose();
   };
 
+  console.log(image, croppedArea);
+
   return (
-    <div>
+    <FormControl>
+      {image ? (
+        <Box>
+          <img src="image" alt="bidulle" />
+        </Box>
+      ) : null}
       <Button variant="contained" color="secondary" onClick={handleClickOpen} sx={{ mt: 2 }}>
         Télécharger une photo
       </Button>
@@ -131,10 +137,10 @@ export default function Uploader() {
           Choisissez et recadrez une photo
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <div className="container-cropper">
+          <Container className="container">
             {image ? (
               <>
-                <div className="cropper">
+                <Box className="cropper">
                   <Cropper
                     image={image}
                     crop={crop}
@@ -144,9 +150,9 @@ export default function Uploader() {
                     onZoomChange={setZoom}
                     onCropComplete={onCropComplete}
                   />
-                </div>
+                </Box>
 
-                <div className="slider">
+                <Box className="slider">
                   <Slider
                     min={1}
                     max={3}
@@ -154,26 +160,26 @@ export default function Uploader() {
                     value={zoom}
                     onChange={(e, zoom) => setZoom(zoom)}
                   />
-                </div>
+                </Box>
               </>
             ) : null}
-          </div>
+          </Container>
         </DialogContent>
         <DialogActions>
           <FormControl>
             <label htmlFor="contained-button-file">
               {/* eslint-disable-next-line react/jsx-no-bind */}
-              <Input accept=".jpg,.jpeg" id="contained-button-file" type="file" onChange={validateFile} />
-              <Button variant="contained" component="span" color="primary" fullWidth onClick={triggerFileSelectPopup}>
+              <Input accept=".jpg,.jpeg" id="contained-button-file" type="file" ref={inputRef} onChange={onSelectFile} />
+              <Button className="container-buttons" variant="contained" component="span" color="primary" fullWidth onClick={triggerFileSelectPopup}>
                 Choisir une photo
               </Button>
             </label>
           </FormControl>
-          <Button variant="contained" color="secondary" onClick={onDownload}>
+          <Button variant="contained" className="container-buttons" color="secondary" onClick={onDownload}>
             Télécharger
           </Button>
         </DialogActions>
       </BootstrapDialog>
-    </div>
+    </FormControl>
   );
 }
