@@ -1,23 +1,25 @@
 // == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import './styles.scss';
+import { Routes, Route } from 'react-router-dom';
+import SearchedAnimals from '../SearchedAnimals';
 
 import NavBar from '../NavBar';
 import Presentation from '../Presentation';
 
-
 // == Composant
 const App = () => (
   <div className="app">
-
     <NavBar />
-<h1>Boule de poils</h1>
-    <Presentation />
-    <div className='footer'>
+    <Routes>
+      <Route path="/search" element={<SearchedAnimals />} />
+      <Route path="/" element={<Presentation />} />
+    </Routes>
+    <footer
+      className="footer"
+    >
       <h3>Qui sommes-nous ?</h3>
       <h4>Mentions Légales</h4>
-    </div>
-  
+    </footer>
   </div>
 );
 

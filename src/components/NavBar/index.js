@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import MediaQuery from 'react-responsive';
 
 import './navbar.scss';
 
@@ -12,14 +11,12 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-
     const changeWidth = () => {
+      setLargeur(window.innerWidth);
 
-        setLargeur(window.innerWidth);
-
-        if(window.innerWidth > 500){
-           setToggleMenu(false);
-        }
+      if (window.innerWidth > 500) {
+        setToggleMenu(false);
+      }
     };
 
     window.addEventListener('resize', changeWidth);
@@ -28,8 +25,6 @@ const NavBar = () => {
       window.removeEventListener('resize', changeWidth);
     };
   }, []);
-
-
 
   return (
     <div className="container">
@@ -40,24 +35,22 @@ const NavBar = () => {
         <li id="title">Boule de poils</li>
       </ul>
       {(toggleMenu || largeur > 500) && (
-      <ul className="Navbar-Menu">
+        <ul className="Navbar-Menu">
 
-        <li className="items">Mes Favoris</li>
-        <li className="items">Rechercher un animal</li>
-        <li className="items">Conseils pour adoption</li>
-        <li className="items">Les associations</li>
-        <li className="items">Admin/compte user</li>
-      </ul>
+          <li className="items">Mes Favoris</li>
+          <li className="items">Rechercher un animal</li>
+          <li className="items">Conseils pour adoption</li>
+          <li className="items">Les associations</li>
+          <li className="items">Admin/compte user</li>
+        </ul>
       )}
 
-        <ul className="alignementlogin">
+      <ul className="alignementlogin">
 
         <li>Login</li>
-        </ul>
+      </ul>
 
-      <button onClick={ toggleNavSmallScreen } className='btn'>---</button>
-
-
+      <button type="button" onClick={toggleNavSmallScreen} className="btn">---</button>
 
     </div>
   );

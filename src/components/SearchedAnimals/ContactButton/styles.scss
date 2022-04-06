@@ -1,0 +1,15 @@
+@use 'src/styles/vars';
+
+.contact {
+  .contact__button--display {
+    padding: vars.$mainPadding vars.$baseFontSize;
+    border-radius: vars.$buttonBorderRadius;
+    position: relative;
+    top: -3em;
+    font-size: vars.$smallFontSize;
+    border: none;
+    background: vars.$cta_color_1;
+  }
+
+  height: 2em;
+}

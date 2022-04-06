@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { SliderData } from './SliderData';
@@ -23,20 +24,22 @@ const Carrousel = ({ slides }) => {
     <section className="slider">
       <ArrowBackIosIcon className="left-arrow" onClick={prevSlide} />
       <ArrowForwardIosIcon className="right-arrow" onClick={nextSlide} />
-      {SliderData.map((slide, index) => {
-        return (
-          <div
-            className={index === current ? 'slide active' : 'slide'}
-            key={index}
-          >
-            {index === current && (
-              <img src={slide.image} alt='travel image' className='image' />
-            )}
-          </div>
-        );
-      })}
+      {SliderData.map((slide, index) => (
+        <div
+          className={index === current ? 'slide active' : 'slide'}
+          key={index}
+        >
+          {index === current && (
+            <img src={slide.image} alt="travel" className="image" />
+          )}
+        </div>
+      ))}
     </section>
   );
+};
+
+Carrousel.propTypes = {
+  slides: PropTypes.string.isRequired,
 };
 
 export default Carrousel;

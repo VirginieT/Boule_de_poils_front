@@ -12,7 +12,7 @@ const Presentation = () => (
       <p className="firstbox__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
     </div>
     <div className="carrousel">
-      <Carrousel slides={SliderData}/>
+      <Carrousel slides={SliderData} />
     </div>
   </div>
 

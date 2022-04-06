@@ -1,0 +1,24 @@
+@use 'src/styles/vars';
+
+.animal__picture {
+  width: 100%;
+  height: 25em;
+  object-fit: cover;
+}
+
+@media (min-width: 700px) {
+  .animal__picture {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .animal__profil{
+    margin-top: vars.$mediumPadding;
+  }
+  .animal__picture {
+    width: 45em;
+    height: 45em;
+    border-radius: vars.$mainBorderRadius;
+  }
+}
