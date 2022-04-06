@@ -26,7 +26,12 @@ const SearchedAnimals = () => {
       <ContactButton
         showContactValue={showContact}
       />
-      {showContact && <AssociationContact />}
+      {showContact
+        && (
+          <AssociationContact
+            {...animalResultsTest.association}
+          />
+        )}
     </div>
   );
 };

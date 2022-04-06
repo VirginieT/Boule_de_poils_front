@@ -1,6 +1,6 @@
 import './styles.scss';
 import { displayContact } from 'src/actions/animalSearched';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 const ContactButton = ({ showContactValue }) => {
@@ -17,14 +17,14 @@ const ContactButton = ({ showContactValue }) => {
           dispatch(displayContact(showContactBool));
         }}
       >
-        Afficher les coordonnées
+        Contacter l'association
       </button>
     </div>
   );
 };
 
 ContactButton.propTypes = {
-  showContactValue: Proptypes.bool.isRequired,
+  showContactValue: PropTypes.bool.isRequired,
 };
 
 export default ContactButton;

@@ -1,5 +1,5 @@
 import './styles.scss';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const AnimalPicture = ({ picture }) => (
   <img
@@ -10,7 +10,7 @@ const AnimalPicture = ({ picture }) => (
 );
 
 AnimalPicture.propTypes = {
-  picture: Proptypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
 };
 
 export default AnimalPicture;

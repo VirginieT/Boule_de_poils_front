@@ -1,5 +1,5 @@
 import './styles.scss';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const AnimalDescription = ({
   age,
@@ -104,14 +104,14 @@ const AnimalDescription = ({
   );
 };
 AnimalDescription.propTypes = {
-  age: Proptypes.number.isRequired,
-  description: Proptypes.string.isRequired,
-  gender: Proptypes.string.isRequired,
-  name: Proptypes.string.isRequired,
-  child_compatibility: Proptypes.bool.isRequired,
-  garden_needed: Proptypes.bool.isRequired,
-  status: Proptypes.number.isRequired,
-  other_animal_compatibility: Proptypes.bool.isRequired,
+  age: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  gender: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  child_compatibility: PropTypes.bool.isRequired,
+  garden_needed: PropTypes.bool.isRequired,
+  status: PropTypes.number.isRequired,
+  other_animal_compatibility: PropTypes.bool.isRequired,
 };
 
 export default AnimalDescription;

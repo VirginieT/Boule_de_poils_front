@@ -1,4 +1,4 @@
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './styles.scss';
 import arrow from 'src/assets/images/bx-chevron-left.svg';
 
@@ -24,7 +24,7 @@ const Arrow = ({ identifier, clickedArrow }) => {
 };
 
 Arrow.propTypes = {
-  identifier: Proptypes.string.isRequired,
-  clickedArrow: Proptypes.func.isRequired,
+  identifier: PropTypes.string.isRequired,
+  clickedArrow: PropTypes.func.isRequired,
 };
 export default Arrow;
