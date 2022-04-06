@@ -15,6 +15,7 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import ImgUploader from './imgUploader';
+import Uploader from './uploader';
 
 export default function AddAnimalForm() {
   const [species, setSpecies] = React.useState('');
@@ -53,7 +54,7 @@ export default function AddAnimalForm() {
             label="Nom"
             defaultValue=""
           />
-          <ImgUploader />
+          <Uploader />
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label" sx={{ mt: 2 }}>Espèce</InputLabel>
             <Select
