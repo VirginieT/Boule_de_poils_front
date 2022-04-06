@@ -1,4 +1,4 @@
-import { NEXT_PROFILE, PREVIOUS_PROFILE } from 'src/actions/animalSearched';
+import { NEXT_PROFILE, PREVIOUS_PROFILE, DISPLAY_CONTACT } from 'src/actions/animalSearched';
 import profilPictureDog from 'src/assets/images/pexels-helena-lopes.jpg';
 import profilPictureCat from 'src/assets/images/pexels-lina-kivaka.jpg';
 
@@ -58,6 +58,13 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
 
       newState.displayProfile = minIndex;
       return newState;
+    }
+
+    case DISPLAY_CONTACT: {
+      return {
+        ...state,
+        showContact: action.displayed,
+      };
     }
 
     default:

@@ -23,7 +23,9 @@ const SearchedAnimals = () => {
       <Arrows />
       <AnimalPicture picture={animalResultsTest.picture} />
       <AnimalDescription {...animalResultsTest} />
-      <ContactButton />
+      <ContactButton
+        showContactValue={showContact}
+      />
       {showContact && <AssociationContact />}
     </div>
   );
