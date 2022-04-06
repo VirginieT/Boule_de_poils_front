@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 
 const AssociationContact = ({
   associationName,
-  associationLocalisation,
-  associationPhone,
-  associationEmail,
 }) => (
   <div className="association__infos">
     <p
@@ -17,37 +14,24 @@ const AssociationContact = ({
     <p
       className="association__address"
     >
-      {associationLocalisation.address},
-      {associationLocalisation.zip_code},
-      {associationLocalisation.city}
+      Une addresse
     </p>
 
     <p
       className="association__phone"
     >
-      {associationPhone}
+      Un téléphone
     </p>
     <p
       className="association__mail"
     >
-      {associationEmail}
+      un mail
     </p>
   </div>
 );
 
 AssociationContact.propTypes = {
   associationName: PropTypes.string.isRequired,
-  associationLocalisation: PropTypes.shape({
-    address: PropTypes.string.isRequired,
-    zip_code: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-  }).isRequired,
-  associationPhone: PropTypes.string,
-  associationEmail: PropTypes.string.isRequired,
-};
-
-AssociationContact.defaultProps = {
-  associationPhone: 'Nous n\'avons pas de numéro de téléphone',
 };
 
 export default AssociationContact;
