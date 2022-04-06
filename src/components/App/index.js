@@ -7,6 +7,7 @@ import SearchForm from '../SearchForm';
 import NavBar from '../NavBar';
 import Presentation from '../Presentation';
 import LoginForm from '../LoginForm';
+import AssoList from '../AssoList';
 import './styles.css';
 
 const theme = createTheme({
@@ -33,6 +34,7 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <NavBar />
       <Routes>
+        <Route path="/associations" element={<AssoList />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/search" element={<SearchedAnimals />} />
         <Route path="/" element={<><Presentation /><SearchForm /></>} />
