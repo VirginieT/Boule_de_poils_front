@@ -1,5 +1,6 @@
 // == Import
 import './styles.scss';
+import { Routes, Route } from 'react-router-dom';
 import SearchedAnimals from '../SearchedAnimals';
 
 // == Composant
@@ -10,7 +11,9 @@ const App = () => (
     >
       la y a la nav
     </nav>
-    <SearchedAnimals />
+    <Routes>
+      <Route path="/search" element={<SearchedAnimals />} />
+    </Routes>
     <footer
       className="footer"
     >
