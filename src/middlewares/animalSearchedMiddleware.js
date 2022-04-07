@@ -9,13 +9,13 @@ const animalSearchedMiddleware = (store) => (next) => (action) => {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/Json',
         },
-        species: store.getState().searchedAnimal.species,
-        gender: store.getState().searchedAnimal.gender,
-        age: store.getState().searchedAnimal.age,
-        childCompatibility: store.getState().searchedAnimal.childCompatibility,
-        otherAnimalCompatibility: store.getState().searchedAnimal.otherAnimalCompatibility,
-        gardenNeeded: store.getState().searchedAnimal.gardenNeeded,
-        department: store.getState().searchedAnimal.department,
+        species: store.getState().SearchedAnimals.species,
+        gender: store.getState().SearchedAnimals.gender,
+        age: store.getState().SearchedAnimals.age,
+        childCompatibility: store.getState().SearchedAnimals.childCompatibility,
+        otherAnimalCompatibility: store.getState().SearchedAnimals.otherAnimalCompatibility,
+        gardenNeeded: store.getState().SearchedAnimals.gardenNeeded,
+        department: store.getState().SearchedAnimals.department,
       })
         .then((response) => {
           // handle success

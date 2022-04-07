@@ -4,17 +4,22 @@ import {
   DISPLAY_CONTACT,
   SAVE_ANIMALS,
   CHANGE_AGE_FIELD,
+  CHANGE_GENDER_FIELD,
   CHANGE_SPECIES_FIELD,
+  CHANGE_CHILD_FIELD,
+  CHANGE_OTHERS_FIELD,
+  CHANGE_GARDEN_FIELD,
+  CHANGE_LOC_FIELD,
 } from 'src/actions/animalSearched';
 
 const initialState = {
-  species: '',
-  gender: '',
-  age: '',
-  childCompatibility: '',
-  otherAnimalCompatibility: '',
-  gardenNeeded: '',
-  department: '',
+  species: 0,
+  gender: 3,
+  age: 4,
+  childCompatibility: 0,
+  otherAnimalCompatibility: 0,
+  gardenNeeded: 3,
+  department: 0,
   animalResults: [],
   displayProfile: 0,
   favorites: [],
@@ -29,10 +34,40 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
         species: action.value,
       };
 
+      case CHANGE_GENDER_FIELD:
+      return {
+        ...state,
+        gender: action.value,
+      };
+
     case CHANGE_AGE_FIELD:
       return {
         ...state,
         age: action.value,
+      };
+
+      case CHANGE_CHILD_FIELD:
+      return {
+        ...state,
+        childCompatibility: action.value,
+      };
+
+      case CHANGE_OTHERS_FIELD:
+      return {
+        ...state,
+        otherAnimalCompatibility: action.value,
+      };
+
+      case CHANGE_GARDEN_FIELD:
+      return {
+        ...state,
+        gardenNeeded: action.value,
+      };
+
+      case CHANGE_LOC_FIELD:
+      return {
+        ...state,
+        department: action.value,
       };
 
     case NEXT_PROFILE: {

@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import * as React from 'react';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
@@ -18,18 +19,70 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TextField from '@mui/material/TextField';
 
-import { changeSpeciesField, changeAgeField, fetchAnimals } from '../../actions/animalSearched';
+import {
+  changeSpeciesField,
+  changeAgeField, 
+  changeGenderField,
+  changeChildField,
+  changeOthersField,
+  changeGardenField,
+  changeLocField,
+  fetchAnimals,
+} from '../../actions/animalSearched';
 
 export default function SearchForm() {
-  const speciesValue = useSelector((state) => state.searchedAnimals.species);
-  const genderValue = useSelector((state) => state.searchedAnimals.gender);
-  const ageValue = useSelector((state) => state.searchedAnimals.age);
-  const childValue = useSelector((state) => state.searchedAnimals.childCompatibility);
-  const othersValue = useSelector((state) => state.searchedAnimals.otherAnimalCompatibility);
-  const gardenValue = useSelector((state) => state.searchedAnimals.gardenNeeded);
-  const locValue = useSelector((state) => state.searchedAnimals.department);
+  const speciesValue = useSelector((state) => state.SearchedAnimals.species);
+  const genderValue = useSelector((state) => state.SearchedAnimals.gender);
+  const ageValue = useSelector((state) => state.SearchedAnimals.age);
+  const childValue = useSelector((state) => state.SearchedAnimals.childCompatibility);
+  const othersValue = useSelector((state) => state.SearchedAnimals.otherAnimalCompatibility);
+  const gardenValue = useSelector((state) => state.SearchedAnimals.gardenNeeded);
+  const locValue = useSelector((state) => state.SearchedAnimals.department);
 
   const dispatch = useDispatch();
+
+  const handleChangeSpecies = (event) => {
+    //setSpecies(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeSpeciesField(name, inputValue);
+    dispatch(action);
+  };
+  const handleChangeGender = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeGenderField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeAge = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeAgeField(name, inputValue);
+    dispatch(action);
+  };
+  const handleChangeChild = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeChildField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeOthers = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeOthersField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeGarden = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeGardenField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeLoc = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeLocField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -43,7 +96,7 @@ export default function SearchForm() {
       gardenValue,
       locValue,
     });
-    dispatch(fetchAnimals());
+    //window.location.href='http://localhost:8080/search';
   };
 
   return (
@@ -74,19 +127,16 @@ export default function SearchForm() {
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  name={species}
-                  value={value}
-                  label="Species"
-                  onChange={(newValue) => {
-                    const action = changeSpeciesField(name, );
-                    dispatch(action);
-                  }}
+                  name="species"
+                  value={speciesValue}
+                  label="species"
+                  onChange={handleChangeSpecies}
                   sx={{ mt: 2 }}
                 >
-                  <MenuItem value={10}>Chien</MenuItem>
-                  <MenuItem value={20}>Chat</MenuItem>
-                  <MenuItem value={30}>Lapin</MenuItem>
-                  <MenuItem value={40}>Rongeur</MenuItem>
+                  <MenuItem value={1}>Chat</MenuItem>
+                  <MenuItem value={2}>Chien</MenuItem>
+                  <MenuItem value={3}>Lapin</MenuItem>
+                  <MenuItem value={4}>Rongeurs</MenuItem>
                 </Select>
               </FormControl>
               <FormControl fullWidth>
@@ -94,11 +144,14 @@ export default function SearchForm() {
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="gender"
+                  value={genderValue}
+                  onChange={handleChangeGender}
+                  
                 >
-                  <FormControlLabel value="femelle" control={<Radio />} label="Femelle" />
-                  <FormControlLabel value="mâle" control={<Radio />} label="Mâle" />
-                  <FormControlLabel value="both" control={<Radio />} label="Indifférent" />
+                  <FormControlLabel value={0} control={<Radio />} label="Femelle" />
+                  <FormControlLabel value={1} control={<Radio />} label="Mâle" />
+                  <FormControlLabel value={3} control={<Radio />} label="Indifférent" />
                 </RadioGroup>
               </FormControl>
               <FormControl fullWidth>
@@ -106,18 +159,17 @@ export default function SearchForm() {
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
+                  name="age"
                   value={ageValue}
                   label="Age"
-                  onChange={(newValue) => {
-                    const action = changeAgeField(newValue);
-                    dispatch(action);
-                  }}
+                  onChange={handleChangeAge}
                   sx={{ mt: 2 }}
                 >
-                  <MenuItem value={10}>0 à 5 ans</MenuItem>
-                  <MenuItem value={20}>5 à 10 ans</MenuItem>
-                  <MenuItem value={30}>10 à 15 ans</MenuItem>
-                  <MenuItem value={40}>plus de 15 ans</MenuItem>
+                  <MenuItem value={0}>moins de 1 an</MenuItem>
+                  <MenuItem value={1}>1 à 5 ans</MenuItem>
+                  <MenuItem value={2}>5 à 10 ans</MenuItem>
+                  <MenuItem value={3}>plus de 10 ans</MenuItem>
+                  <MenuItem value={4}>Indifférent</MenuItem>
                 </Select>
               </FormControl>
               <FormControl fullWidth>
@@ -125,10 +177,12 @@ export default function SearchForm() {
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="childrenCompatibility"
+                  value={childValue}
+                  onChange={handleChangeChild}
                 >
-                  <FormControlLabel value="female" control={<Radio />} label="Oui" />
-                  <FormControlLabel value="male" control={<Radio />} label="Non" />
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
                 </RadioGroup>
               </FormControl>
               <FormControl fullWidth>
@@ -136,10 +190,12 @@ export default function SearchForm() {
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="otherAnimalCompatibility"
+                  value={othersValue}
+                  onChange={handleChangeOthers}
                 >
-                  <FormControlLabel value="female" control={<Radio />} label="Oui" />
-                  <FormControlLabel value="male" control={<Radio />} label="Non" />
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
                 </RadioGroup>
               </FormControl>
               <FormControl fullWidth>
@@ -147,27 +203,22 @@ export default function SearchForm() {
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="gardenNeeded"
+                  value={gardenValue}
+                  onChange={handleChangeGarden}
                 >
-                  <FormControlLabel value="female" control={<Radio />} label="Oui" />
-                  <FormControlLabel value="male" control={<Radio />} label="Non" />
-                </RadioGroup>
-              </FormControl>
-              <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Disponibilité</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                >
-                  <FormControlLabel value="female" control={<Radio />} label="Sur site" />
-                  <FormControlLabel value="male" control={<Radio />} label="En famille d'accueil" />
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
+                  <FormControlLabel value={3} control={<Radio />} label="Indifférent" />
                 </RadioGroup>
               </FormControl>
               <TextField
                 id="outlined-number"
                 label="Code postal"
                 type="number"
+                name="department"
+                value={locValue}
+                onChange={handleChangeLoc}
                 InputLabelProps={{
                   shrink: true,
                 }}
