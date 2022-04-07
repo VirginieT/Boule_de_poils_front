@@ -219,9 +219,6 @@ export default function SearchForm() {
                 name="department"
                 value={locValue}
                 onChange={handleChangeLoc}
-                InputLabelProps={{
-                  shrink: true,
-                }}
                 fullWidth
                 sx={{ mt: 1 }}
               />

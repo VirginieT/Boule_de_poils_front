@@ -1,3 +1,6 @@
+export const CHANGE_NAME_FIELD = 'CHANGE_NAME_FIELD';
+export const CHANGE_PICTURE_FIELD = 'CHANGE_PICTURE_FIELD';
+export const CHANGE_DESCRIPTION_FIELD = 'CHANGE_DESCRIPTION_FIELD';
 export const CHANGE_SPECIES_FIELD = 'CHANGE_SPECIES_FIELD';
 export const CHANGE_AGE_FIELD = 'CHANGE_AGE_FIELD';
 export const CHANGE_GENDER_FIELD = 'CHANGE_GENDER_FIELD';
@@ -10,7 +13,26 @@ export const PREVIOUS_PROFILE = 'PREVIOUS_PROFILE';
 export const DISPLAY_CONTACT = 'DISPLAY_CONTACT';
 export const SAVE_ANIMALS = 'SAVE_ANIMALS';
 export const FETCH_ANIMALS = 'FETCH_ANIMALS';
+export const POST_ANIMAL = 'POST_ANIMAL';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
+
+export const changeNameField = (key, newValue) => ({
+  type: CHANGE_NAME_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changePictureField = (key, newValue) => ({
+  type: CHANGE_PICTURE_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeDescriptionField = (key, newValue) => ({
+  type: CHANGE_DESCRIPTION_FIELD,
+  species: key,
+  value: newValue,
+});
 
 export const changeSpeciesField = (key, newValue) => ({
   type: CHANGE_SPECIES_FIELD,
@@ -69,6 +91,10 @@ export const displayContact = (bool) => ({
 
 export const fetchAnimals = () => ({
   type: FETCH_ANIMALS,
+});
+
+export const postAnimal = () => ({
+  type: POST_ANIMAL,
 });
 
 export const saveFetchedAnimals = (dataReceived) => ({

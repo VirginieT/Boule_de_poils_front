@@ -1,3 +1,4 @@
+import { useSelector, useDispatch } from 'react-redux';
 import * as React from 'react';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -16,19 +17,102 @@ import TextField from '@mui/material/TextField';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Uploader from './uploader';
 
-export default function AddAnimalForm() {
-  const [species, setSpecies] = React.useState('');
+import {
+  changeNameField,
+  changePictureField,
+  changeDescriptionField,
+  changeSpeciesField,
+  changeAgeField, 
+  changeGenderField,
+  changeChildField,
+  changeOthersField,
+  changeGardenField,
+  postAnimal,
+} from '../../actions/animalSearched';
 
-  const handleChangeSpecies = (event) => {
-    setSpecies(event.target.value);
+export default function AddAnimalForm() {
+  const nameValue = useSelector((state) => state.SearchedAnimals.name);
+  const pictureValue = useSelector((state) => state.SearchedAnimals.picture);
+  const descriptionValue = useSelector((state) => state.SearchedAnimals.description);
+  const speciesValue = useSelector((state) => state.SearchedAnimals.species);
+  const genderValue = useSelector((state) => state.SearchedAnimals.gender);
+  const ageValue = useSelector((state) => state.SearchedAnimals.age);
+  const childValue = useSelector((state) => state.SearchedAnimals.childCompatibility);
+  const othersValue = useSelector((state) => state.SearchedAnimals.otherAnimalCompatibility);
+  const gardenValue = useSelector((state) => state.SearchedAnimals.gardenNeeded);
+
+  const dispatch = useDispatch();
+
+  const handleChangeName = (event) => {
+    //setSpecies(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeNameField(name, inputValue);
+    dispatch(action);
   };
+  const handleChangePicture = (event) => {
+    //setSpecies(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changePictureField(name, inputValue);
+    dispatch(action);
+  };
+  const handleChangeDescription = (event) => {
+    //setSpecies(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeDescriptionField(name, inputValue);
+    dispatch(action);
+  };
+  const handleChangeSpecies = (event) => {
+    //setSpecies(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeSpeciesField(name, inputValue);
+    dispatch(action);
+  };
+  const handleChangeGender = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeGenderField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeAge = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeAgeField(name, inputValue);
+    dispatch(action);
+  };
+  const handleChangeChild = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeChildField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeOthers = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeOthersField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeGarden = (event) => {
+    //setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeGardenField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      nameValue,
+      pictureValue,
+      descriptionValue,
+      speciesValue,
+      genderValue,
+      ageValue,
+      childValue,
+      othersValue,
+      gardenValue,
     });
+    //dispatch(postAnimal());
   };
 
   return (
@@ -50,45 +134,52 @@ export default function AddAnimalForm() {
             fullWidth
             required
             id="outlined-required"
-            label="Nom"
-            defaultValue=""
+            name="name"
+            value={nameValue}
+            label="name"
+            onChange={handleChangeName}
           />
           <Uploader />
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label" sx={{ mt: 2 }}>Espèce</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              required
-              value={species}
-              label="Species"
-              onChange={handleChangeSpecies}
-              sx={{ mt: 2 }}
-            >
-              <MenuItem value={10}>Chien</MenuItem>
-              <MenuItem value={20}>Chat</MenuItem>
-              <MenuItem value={30}>Lapin</MenuItem>
-              <MenuItem value={40}>Rongeur</MenuItem>
-            </Select>
-          </FormControl>
+                <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  name="species"
+                  value={speciesValue}
+                  label="species"
+                  onChange={handleChangeSpecies}
+                  sx={{ mt: 2 }}
+                >
+                  <MenuItem value={1}>Chat</MenuItem>
+                  <MenuItem value={2}>Chien</MenuItem>
+                  <MenuItem value={3}>Lapin</MenuItem>
+                  <MenuItem value={4}>Rongeurs</MenuItem>
+                </Select>
+            </FormControl>
           <FormControl fullWidth>
             <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Genre</FormLabel>
             <RadioGroup
-              required
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-            >
-              <FormControlLabel value="femelle" control={<Radio />} label="Femelle" />
-              <FormControlLabel value="mâle" control={<Radio />} label="Mâle" />
-            </RadioGroup>
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="gender"
+                  value={genderValue}
+                  onChange={handleChangeGender}
+                  
+                >
+                  <FormControlLabel value={0} control={<Radio />} label="Femelle" />
+                  <FormControlLabel value={1} control={<Radio />} label="Mâle" />
+                </RadioGroup>
           </FormControl>
           <TextField
             id="outlined-number"
-            label="Âge"
             type="number"
             required
             fullWidth
+            name="age"
+            value={ageValue}
+            label="age"
+            onChange={handleChangeAge}
             sx={{ mt: 2 }}
           />
           <FormControl fullWidth>
@@ -98,43 +189,50 @@ export default function AddAnimalForm() {
               aria-label="minimum height"
               minRows={10}
               placeholder=""
+              name="description"
+              value={descriptionValue}
+              label="description"
+              onChange={handleChangeDescription}
             />
           </FormControl>
           <FormControl fullWidth>
             <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 2 }}>Sociabilité avec les enfants</FormLabel>
             <RadioGroup
-              required
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-            >
-              <FormControlLabel value="female" control={<Radio />} label="Oui" />
-              <FormControlLabel value="male" control={<Radio />} label="Non" />
-            </RadioGroup>
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="childrenCompatibility"
+                  value={childValue}
+                  onChange={handleChangeChild}
+                >
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
+                </RadioGroup>
           </FormControl>
           <FormControl fullWidth>
             <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 2 }}>Sociabilité avec les autres animaux</FormLabel>
             <RadioGroup
-              required
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-            >
-              <FormControlLabel value="female" control={<Radio />} label="Oui" />
-              <FormControlLabel value="male" control={<Radio />} label="Non" />
-            </RadioGroup>
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="otherAnimalCompatibility"
+                  value={othersValue}
+                  onChange={handleChangeOthers}
+                >
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
+                </RadioGroup>
           </FormControl>
           <FormControl fullWidth>
             <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 2 }}>Besoin d'un accès à un jardin</FormLabel>
             <RadioGroup
-              required
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-            >
-              <FormControlLabel value="female" control={<Radio />} label="Oui" />
-              <FormControlLabel value="male" control={<Radio />} label="Non" />
-            </RadioGroup>
+                  row
+                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  name="gardenNeeded"
+                  value={gardenValue}
+                  onChange={handleChangeGarden}
+                >
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
+                </RadioGroup>
           </FormControl>
           <Button
             type="submit"

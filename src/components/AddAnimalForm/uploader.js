@@ -1,3 +1,4 @@
+import { useSelector, useDispatch } from 'react-redux';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
@@ -13,7 +14,6 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Cropper from 'react-easy-crop';
 import Slider from '@mui/material/Slider';
-import { generateDownload } from './utils/cropImage';
 import './uploader.scss';
 
 const Input = styled('input')({
@@ -28,6 +28,8 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
 }));
+
+import { changePictureField, } from '../../actions/animalSearched';
 
 const BootstrapDialogTitle = (props) => {
   const { children, onClose, ...other } = props;
@@ -59,16 +61,24 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function Uploader() {
+  const pictureValue = useSelector((state) => state.SearchedAnimals.picture);
+  const dispatch = useDispatch();
+
+  const handleChangePicture = (event) => {
+    //setSpecies(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changePictureField(name, inputValue);
+    dispatch(action);
+  };
+
   const inputRef = React.useRef();
 
   const triggerFileSelectPopup = () => inputRef.current.click();
 
   const [image, setImage] = React.useState(null);
   const [croppedArea, setCroppedArea] = React.useState(null);
-  const [resizedImg, setResizedImg] = React.useState('');
   const [crop, setCrop] = React.useState({ x: 0, y: 0 });
   const [zoom, setZoom] = React.useState(1);
-
   const [open, setOpen] = React.useState(false);
 
   const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
