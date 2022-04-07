@@ -2,19 +2,20 @@ import './styles.scss';
 import PropTypes from 'prop-types';
 
 const AssociationContact = ({
-  associationName,
+  name,
+  street,
 }) => (
   <div className="association__infos">
     <p
       className="association__name"
     >
-      {associationName}
+      {name}
     </p>
 
     <p
       className="association__address"
     >
-      Une addresse
+      {street}
     </p>
 
     <p
@@ -31,7 +32,8 @@ const AssociationContact = ({
 );
 
 AssociationContact.propTypes = {
-  associationName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  street: PropTypes.string.isRequired,
 };
 
 export default AssociationContact;

@@ -15,7 +15,7 @@ const AnimalDescription = ({
   let messageStatus = '';
   switch (status) {
     case 0:
-      messageStatus = `${name} est disponible à l'adoption.`;
+      messageStatus = `${name} est à adopter !`;
       break;
 
     case 1:
@@ -74,7 +74,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec des enfants ?
         </p>
         <span className="animal__specificity--answer">
-          {child_compatibility === 'true' ? `${name} s'entend bien avec des enfants` : `${name} ne s'entend pas bien avec des enfants`}
+          {child_compatibility === 'True' ? `${name} s'entend bien avec des enfants` : `${name} ne s'entend pas bien avec des enfants`}
         </span>
         <p
           className="animal__specificity"
@@ -82,7 +82,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec d'autres animaux ?
         </p>
         <span className="animal__specificity--answer">
-          {other_animal_compatibility === 'true' ? `${name} s' entend bien avec d'autres animaux` : `${name} ne s'entend pas bien avec d'autres animaux`}
+          {other_animal_compatibility === 'True' ? `${name} s' entend bien avec d'autres animaux` : `${name} ne s'entend pas bien avec d'autres animaux`}
         </span>
         <p
           className="animal__specificity"
@@ -90,7 +90,7 @@ const AnimalDescription = ({
           Cet animal a-t-il besoin d'un espace extérieur ?
         </p>
         <span className="animal__specificity--answer">
-          {garden_needed === 'true' ? `${name} aura besoin d'un espace extérieur` : `${name} n'aura pas besoin d'un espace extérieur`}
+          {garden_needed === 'True' ? `${name} aura besoin d'un espace extérieur` : `${name} n'aura pas besoin d'un espace extérieur`}
         </span>
 
         <p

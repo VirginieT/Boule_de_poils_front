@@ -39,7 +39,7 @@ const SearchedAnimals = () => {
           {showContact
             && (
               <AssociationContact
-                {...animalProfile}
+                {...animalProfile.association}
               />
             )}
         </>

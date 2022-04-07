@@ -7,7 +7,7 @@ import SearchForm from '../SearchForm';
 import NavBar from '../NavBar';
 import Presentation from '../Presentation';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import './styles.css';
+// import './styles.css';
 
 const theme = createTheme({
   palette: {
