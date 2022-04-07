@@ -9,6 +9,13 @@ const animalSearchedMiddleware = (store) => (next) => (action) => {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/Json',
         },
+        species: store.getState().searchedAnimal.species,
+        gender: store.getState().searchedAnimal.gender,
+        age: store.getState().searchedAnimal.age,
+        childCompatibility: store.getState().searchedAnimal.childCompatibility,
+        otherAnimalCompatibility: store.getState().searchedAnimal.otherAnimalCompatibility,
+        gardenNeeded: store.getState().searchedAnimal.gardenNeeded,
+        department: store.getState().searchedAnimal.department,
       })
         .then((response) => {
           // handle success

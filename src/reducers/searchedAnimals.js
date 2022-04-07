@@ -3,9 +3,18 @@ import {
   PREVIOUS_PROFILE,
   DISPLAY_CONTACT,
   SAVE_ANIMALS,
+  CHANGE_AGE_FIELD,
+  CHANGE_SPECIES_FIELD,
 } from 'src/actions/animalSearched';
 
 const initialState = {
+  species: '',
+  gender: '',
+  age: '',
+  childCompatibility: '',
+  otherAnimalCompatibility: '',
+  gardenNeeded: '',
+  department: '',
   animalResults: [],
   displayProfile: 0,
   favorites: [],
@@ -14,6 +23,18 @@ const initialState = {
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHANGE_SPECIES_FIELD:
+      return {
+        ...state,
+        species: action.value,
+      };
+
+    case CHANGE_AGE_FIELD:
+      return {
+        ...state,
+        age: action.value,
+      };
+
     case NEXT_PROFILE: {
       const newState = { ...state };
 

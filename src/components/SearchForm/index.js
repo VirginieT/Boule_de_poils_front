@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
@@ -18,23 +18,32 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TextField from '@mui/material/TextField';
 
-export default function SignIn() {
-  const [species, setSpecies] = React.useState('');
-  const [age, setAge] = React.useState('');
+import { changeSpeciesField, changeAgeField, fetchAnimals } from '../../actions/animalSearched';
 
-  const handleChangeSpecies = (event) => {
-    setSpecies(event.target.value);
-  };
-  const handleChangeAge = (event) => {
-    setAge(event.target.value);
-  };
+export default function SearchForm() {
+  const speciesValue = useSelector((state) => state.searchedAnimals.species);
+  const genderValue = useSelector((state) => state.searchedAnimals.gender);
+  const ageValue = useSelector((state) => state.searchedAnimals.age);
+  const childValue = useSelector((state) => state.searchedAnimals.childCompatibility);
+  const othersValue = useSelector((state) => state.searchedAnimals.otherAnimalCompatibility);
+  const gardenValue = useSelector((state) => state.searchedAnimals.gardenNeeded);
+  const locValue = useSelector((state) => state.searchedAnimals.department);
+
+  const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      speciesValue,
+      genderValue,
+      ageValue,
+      childValue,
+      othersValue,
+      gardenValue,
+      locValue,
     });
+    dispatch(fetchAnimals());
   };
 
   return (
@@ -65,9 +74,13 @@ export default function SignIn() {
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={species}
+                  name={species}
+                  value={value}
                   label="Species"
-                  onChange={handleChangeSpecies}
+                  onChange={(newValue) => {
+                    const action = changeSpeciesField(name, );
+                    dispatch(action);
+                  }}
                   sx={{ mt: 2 }}
                 >
                   <MenuItem value={10}>Chien</MenuItem>
@@ -93,9 +106,12 @@ export default function SignIn() {
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={age}
+                  value={ageValue}
                   label="Age"
-                  onChange={handleChangeAge}
+                  onChange={(newValue) => {
+                    const action = changeAgeField(newValue);
+                    dispatch(action);
+                  }}
                   sx={{ mt: 2 }}
                 >
                   <MenuItem value={10}>0 à 5 ans</MenuItem>
