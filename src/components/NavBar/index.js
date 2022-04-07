@@ -29,11 +29,11 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="containerNav">
 
       <ul className="alignement">
 
-        <li><img src={logo} alt="logo" /></li>
+        <li><img className='logobouledepoils' src={logo} alt="logo" /></li>
         <li id="title">Boule de poils</li>
       </ul>
       {(toggleMenu || largeur > 500) && (
