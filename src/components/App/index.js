@@ -12,6 +12,7 @@ import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
 import AddAnimalForm from '../AddAnimalForm';
 import './styles.css';
+import { useSelector } from 'react-redux';
 
 const theme = createTheme({
   palette: {
@@ -32,7 +33,10 @@ const theme = createTheme({
 });
 
 // == Composant
-const App = () => (
+const App = () => {
+  const formsubmit = useSelector((state) => state.SearchedAnimals.formSubmit);
+
+  return (
   <div className="app">
     <ThemeProvider theme={theme}>
       <NavBar />
@@ -42,8 +46,17 @@ const App = () => (
         <Route path="/associations" element={<AssoList />} />
         <Route path="/signin" element={<SubscribeForm />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/search" element={<SearchedAnimals />} />
-        <Route path="/" element={<><Presentation /><SearchForm /></>} />
+        <Route path="/"
+          element={
+            formsubmit ? (
+              <SearchedAnimals />
+            )
+            : <>
+                <Presentation />
+                <SearchForm />
+              </>
+          }
+        />
       </Routes>
       <footer
         className="footer"
@@ -53,7 +66,8 @@ const App = () => (
       </footer>
     </ThemeProvider>
   </div>
-);
+  );
+};
 
 // == Export
 export default App;

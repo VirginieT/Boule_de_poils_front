@@ -10,6 +10,7 @@ import {
   CHANGE_OTHERS_FIELD,
   CHANGE_GARDEN_FIELD,
   CHANGE_LOC_FIELD,
+  SUBMIT_FORM,
 } from 'src/actions/animalSearched';
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
   displayProfile: 0,
   favorites: [],
   showContact: false,
+  formSubmit: false,
 };
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {
@@ -104,6 +106,13 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         animalResults: action.datas,
+      };
+    }
+
+    case SUBMIT_FORM: {
+      return {
+        ...state,
+        formSubmit: true,
       };
     }
 

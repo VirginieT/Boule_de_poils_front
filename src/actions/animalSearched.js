@@ -10,6 +10,7 @@ export const PREVIOUS_PROFILE = 'PREVIOUS_PROFILE';
 export const DISPLAY_CONTACT = 'DISPLAY_CONTACT';
 export const SAVE_ANIMALS = 'SAVE_ANIMALS';
 export const FETCH_ANIMALS = 'FETCH_ANIMALS';
+export const SUBMIT_FORM = 'SUBMIT_FORM';
 
 export const changeSpeciesField = (key, newValue) => ({
   type: CHANGE_SPECIES_FIELD,
@@ -73,4 +74,8 @@ export const fetchAnimals = () => ({
 export const saveFetchedAnimals = (dataReceived) => ({
   type: SAVE_ANIMALS,
   datas: dataReceived,
+});
+
+export const formSubmit = () => ({
+  type: SUBMIT_FORM,
 });

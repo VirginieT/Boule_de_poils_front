@@ -27,7 +27,7 @@ import {
   changeOthersField,
   changeGardenField,
   changeLocField,
-  fetchAnimals,
+  formSubmit,
 } from '../../actions/animalSearched';
 
 export default function SearchForm() {
@@ -96,7 +96,7 @@ export default function SearchForm() {
       gardenValue,
       locValue,
     });
-    //window.location.href='http://localhost:8080/search';
+    dispatch(formSubmit());
   };
 
   return (
