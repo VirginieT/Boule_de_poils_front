@@ -7,16 +7,18 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useDispatch, useSelector } from 'react-redux';
+import { changedFields } from 'src/actions/subscribe';
 
 export default function SubscribeForm() {
+  const dispatch = useDispatch();
+
   const mail = useSelector((state) => (state.Subscription.email));
   const username = useSelector((state) => (state.Subscription.username));
   const password = useSelector((state) => (state.Subscription.epassword));
-  const handleChange = () => {
-    console.log('hello');
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    dispatch(changedFields(event.target.name, event.target.value));
   };
-
-  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -73,7 +75,7 @@ export default function SubscribeForm() {
               <TextField
                 required
                 fullWidth
-                name="Password"
+                name="password"
                 label="Mot de passe"
                 type="password"
                 id="password"

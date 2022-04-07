@@ -1,5 +1,7 @@
-export const SEND_NEW_USER = 'SEND_NEW_USER';
+export const CHANGE_FIELD = 'CHANGE_FIELD';
 
-export const sendNewUserInfos = () => ({
-  type: SEND_NEW_USER,
+export const changedFields = (name, value) => ({
+  type: CHANGE_FIELD,
+  fieldName: name,
+  fieldValue: value,
 });
