@@ -39,7 +39,7 @@ const Carrousel = ({ slides }) => {
 };
 
 Carrousel.propTypes = {
-  slides: PropTypes.string.isRequired,
+  slides: PropTypes.array.isRequired,
 };
 
 export default Carrousel;

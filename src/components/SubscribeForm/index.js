@@ -1,21 +1,30 @@
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function SubscribeForm() {
+  const mail = useSelector((state) => (state.Subscription.email));
+  const username = useSelector((state) => (state.Subscription.username));
+  const password = useSelector((state) => (state.Subscription.epassword));
+  const handleChange = () => {
+    console.log('hello');
+  };
+
+  const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      username: data.get('username'),
     });
   };
 
@@ -38,12 +47,14 @@ export default function SubscribeForm() {
             <Grid item xs={12}>
               <TextField
                 autoComplete="given-name"
-                name="firstName"
+                name="username"
                 required
                 fullWidth
-                id="firstName"
+                id="username"
                 label="Nom d'utilisateur"
                 autoFocus
+                value={username}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -54,6 +65,8 @@ export default function SubscribeForm() {
                 label="Adrese e-mail"
                 name="email"
                 autoComplete="email"
+                value={mail}
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -65,6 +78,8 @@ export default function SubscribeForm() {
                 type="password"
                 id="password"
                 autoComplete="new-password"
+                value={password}
+                onChange={handleChange}
               />
             </Grid>
           </Grid>
