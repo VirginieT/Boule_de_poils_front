@@ -6,12 +6,17 @@ import SearchedAnimals from '../SearchedAnimals';
 import SearchForm from '../SearchForm';
 import NavBar from '../NavBar';
 import Presentation from '../Presentation';
+<<<<<<< HEAD
 import LoginForm from '../LoginForm';
 import AssoList from '../AssoList';
 import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
 import AddAnimalForm from '../AddAnimalForm';
 import './styles.css';
+=======
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import './styles.css';
+>>>>>>> experiment-connecxionToApi
 
 const theme = createTheme({
   palette: {

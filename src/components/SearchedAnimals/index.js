@@ -1,4 +1,6 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchAnimals } from 'src/actions/animalSearched';
 import Loader from '../Loader';
 import Arrows from './Arrows';
 import AnimalDescription from './AnimalDescription';
@@ -7,6 +9,11 @@ import AssociationContact from './AssociationContact';
 import ContactButton from './ContactButton';
 
 const SearchedAnimals = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAnimals());
+  }, []);
+
   const displayedProfile = useSelector((state) => state.SearchedAnimals.displayProfile);
 
   const animalProfile = useSelector((state) => (
@@ -32,7 +39,7 @@ const SearchedAnimals = () => {
           {showContact
             && (
               <AssociationContact
-                {...animalProfile}
+                {...animalProfile.association}
               />
             )}
         </>
