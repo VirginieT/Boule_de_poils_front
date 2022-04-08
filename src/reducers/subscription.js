@@ -40,18 +40,30 @@ const subscription = (state = initialState, action = {}) => {
       if (action.fieldName === 'mail') {
         return {
           ...copyState,
-          errors: [...copyState.errors, 'le champ email n\'est pas renseigné'],
+          errors: [...copyState.errors,
+            {
+              id: 'mail',
+              message: 'le champ email n\'est pas renseigné',
+            }],
         };
       }
       if (action.fieldName === 'username') {
         return {
           ...copyState,
-          errors: [...copyState.errors, 'le champ username n\'est pas renseigné'],
+          errors: [...copyState.errors,
+            {
+              id: 'username',
+              message: 'le champ username n\'est pas renseigné',
+            }],
         };
       }
       return {
         ...copyState,
-        errors: [...copyState.errors, 'le champ password n\'est pas renseigné'],
+        errors: [...copyState.errors,
+          {
+            id: 'password',
+            message: 'le champ password n\'est pas renseigné',
+          }],
       };
     }
     default:

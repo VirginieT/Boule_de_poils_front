@@ -6,9 +6,11 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { changedFields, checkEmptyFields, emptyErrors } from 'src/actions/subscribe';
 import { log } from 'src/utils';
+import './subscribeForm.scss';
 
 export default function SubscribeForm() {
   const dispatch = useDispatch();
@@ -16,6 +18,8 @@ export default function SubscribeForm() {
   const mail = useSelector((state) => (state.Subscription.email));
   const username = useSelector((state) => (state.Subscription.username));
   const password = useSelector((state) => (state.Subscription.password));
+
+  const errors = useSelector((state) => (state.Subscription.errors));
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -53,6 +57,19 @@ export default function SubscribeForm() {
         <Typography component="h1" variant="h5">
           S'inscrire
         </Typography>
+        {errors.length > 0
+          && (
+            <Alert
+              variant="outlined"
+              severity="error"
+              className="error__messages--subscription"
+            >
+              <ul>
+                {errors.map((error) => (<li key={error.id} className="error__list--item">{error.message}</li>))}
+              </ul>
+            </Alert>
+          )}
+
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
