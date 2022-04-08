@@ -151,7 +151,7 @@ export default function SearchForm() {
                 >
                   <FormControlLabel value={0} control={<Radio />} label="Femelle" />
                   <FormControlLabel value={1} control={<Radio />} label="Mâle" />
-                  <FormControlLabel value={3} control={<Radio />} label="Indifférent" />
+                  <FormControlLabel value={2} control={<Radio />} label="Indifférent" />
                 </RadioGroup>
               </FormControl>
               <FormControl fullWidth>
@@ -209,7 +209,6 @@ export default function SearchForm() {
                 >
                   <FormControlLabel value={0} control={<Radio />} label="Oui" />
                   <FormControlLabel value={1} control={<Radio />} label="Non" />
-                  <FormControlLabel value={3} control={<Radio />} label="Indifférent" />
                 </RadioGroup>
               </FormControl>
               <TextField
