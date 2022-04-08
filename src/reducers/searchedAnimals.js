@@ -26,6 +26,7 @@ const initialState = {
   favorites: [],
   showContact: false,
   formSubmit: false,
+
 };
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {

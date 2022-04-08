@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { SliderData } from './SliderData';
+
 
 const Carrousel = ({ slides }) => {
   const [current, setCurrent] = useState(0);
