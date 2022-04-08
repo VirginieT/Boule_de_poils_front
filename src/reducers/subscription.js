@@ -1,10 +1,12 @@
 // reducer for subscription
-import { CHANGE_FIELD } from 'src/actions/subscribe';
+import { CHANGE_FIELD, CHECK_EMPTY_FIELDS, EMPTY_ERRORS } from 'src/actions/subscribe';
 
 const initialState = {
   email: '',
   password: '',
   username: '',
+  submitted: false,
+  errors: [],
 };
 
 const subscription = (state = initialState, action = {}) => {
@@ -22,10 +24,34 @@ const subscription = (state = initialState, action = {}) => {
           password: action.fieldValue,
         };
       }
-
       return {
         ...state,
         email: action.fieldValue,
+      };
+    }
+    case EMPTY_ERRORS: {
+      return {
+        ...state,
+        errors: [],
+      };
+    }
+    case CHECK_EMPTY_FIELDS: {
+      const copyState = { ...state };
+      if (action.fieldName === 'mail') {
+        return {
+          ...copyState,
+          errors: [...copyState.errors, 'le champ email n\'est pas renseigné'],
+        };
+      }
+      if (action.fieldName === 'username') {
+        return {
+          ...copyState,
+          errors: [...copyState.errors, 'le champ username n\'est pas renseigné'],
+        };
+      }
+      return {
+        ...copyState,
+        errors: [...copyState.errors, 'le champ password n\'est pas renseigné'],
       };
     }
     default:

@@ -7,14 +7,16 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useDispatch, useSelector } from 'react-redux';
-import { changedFields } from 'src/actions/subscribe';
+import { changedFields, checkEmptyFields, emptyErrors } from 'src/actions/subscribe';
+import { log } from 'src/utils';
 
 export default function SubscribeForm() {
   const dispatch = useDispatch();
 
   const mail = useSelector((state) => (state.Subscription.email));
   const username = useSelector((state) => (state.Subscription.username));
-  const password = useSelector((state) => (state.Subscription.epassword));
+  const password = useSelector((state) => (state.Subscription.password));
+
   const handleChange = (event) => {
     console.log(event.target.value);
     dispatch(changedFields(event.target.name, event.target.value));
@@ -22,12 +24,19 @@ export default function SubscribeForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      username: data.get('username'),
-    });
+    log(mail);
+    log(username);
+    log(password);
+    dispatch(emptyErrors());
+    if (mail === '') {
+      dispatch(checkEmptyFields('mail'));
+    }
+    if (username === '') {
+      dispatch(checkEmptyFields('username'));
+    }
+    if (password === '') {
+      dispatch(checkEmptyFields('password'));
+    }
   };
 
   return (
