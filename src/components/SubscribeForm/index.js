@@ -20,6 +20,7 @@ export default function SubscribeForm() {
   const password = useSelector((state) => (state.Subscription.password));
 
   const errors = useSelector((state) => (state.Subscription.errors));
+  const checkPassword = useSelector((state) => (state.Subscription.passwordCheck));
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -40,6 +41,9 @@ export default function SubscribeForm() {
     }
     if (password === '') {
       dispatch(checkEmptyFields('password'));
+    }
+    if (errors.length === 0) {
+      log('on est là si tous les champs sont remplis');
     }
   };
 
@@ -92,6 +96,7 @@ export default function SubscribeForm() {
                 id="email"
                 label="Adrese e-mail"
                 name="email"
+                // type="email"
                 autoComplete="email"
                 value={mail}
                 onChange={handleChange}
@@ -110,7 +115,25 @@ export default function SubscribeForm() {
                 onChange={handleChange}
               />
             </Grid>
+
           </Grid>
+          {checkPassword
+            && (
+              <Alert
+                variant="outlined"
+                severity="error"
+                className="error__messages--invalid-password"
+              >
+                <ul>
+                  Le mot de passe doit contenir au moins:
+                  <li>8 charactères</li>
+                  <li>1 chiffre</li>
+                  <li>1 charactère spéciales (@,*,- etc ...)</li>
+                  <li>1 majuscule</li>
+                </ul>
+              </Alert>
+            )}
+
           <Button
             type="submit"
             fullWidth
