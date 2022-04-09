@@ -4,18 +4,7 @@ import { FETCH_ANIMALS, saveFetchedAnimals } from '../actions/animalSearched';
 const animalSearchedMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_ANIMALS:
-      console.log({
-        "species": store.getState().SearchedAnimals.species,
-        "gender": store.getState().SearchedAnimals.gender,
-        "age": store.getState().SearchedAnimals.age,
-        "childCompatibility": store.getState().SearchedAnimals.childCompatibility,
-        "other_animal_compatibility": store.getState().SearchedAnimals.otherAnimalCompatibility,
-        "garden_needed": store.getState().SearchedAnimals.gardenNeeded,
-        "status": 0,
-        "department": store.getState().SearchedAnimals.department,
-      });
       axios.post('http://localhost:8081/api/animal/form', {
-        /*
         "species": store.getState().SearchedAnimals.species,
         "gender": store.getState().SearchedAnimals.gender,
         "age": store.getState().SearchedAnimals.age,
@@ -23,17 +12,7 @@ const animalSearchedMiddleware = (store) => (next) => (action) => {
         "other_animal_compatibility": store.getState().SearchedAnimals.otherAnimalCompatibility,
         "garden_needed": store.getState().SearchedAnimals.gardenNeeded,
         "status": 1,
-        "department": store.getState().SearchedAnimals.department*/
-        "species": store.getState().SearchedAnimals.species,
-        "gender": store.getState().SearchedAnimals.gender,
-        "age": store.getState().SearchedAnimals.age,
-        "childCompatibility": store.getState().SearchedAnimals.childCompatibility,
-        "other_animal_compatibility": store.getState().SearchedAnimals.otherAnimalCompatibility,
-        "garden_needed": store.getState().SearchedAnimals.gardenNeeded,
-        "status": 1,
-        "department": store.getState().SearchedAnimals.department,
-
-        
+        "department": store.getState().SearchedAnimals.department, 
       } )
         .then((response) => {
           // handle success

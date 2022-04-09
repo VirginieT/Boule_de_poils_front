@@ -1,5 +1,4 @@
 import { useSelector, useDispatch } from 'react-redux';
-import * as React from 'react';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
@@ -21,7 +20,7 @@ import TextField from '@mui/material/TextField';
 
 import {
   changeSpeciesField,
-  changeAgeField, 
+  changeAgeField,
   changeGenderField,
   changeChildField,
   changeOthersField,
@@ -42,43 +41,36 @@ export default function SearchForm() {
   const dispatch = useDispatch();
 
   const handleChangeSpecies = (event) => {
-    //setSpecies(event.target.value);
     const { value: inputValue, name } = event.target;
     const action = changeSpeciesField(name, inputValue);
     dispatch(action);
   };
   const handleChangeGender = (event) => {
-    //setAge(event.target.value);
     const { value: inputValue, name } = event.target;
     const action = changeGenderField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
   const handleChangeAge = (event) => {
-    //setAge(event.target.value);
     const { value: inputValue, name } = event.target;
     const action = changeAgeField(name, inputValue);
     dispatch(action);
   };
   const handleChangeChild = (event) => {
-    //setAge(event.target.value);
     const { value: inputValue, name } = event.target;
     const action = changeChildField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
   const handleChangeOthers = (event) => {
-    //setAge(event.target.value);
     const { value: inputValue, name } = event.target;
     const action = changeOthersField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
   const handleChangeGarden = (event) => {
-    //setAge(event.target.value);
     const { value: inputValue, name } = event.target;
     const action = changeGardenField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
   const handleChangeLoc = (event) => {
-    //setAge(event.target.value);
     const { value: inputValue, name } = event.target;
     const action = changeLocField(name, parseInt(inputValue, 10));
     dispatch(action);
@@ -147,7 +139,6 @@ export default function SearchForm() {
                   name="gender"
                   value={genderValue}
                   onChange={handleChangeGender}
-                  
                 >
                   <FormControlLabel value={0} control={<Radio />} label="Femelle" />
                   <FormControlLabel value={1} control={<Radio />} label="Mâle" />
