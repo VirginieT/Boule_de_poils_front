@@ -12,7 +12,7 @@ const animalSearchedMiddleware = (store) => (next) => (action) => {
         "other_animal_compatibility": store.getState().SearchedAnimals.otherAnimalCompatibility,
         "garden_needed": store.getState().SearchedAnimals.gardenNeeded,
         "status": 1,
-        "department": store.getState().SearchedAnimals.department, 
+        "department": store.getState().SearchedAnimals.department,
       } )
         .then((response) => {
           // handle success

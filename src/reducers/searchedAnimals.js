@@ -3,6 +3,8 @@ import {
   PREVIOUS_PROFILE,
   DISPLAY_CONTACT,
   SAVE_ANIMALS,
+} from 'src/actions/animalSearched';
+import {
   CHANGE_AGE_FIELD,
   CHANGE_GENDER_FIELD,
   CHANGE_SPECIES_FIELD,
@@ -10,8 +12,7 @@ import {
   CHANGE_OTHERS_FIELD,
   CHANGE_GARDEN_FIELD,
   CHANGE_LOC_FIELD,
-  SUBMIT_FORM,
-} from 'src/actions/animalSearched';
+} from 'src/actions/formActions';
 
 const initialState = {
   species: 0,
@@ -20,12 +21,12 @@ const initialState = {
   childCompatibility: 0,
   otherAnimalCompatibility: 0,
   gardenNeeded: 3,
+  status: 0,
   department: 0,
   animalResults: [],
   displayProfile: 0,
   favorites: [],
   showContact: false,
-  formSubmit: false,
 };
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {
@@ -36,7 +37,7 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
         species: action.value,
       };
 
-      case CHANGE_GENDER_FIELD:
+    case CHANGE_GENDER_FIELD:
       return {
         ...state,
         gender: action.value,
@@ -48,25 +49,25 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
         age: action.value,
       };
 
-      case CHANGE_CHILD_FIELD:
+    case CHANGE_CHILD_FIELD:
       return {
         ...state,
         childCompatibility: action.value,
       };
 
-      case CHANGE_OTHERS_FIELD:
+    case CHANGE_OTHERS_FIELD:
       return {
         ...state,
         otherAnimalCompatibility: action.value,
       };
 
-      case CHANGE_GARDEN_FIELD:
+    case CHANGE_GARDEN_FIELD:
       return {
         ...state,
         gardenNeeded: action.value,
       };
 
-      case CHANGE_LOC_FIELD:
+    case CHANGE_LOC_FIELD:
       return {
         ...state,
         department: action.value,
@@ -106,13 +107,6 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         animalResults: action.datas,
-      };
-    }
-
-    case SUBMIT_FORM: {
-      return {
-        ...state,
-        formSubmit: true,
       };
     }
 

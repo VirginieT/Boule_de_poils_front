@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
@@ -27,7 +28,9 @@ import {
   changeGardenField,
   changeLocField,
   formSubmit,
-} from '../../actions/animalSearched';
+  fetchDepartments,
+  fetchSpecies,
+} from '../../actions/formActions';
 
 export default function SearchForm() {
   const speciesValue = useSelector((state) => state.SearchedAnimals.species);
@@ -39,6 +42,10 @@ export default function SearchForm() {
   const locValue = useSelector((state) => state.SearchedAnimals.department);
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchSpecies());
+    dispatch(fetchDepartments());
+  }, []);
 
   const handleChangeSpecies = (event) => {
     const { value: inputValue, name } = event.target;

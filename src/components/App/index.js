@@ -2,6 +2,7 @@
 import './styles.scss';
 import { Routes, Route } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useSelector } from 'react-redux';
 import SearchedAnimals from '../SearchedAnimals';
 import SearchForm from '../SearchForm';
 import NavBar from '../NavBar';
@@ -12,7 +13,6 @@ import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
 import AddAnimalForm from '../AddAnimalForm';
 import './styles.css';
-import { useSelector } from 'react-redux';
 
 const theme = createTheme({
   palette: {
@@ -37,35 +37,38 @@ const App = () => {
   const formsubmit = useSelector((state) => state.SearchedAnimals.formSubmit);
 
   return (
-  <div className="app">
-    <ThemeProvider theme={theme}>
-      <NavBar />
-      <Routes>
-        <Route path="/add" element={<AddAnimalForm />} />
-        <Route path="/conseils" element={<Advices />} />
-        <Route path="/associations" element={<AssoList />} />
-        <Route path="/signin" element={<SubscribeForm />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/"
-          element={
-            formsubmit ? (
-              <SearchedAnimals />
-            )
-            : <>
-                <Presentation />
-                <SearchForm />
-              </>
-          }
-        />
-      </Routes>
-      <footer
-        className="footer"
-      >
-        <h3>Qui sommes-nous ?</h3>
-        <h4>Mentions Légales</h4>
-      </footer>
-    </ThemeProvider>
-  </div>
+    <div className="app">
+      <ThemeProvider theme={theme}>
+        <NavBar />
+        <Routes>
+          <Route path="/add" element={<AddAnimalForm />} />
+          <Route path="/conseils" element={<Advices />} />
+          <Route path="/associations" element={<AssoList />} />
+          <Route path="/signin" element={<SubscribeForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route
+            path="/"
+            element={
+              formsubmit ? (
+                <SearchedAnimals />
+              )
+                : (
+                  <>
+                    <Presentation />
+                    <SearchForm />
+                  </>
+                )
+            }
+          />
+        </Routes>
+        <footer
+          className="footer"
+        >
+          <h3>Qui sommes-nous ?</h3>
+          <h4>Mentions Légales</h4>
+        </footer>
+      </ThemeProvider>
+    </div>
   );
 };
 
