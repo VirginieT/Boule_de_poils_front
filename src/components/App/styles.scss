@@ -3,10 +3,7 @@
 .app {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-=======
   align-items: center;
->>>>>>> a22928b212afb1d40847dec12948e470cf1b4aff
   height: 100vh;
 }
 
@@ -21,14 +18,9 @@ h1 {
 
 
 .footer {
-<<<<<<< HEAD
-  margin-top: auto;
-  width: 100%;
-=======
   text-align: center;
   margin-top: auto;
   width: 100vw;
->>>>>>> a22928b212afb1d40847dec12948e470cf1b4aff
   background-color: vars.$cta_color_2;
   color: white;
   align-self: flex-end;

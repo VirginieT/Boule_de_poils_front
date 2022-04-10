@@ -31,6 +31,8 @@ import {
   fetchDepartments,
   fetchSpecies,
   formSubmit,
+  changeChecked,
+  changeUnchecked,
 } from '../../actions/formActions';
 
 export default function SearchForm() {
@@ -44,6 +46,7 @@ export default function SearchForm() {
   const statusValue = useSelector((state) => state.SearchedAnimals.status);
   const departments = useSelector((state) => state.FormReducer.departments);
   const species = useSelector((state) => state.FormReducer.species);
+  const checked = useSelector((state) => state.FormReducer.checked);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -86,10 +89,20 @@ export default function SearchForm() {
     const action = changeLocField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
-  const handleChangeStatus = (event) => {
-    const { value: inputValue, name } = event.target;
-    const action = changeStatusField(name, inputValue);
-    dispatch(action);
+  const handleChangeStatus = () => {
+    let action = '';
+    if (checked === true) {
+      action = changeUnchecked();
+      dispatch(action);
+      action = changeStatusField(status, 1);
+      dispatch(action);
+    }
+    else {
+      action = changeChecked();
+      dispatch(action);
+      action = changeStatusField(status, 0);
+      dispatch(action);
+    }
   };
 
   const handleSubmit = (event) => {
@@ -244,7 +257,7 @@ export default function SearchForm() {
               </FormControl>
               <FormControlLabel
                 control={(
-                  <Checkbox />
+                  <Checkbox id="checkbox_avaible" />
 
                 )}
                 label="Inclure les animaux en cours de réservation"

@@ -11,6 +11,16 @@ export const SAVE_DEPARTMENT = 'SAVE_DEPARTEMENT';
 export const FETCH_SPECIES = 'FETCH_SPECIES';
 export const SAVE_SPECIES = 'SAVE_SPECIES';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
+export const CHECK = 'CHECK';
+export const UNCHECK = 'UNCHECK';
+
+export const changeChecked = () => ({
+  type: CHECK,
+});
+
+export const changeUnchecked = () => ({
+  type: UNCHECK,
+});
 
 export const changeStatusField = (key, newValue) => ({
   type: CHANGE_STATUS_FIELD,
