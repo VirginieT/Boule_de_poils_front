@@ -12,7 +12,6 @@ import AssoList from '../AssoList';
 import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
 import AddAnimalForm from '../AddAnimalForm';
-import './styles.css';
 
 const theme = createTheme({
   palette: {
