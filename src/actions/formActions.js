@@ -5,11 +5,18 @@ export const CHANGE_CHILD_FIELD = 'CHANGE_CHILDREN_FIELD';
 export const CHANGE_OTHERS_FIELD = 'CHANGE_OTHERS_FIELD';
 export const CHANGE_GARDEN_FIELD = 'CHANGE_GARDEN_FIELD';
 export const CHANGE_LOC_FIELD = 'CHANGE_LOC_FIELD';
+export const CHANGE_STATUS_FIELD = 'CHANGE_STATUS_FIELD';
 export const FETCH_DEPARTMENT = 'FETCH_DEPARTMENT';
 export const SAVE_DEPARTMENT = 'SAVE_DEPARTEMENT';
 export const FETCH_SPECIES = 'FETCH_SPECIES';
 export const SAVE_SPECIES = 'SAVE_SPECIES';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
+
+export const changeStatusField = (key, newValue) => ({
+  type: CHANGE_STATUS_FIELD,
+  species: key,
+  value: newValue,
+});
 
 export const changeSpeciesField = (key, newValue) => ({
   type: CHANGE_SPECIES_FIELD,

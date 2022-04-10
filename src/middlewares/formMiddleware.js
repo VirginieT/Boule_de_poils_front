@@ -12,9 +12,7 @@ const formMiddleware = (store) => (next) => (action) => {
       axios.get('http://localhost:8081/api/species', {})
         .then((response) => {
           // handle success
-          console.log(response.data);
           store.dispatch(saveFetchedSpecies(response.data));
-          response.data.length === 0 ? console.log('y a rien mec !') : console.log(response.data);
         })
         .catch((error) => {
           // handle error
@@ -27,9 +25,7 @@ const formMiddleware = (store) => (next) => (action) => {
       axios.get('http://localhost:8081/api/department', {})
         .then((response) => {
           // handle success
-          console.log(response.data);
           store.dispatch(saveFetchedDepartments(response.data));
-          response.data.length === 0 ? console.log('y a rien mec !') : console.log(response.data);
         })
         .catch((error) => {
           // handle error

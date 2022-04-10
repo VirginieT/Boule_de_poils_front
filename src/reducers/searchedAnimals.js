@@ -12,17 +12,18 @@ import {
   CHANGE_OTHERS_FIELD,
   CHANGE_GARDEN_FIELD,
   CHANGE_LOC_FIELD,
+  CHANGE_STATUS_FIELD,
 } from 'src/actions/formActions';
 
 const initialState = {
-  species: 0,
-  gender: 3,
+  species: 999,
+  gender: 2,
   age: 4,
   childCompatibility: 0,
   otherAnimalCompatibility: 0,
-  gardenNeeded: 3,
+  gardenNeeded: 0,
   status: 0,
-  department: 0,
+  department: 999,
   animalResults: [],
   displayProfile: 0,
   favorites: [],
@@ -31,6 +32,12 @@ const initialState = {
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case CHANGE_STATUS_FIELD:
+      return {
+        ...state,
+        status: action.value,
+      };
+
     case CHANGE_SPECIES_FIELD:
       return {
         ...state,

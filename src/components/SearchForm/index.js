@@ -17,7 +17,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
 
 import {
   changeSpeciesField,
@@ -27,9 +27,10 @@ import {
   changeOthersField,
   changeGardenField,
   changeLocField,
-  formSubmit,
+  changeStatusField,
   fetchDepartments,
   fetchSpecies,
+  formSubmit,
 } from '../../actions/formActions';
 
 export default function SearchForm() {
@@ -40,6 +41,9 @@ export default function SearchForm() {
   const othersValue = useSelector((state) => state.SearchedAnimals.otherAnimalCompatibility);
   const gardenValue = useSelector((state) => state.SearchedAnimals.gardenNeeded);
   const locValue = useSelector((state) => state.SearchedAnimals.department);
+  const statusValue = useSelector((state) => state.SearchedAnimals.status);
+  const departments = useSelector((state) => state.FormReducer.departments);
+  const species = useSelector((state) => state.FormReducer.species);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -82,10 +86,17 @@ export default function SearchForm() {
     const action = changeLocField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
+  const handleChangeStatus = (event) => {
+    const { value: inputValue, name } = event.target;
+    const action = changeStatusField(name, inputValue);
+    dispatch(action);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    // eslint-disable-next-line no-unused-vars
     const data = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
     console.log({
       speciesValue,
       genderValue,
@@ -121,21 +132,23 @@ export default function SearchForm() {
           </Button>
           <AccordionDetails>
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-              <FormControl fullWidth>
+              <FormControl fullWidth required>
                 <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
                 <Select
+                  required
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  name="species"
                   value={speciesValue}
-                  label="species"
+                  label="Espèces"
                   onChange={handleChangeSpecies}
                   sx={{ mt: 2 }}
                 >
-                  <MenuItem value={1}>Chat</MenuItem>
-                  <MenuItem value={2}>Chien</MenuItem>
-                  <MenuItem value={3}>Lapin</MenuItem>
-                  <MenuItem value={4}>Rongeurs</MenuItem>
+                  <MenuItem value={999}>
+                    <em>Choisissez une espèce</em>
+                  </MenuItem>
+                  {species.map((item) => (
+                    <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                  ))}
                 </Select>
               </FormControl>
               <FormControl fullWidth>
@@ -209,18 +222,33 @@ export default function SearchForm() {
                   <FormControlLabel value={1} control={<Radio />} label="Non" />
                 </RadioGroup>
               </FormControl>
-              <TextField
-                id="outlined-number"
-                label="Code postal"
-                type="number"
-                name="department"
-                value={locValue}
-                onChange={handleChangeLoc}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                sx={{ mt: 1 }}
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Département</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  name="department"
+                  value={locValue}
+                  label="species"
+                  onChange={handleChangeLoc}
+                  sx={{ mt: 2 }}
+                >
+                  <MenuItem value={999}>
+                    <em>Choisissez une département</em>
+                  </MenuItem>
+                  {departments.map((item) => (
+                    <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              <FormControlLabel
+                control={(
+                  <Checkbox />
+
+                )}
+                label="Inclure les animaux en cours de réservation"
+                value={statusValue}
+                onChange={handleChangeStatus}
               />
               <Button
                 type="submit"
