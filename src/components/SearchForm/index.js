@@ -121,11 +121,12 @@ export default function SearchForm() {
         }}
       >
         <Accordion>
-          <Button variant="contained" fullWidth>
+          <Button variant="contained" fullWidth sx={{ px: 0, py: 0 }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              sx={{ width: 1 }}
             >
               <Typography>Rechercher un animal</Typography>
             </AccordionSummary>
