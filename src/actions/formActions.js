@@ -13,6 +13,14 @@ export const SAVE_SPECIES = 'SAVE_SPECIES';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const CHECK = 'CHECK';
 export const UNCHECK = 'UNCHECK';
+export const SPECIES_ERROR = 'SPECIES_ERROR';
+export const GENDER_ERROR = 'GENDER_ERROR';
+export const AGE_ERROR = 'AGE_ERROR';
+export const CHILD_ERROR = 'CHILD_ERROR';
+export const OTHERS_ERROR = 'OTHERS_ERROR';
+export const GARDEN_ERROR = 'GARDEN_ERROR';
+export const LOC_ERROR = 'DEPARTMENT_ERROR';
+export const CHECKBOX_ERROR = 'CHECKBOC_ERROR';
 
 export const changeChecked = () => ({
   type: CHECK,
@@ -90,4 +98,52 @@ export const fetchSpecies = () => ({
 export const saveFetchedSpecies = (dataReceived) => ({
   type: SAVE_SPECIES,
   datas: dataReceived,
+});
+
+export const changeCheckboxError = (key, newValue) => ({
+  type: CHECKBOX_ERROR,
+  species: key,
+  value: newValue,
+});
+
+export const changeSpeciesError = (key, newValue) => ({
+  type: SPECIES_ERROR,
+  species: key,
+  value: newValue,
+});
+
+export const changeGenderError = (key, newValue) => ({
+  type: GENDER_ERROR,
+  species: key,
+  value: newValue,
+});
+
+export const changeChildError = (key, newValue) => ({
+  type: CHILD_ERROR,
+  species: key,
+  value: newValue,
+});
+
+export const changeOthersError = (key, newValue) => ({
+  type: OTHERS_ERROR,
+  species: key,
+  value: newValue,
+});
+
+export const changeGardenError = (key, newValue) => ({
+  type: GARDEN_ERROR,
+  species: key,
+  value: newValue,
+});
+
+export const changeLocError = (key, newValue) => ({
+  type: LOC_ERROR,
+  species: key,
+  value: newValue,
+});
+
+export const changeAgeError = (key, newValue) => ({
+  type: AGE_ERROR,
+  age: key,
+  value: newValue,
 });

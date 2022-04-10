@@ -4,6 +4,9 @@ import {
   SUBMIT_FORM,
   CHECK,
   UNCHECK,
+  SPECIES_ERROR,
+  AGE_ERROR,
+  LOC_ERROR,
 } from 'src/actions/formActions';
 
 const initialState = {
@@ -11,10 +14,39 @@ const initialState = {
   species: [],
   formSubmit: false,
   checked: false,
+  speciesError: null,
+  genderError: false,
+  ageError: false,
+  childError: false,
+  othersError: false,
+  gardenError: false,
+  departmentError: false,
+  checkboxError: false,
 };
 
 const formReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SPECIES_ERROR: {
+      return {
+        ...state,
+        speciesError: action.value,
+      };
+    }
+
+    case AGE_ERROR: {
+      return {
+        ...state,
+        ageError: action.value,
+      };
+    }
+
+    case LOC_ERROR: {
+      return {
+        ...state,
+        departmentError: action.value,
+      };
+    }
+
     case CHECK: {
       return {
         ...state,
