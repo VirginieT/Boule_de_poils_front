@@ -10,6 +10,7 @@ import {
 } from 'src/actions/formActions';
 
 const initialState = {
+  uploadedImg: null,
   departments: [],
   species: [],
   formSubmit: false,

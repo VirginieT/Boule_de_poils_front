@@ -9,15 +9,33 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import Uploader from './uploader';
+import { useSelector } from 'react-redux';
+// import Uploader from './Uploader/uploader';
+import './addAnimalForm.scss';
+
+const Input = styled('input')({
+  display: 'none',
+});
 
 export default function AddAnimalForm() {
   const [species, setSpecies] = React.useState('');
+
+  // const uploadedImg = useSelector((state) => state.FormReducer.uploadedImg);
+
+  const loadFile = (event) => {
+    const output = document.getElementById('renderImg');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    console.log(output.src);
+    output.onload = () => {
+      URL.revokeObjectURL(output.src);
+    };
+  };
 
   const handleChangeSpecies = (event) => {
     setSpecies(event.target.value);
@@ -53,7 +71,28 @@ export default function AddAnimalForm() {
             label="Nom"
             defaultValue=""
           />
-          <Uploader />
+          <FormControl fullWidth>
+            <Box
+              sx={{
+                border: '2px dashed grey',
+                borderRadius: '20px',
+                my: 2,
+                width: '320px',
+                height: '320px',
+                mx: 'auto',
+              }}
+            >
+
+              <img id="renderImg" src="" alt="" />
+            </Box>
+            <label htmlFor="contained-button-file">
+              {/* eslint-disable-next-line react/jsx-no-bind */}
+              <Input accept=".jpg,.jpeg" id="contained-button-file" type="file" onChange={loadFile} />
+              <Button className="container-buttons" variant="contained" component="span" color="primary" fullWidth>
+                Choisir une photo
+              </Button>
+            </label>
+          </FormControl>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label" sx={{ mt: 2 }}>Espèce</InputLabel>
             <Select
