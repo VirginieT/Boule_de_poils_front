@@ -7,6 +7,16 @@ import {
   SPECIES_ERROR,
   AGE_ERROR,
   LOC_ERROR,
+  FORM_SUCCESS,
+  FORM_ISSUE,
+  NAME_ERROR,
+  DESCRIPTION_ERROR,
+  SIREN_ERROR,
+  STREET_ERROR,
+  ZIPCODE_ERROR,
+  CITY_ERROR,
+  PHONENUMBER_ERROR,
+  EMAIL_ERROR,
 } from 'src/actions/formActions';
 
 const initialState = {
@@ -14,7 +24,7 @@ const initialState = {
   species: [],
   formSubmit: false,
   checked: false,
-  speciesError: null,
+  speciesError: false,
   genderError: false,
   ageError: false,
   childError: false,
@@ -22,6 +32,15 @@ const initialState = {
   gardenError: false,
   departmentError: false,
   checkboxError: false,
+  nameError: false,
+  descriptionError: false,
+  sirenError: false,
+  streetError: false,
+  zipCodeError: false,
+  cityError: false,
+  phoneNumberError: false,
+  emailError: false,
+  formResult: false,
 };
 
 const formReducer = (state = initialState, action = {}) => {
@@ -79,6 +98,76 @@ const formReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         species: action.datas,
+      };
+    }
+
+    case FORM_SUCCESS: {
+      return {
+        ...state,
+        formResult: true,
+      };
+    }
+
+    case FORM_ISSUE: {
+      return {
+        ...state,
+        formResult: false,
+      };
+    }
+
+    case NAME_ERROR: {
+      return {
+        ...state,
+        nameError: action.value,
+      };
+    }
+
+    case DESCRIPTION_ERROR: {
+      return {
+        ...state,
+        descriptionError: action.value,
+      };
+    }
+
+    case SIREN_ERROR: {
+      return {
+        ...state,
+        sirenError: action.value,
+      };
+    }
+
+    case STREET_ERROR: {
+      return {
+        ...state,
+        streetError: action.value,
+      };
+    }
+
+    case ZIPCODE_ERROR: {
+      return {
+        ...state,
+        zipCodeError: action.value,
+      };
+    }
+
+    case CITY_ERROR: {
+      return {
+        ...state,
+        cityError: action.value,
+      };
+    }
+
+    case PHONENUMBER_ERROR: {
+      return {
+        ...state,
+        phoneNumberError: action.value,
+      };
+    }
+
+    case EMAIL_ERROR: {
+      return {
+        ...state,
+        emailError: action.value,
       };
     }
 

@@ -1,8 +1,11 @@
 import axios from 'axios';
 import {
   FETCH_GEOLOC,
+  formIssue,
+  formSuccess,
 } from '../actions/formActions';
 import {
+  POST_ASSO,
   saveFetchedLat,
   saveFetchedLgt,
 } from '../actions/assoActions';
@@ -26,6 +29,31 @@ const assoMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           // handle error
           console.log(error);
+        });
+      break;
+
+    case POST_ASSO:
+      axios.post('http://localhost:8081/api/association/form', {
+        name: store.getState().AssoReducer.name,
+        description: store.getState().AssoReducer.description,
+        siren: store.getState().AssoReducer.siren,
+        street: store.getState().AssoReducer.street,
+        zipCode: store.getState().AssoReducer.zipCode,
+        city: store.getState().AssoReducer.city,
+        phoneNumber: store.getState().AssoReducer.phoneNumber,
+        email: store.getState().AssoReducer.email,
+        latitude: store.getState().AssoReducer.latitude,
+        longitude: store.getState().AssoReducer.longitude,
+      })
+        .then((response) => {
+          // handle success
+          console.log(response.data);
+          store.dispatch(formSuccess());
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+          store.dispatch(formIssue());
         });
       break;
     default:

@@ -15,16 +15,16 @@ import {
 } from 'src/actions/assoActions';
 
 const initialState = {
-  name: null,
-  description: null,
-  siren: null,
-  street: '15 avenue des Etats-Unis',
-  zipCode: 63300,
-  city: null,
-  phoneNumber: null,
-  email: null,
-  latitude: null,
-  longitude: null,
+  name: '',
+  description: '',
+  siren: '',
+  street: '',
+  zipCode: '',
+  city: '',
+  phoneNumber: '',
+  email: '',
+  latitude: '',
+  longitude: '',
 };
 
 const assoReducer = (state = initialState, action = {}) => {
