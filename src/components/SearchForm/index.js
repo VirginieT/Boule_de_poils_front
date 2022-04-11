@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
@@ -16,25 +17,151 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TextField from '@mui/material/TextField';
+import Checkbox from '@mui/material/Checkbox';
+import FormHelperText from '@mui/material/FormHelperText';
 
-export default function SignIn() {
-  const [species, setSpecies] = React.useState('');
-  const [age, setAge] = React.useState('');
+import {
+  changeSpeciesField,
+  changeAgeField,
+  changeGenderField,
+  changeChildField,
+  changeOthersField,
+  changeGardenField,
+  changeLocField,
+  changeStatusField,
+  fetchDepartments,
+  fetchSpecies,
+  formSubmit,
+  changeChecked,
+  changeUnchecked,
+  changeSpeciesError,
+  changeAgeError,
+  changeLocError,
+} from '../../actions/formActions';
+
+export default function SearchForm() {
+  const speciesValue = useSelector((state) => state.SearchedAnimals.species);
+  const genderValue = useSelector((state) => state.SearchedAnimals.gender);
+  const ageValue = useSelector((state) => state.SearchedAnimals.age);
+  const childValue = useSelector((state) => state.SearchedAnimals.childCompatibility);
+  const othersValue = useSelector((state) => state.SearchedAnimals.otherAnimalCompatibility);
+  const gardenValue = useSelector((state) => state.SearchedAnimals.gardenNeeded);
+  const locValue = useSelector((state) => state.SearchedAnimals.department);
+  const statusValue = useSelector((state) => state.SearchedAnimals.status);
+  const departments = useSelector((state) => state.FormReducer.departments);
+  const species = useSelector((state) => state.FormReducer.species);
+  const checked = useSelector((state) => state.FormReducer.checked);
+  const speciesError = useSelector((state) => state.FormReducer.speciesError);
+  const ageError = useSelector((state) => state.FormReducer.ageError);
+  const locError = useSelector((state) => state.FormReducer.departmentError);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchSpecies());
+    dispatch(fetchDepartments());
+  }, []);
+
+  const speciesValidate = (speciesVerify) => {
+    if (speciesVerify >= 0 && speciesVerify <= species.length) {
+      const action = changeSpeciesError(speciesError, false);
+      dispatch(action);
+    }
+    else {
+      const action = changeSpeciesError(speciesError, true);
+      dispatch(action);
+    }
+  };
 
   const handleChangeSpecies = (event) => {
-    setSpecies(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeSpeciesField(name, inputValue);
+    dispatch(action);
+    speciesValidate(inputValue);
   };
+
+  const handleChangeGender = (event) => {
+    const { value: inputValue, name } = event.target;
+    const action = changeGenderField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+
+  const ageValidate = (ageVerify) => {
+    if (ageVerify >= 0 && ageVerify <= 4) {
+      const action = changeAgeError(ageError, false);
+      dispatch(action);
+    }
+    else {
+      const action = changeAgeError(ageError, true);
+      dispatch(action);
+    }
+  };
+
   const handleChangeAge = (event) => {
-    setAge(event.target.value);
+    const { value: inputValue, name } = event.target;
+    const action = changeAgeField(name, inputValue);
+    dispatch(action);
+    ageValidate(inputValue);
   };
+
+  const handleChangeChild = (event) => {
+    const { value: inputValue, name } = event.target;
+    const action = changeChildField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeOthers = (event) => {
+    const { value: inputValue, name } = event.target;
+    const action = changeOthersField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+  const handleChangeGarden = (event) => {
+    const { value: inputValue, name } = event.target;
+    const action = changeGardenField(name, parseInt(inputValue, 10));
+    dispatch(action);
+  };
+
+  const locValidate = (locVerify) => {
+    if (locVerify >= 0 && locVerify < departments.length) {
+      const action = changeLocError(locError, false);
+      dispatch(action);
+    }
+    else {
+      const action = changeLocError(locError, true);
+      dispatch(action);
+    }
+  };
+
+  const handleChangeLoc = (event) => {
+    const { value: inputValue, name } = event.target;
+    const action = changeLocField(name, parseInt(inputValue, 10));
+    dispatch(action);
+    locValidate(inputValue);
+  };
+
+  const handleChangeStatus = () => {
+    let action = '';
+    if (checked === true) {
+      action = changeUnchecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeStatusField(status, 1);
+      dispatch(action);
+    }
+    else {
+      action = changeChecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeStatusField(status, 0);
+      dispatch(action);
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    // eslint-disable-next-line no-unused-vars
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    if (speciesError === false && ageError === false && locError === false) {
+      dispatch(formSubmit());
+    }
   };
 
   return (
@@ -42,77 +169,136 @@ export default function SignIn() {
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
+          marginTop: 2,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
         <Accordion>
-          <Button variant="contained" fullWidth>
+          <Button variant="contained" fullWidth sx={{ px: 0, py: 0 }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
+              sx={{ width: 1 }}
             >
               <Typography>Rechercher un animal</Typography>
             </AccordionSummary>
           </Button>
           <AccordionDetails>
             <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={species}
-                  label="Species"
-                  onChange={handleChangeSpecies}
-                  sx={{ mt: 2 }}
-                >
-                  <MenuItem value={10}>Chien</MenuItem>
-                  <MenuItem value={20}>Chat</MenuItem>
-                  <MenuItem value={30}>Lapin</MenuItem>
-                  <MenuItem value={40}>Rongeur</MenuItem>
-                </Select>
-              </FormControl>
+              {speciesError
+                ? (
+                  <FormControl fullWidth error>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
+                    <Select
+                      required
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={speciesValue}
+                      label="Espèces"
+                      onChange={handleChangeSpecies}
+                      sx={{ mt: 2 }}
+                    >
+                      <MenuItem value={999}>
+                        <em>Choisissez une espèce</em>
+                      </MenuItem>
+                      {species.map((item) => (
+                        <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                      ))}
+                    </Select>
+                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                  </FormControl>
+                )
+                : (
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
+                    <Select
+                      required
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={speciesValue}
+                      label="Espèces"
+                      onChange={handleChangeSpecies}
+                      sx={{ mt: 2 }}
+                    >
+                      <MenuItem value={999}>
+                        <em>Choisissez une espèce</em>
+                      </MenuItem>
+                      {species.map((item) => (
+                        <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
               <FormControl fullWidth>
                 <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Genre</FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="gender"
+                  value={genderValue}
+                  onChange={handleChangeGender}
                 >
-                  <FormControlLabel value="femelle" control={<Radio />} label="Femelle" />
-                  <FormControlLabel value="mâle" control={<Radio />} label="Mâle" />
-                  <FormControlLabel value="both" control={<Radio />} label="Indifférent" />
+                  <FormControlLabel value={0} control={<Radio />} label="Femelle" />
+                  <FormControlLabel value={1} control={<Radio />} label="Mâle" />
+                  <FormControlLabel value={2} control={<Radio />} label="Indifférent" />
                 </RadioGroup>
               </FormControl>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Âge</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={age}
-                  label="Age"
-                  onChange={handleChangeAge}
-                  sx={{ mt: 2 }}
-                >
-                  <MenuItem value={10}>0 à 5 ans</MenuItem>
-                  <MenuItem value={20}>5 à 10 ans</MenuItem>
-                  <MenuItem value={30}>10 à 15 ans</MenuItem>
-                  <MenuItem value={40}>plus de 15 ans</MenuItem>
-                </Select>
-              </FormControl>
+              {ageError
+                ? (
+                  <FormControl fullWidth error>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Âge</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      name="age"
+                      value={ageValue}
+                      label="Age"
+                      onChange={handleChangeAge}
+                      sx={{ mt: 2 }}
+                    >
+                      <MenuItem value={0}>moins de 1 an</MenuItem>
+                      <MenuItem value={1}>1 à 5 ans</MenuItem>
+                      <MenuItem value={2}>5 à 10 ans</MenuItem>
+                      <MenuItem value={3}>plus de 10 ans</MenuItem>
+                      <MenuItem value={4}>Indifférent</MenuItem>
+                    </Select>
+                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                  </FormControl>
+                )
+                : (
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Âge</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      name="age"
+                      value={ageValue}
+                      label="Age"
+                      onChange={handleChangeAge}
+                      sx={{ mt: 2 }}
+                    >
+                      <MenuItem value={0}>moins de 1 an</MenuItem>
+                      <MenuItem value={1}>1 à 5 ans</MenuItem>
+                      <MenuItem value={2}>5 à 10 ans</MenuItem>
+                      <MenuItem value={3}>plus de 10 ans</MenuItem>
+                      <MenuItem value={4}>Indifférent</MenuItem>
+                    </Select>
+                  </FormControl>
+                )}
               <FormControl fullWidth>
                 <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Sociabilité avec les enfants</FormLabel>
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="childrenCompatibility"
+                  value={childValue}
+                  onChange={handleChangeChild}
                 >
-                  <FormControlLabel value="female" control={<Radio />} label="Oui" />
-                  <FormControlLabel value="male" control={<Radio />} label="Non" />
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
                 </RadioGroup>
               </FormControl>
               <FormControl fullWidth>
@@ -120,10 +306,12 @@ export default function SignIn() {
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="otherAnimalCompatibility"
+                  value={othersValue}
+                  onChange={handleChangeOthers}
                 >
-                  <FormControlLabel value="female" control={<Radio />} label="Oui" />
-                  <FormControlLabel value="male" control={<Radio />} label="Non" />
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
                 </RadioGroup>
               </FormControl>
               <FormControl fullWidth>
@@ -131,32 +319,66 @@ export default function SignIn() {
                 <RadioGroup
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  name="gardenNeeded"
+                  value={gardenValue}
+                  onChange={handleChangeGarden}
                 >
-                  <FormControlLabel value="female" control={<Radio />} label="Oui" />
-                  <FormControlLabel value="male" control={<Radio />} label="Non" />
+                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
+                  <FormControlLabel value={1} control={<Radio />} label="Non" />
                 </RadioGroup>
               </FormControl>
-              <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Disponibilité</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                >
-                  <FormControlLabel value="female" control={<Radio />} label="Sur site" />
-                  <FormControlLabel value="male" control={<Radio />} label="En famille d'accueil" />
-                </RadioGroup>
-              </FormControl>
-              <TextField
-                id="outlined-number"
-                label="Code postal"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                sx={{ mt: 1 }}
+              {locError
+                ? (
+                  <FormControl fullWidth error>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Département</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      name="department"
+                      value={locValue}
+                      label="species"
+                      onChange={handleChangeLoc}
+                      sx={{ mt: 2 }}
+                    >
+                      <MenuItem value={999}>
+                        <em>Choisissez une département</em>
+                      </MenuItem>
+                      {departments.map((item) => (
+                        <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                      ))}
+                    </Select>
+                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                  </FormControl>
+                )
+                : (
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Département</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      name="department"
+                      value={locValue}
+                      label="species"
+                      onChange={handleChangeLoc}
+                      sx={{ mt: 2 }}
+                    >
+                      <MenuItem value={999}>
+                        <em>Choisissez une département</em>
+                      </MenuItem>
+                      {departments.map((item) => (
+                        <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
+              <FormControlLabel
+                control={(
+                  <Checkbox id="checkbox_avaible" />
+
+                )}
+                label="Inclure les animaux en cours de réservation"
+                value={statusValue}
+                onChange={handleChangeStatus}
               />
               <Button
                 type="submit"
