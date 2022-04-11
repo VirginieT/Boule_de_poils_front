@@ -61,10 +61,22 @@ export default function SearchForm() {
     dispatch(fetchDepartments());
   }, []);
 
+  const speciesValidate = (speciesVerify) => {
+    if (speciesVerify >= 0 && speciesVerify <= species.length) {
+      const action = changeSpeciesError(speciesError, false);
+      dispatch(action);
+    }
+    else {
+      const action = changeSpeciesError(speciesError, true);
+      dispatch(action);
+    }
+  };
+
   const handleChangeSpecies = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeSpeciesField(name, inputValue);
     dispatch(action);
+    speciesValidate(inputValue);
   };
 
   const handleChangeGender = (event) => {
@@ -73,17 +85,8 @@ export default function SearchForm() {
     dispatch(action);
   };
   const handleChangeAge = (event) => {
-    let action = '';
-    if (ageValue < 0 || ageValue > 4) {
-      action = changeAgeError(ageError, true);
-      dispatch(action);
-    }
-    else {
-      action = changeAgeError(ageError, false);
-      dispatch(action);
-    }
     const { value: inputValue, name } = event.target;
-    action = changeAgeField(name, inputValue);
+    const action = changeAgeField(name, inputValue);
     dispatch(action);
   };
   const handleChangeChild = (event) => {
@@ -102,19 +105,11 @@ export default function SearchForm() {
     dispatch(action);
   };
   const handleChangeLoc = (event) => {
-    let action = '';
-    if (locValue < departments.length || locValue > departments.length) {
-      action = changeLocError(locError, true);
-      dispatch(action);
-    }
-    else {
-      action = changeLocError(locError, false);
-      dispatch(action);
-    }
     const { value: inputValue, name } = event.target;
-    action = changeLocField(name, parseInt(inputValue, 10));
+    const action = changeLocField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
+
   const handleChangeStatus = () => {
     let action = '';
     if (checked === true) {
@@ -129,17 +124,6 @@ export default function SearchForm() {
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
       action = changeStatusField(status, 0);
-      dispatch(action);
-    }
-  };
-
-  const speciesValidate = () => {
-    if (speciesValue >= 0 && speciesValue < species.length) {
-      const action = changeSpeciesError(speciesError, false);
-      dispatch(action);
-    }
-    else {
-      const action = changeSpeciesError(speciesError, true);
       dispatch(action);
     }
   };
