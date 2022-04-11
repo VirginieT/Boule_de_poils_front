@@ -123,7 +123,7 @@ export default function SubscribeForm() {
                     id="email"
                     label="Adrese e-mail"
                     name="email"
-                    // type="email"
+                    type="email"
                     autoComplete="email"
                     value={mail}
                     onChange={handleChange}
