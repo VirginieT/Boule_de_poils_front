@@ -1,11 +1,18 @@
 // reducer for subscription
-import { CHANGE_FIELD, CHECK_EMPTY_FIELDS, EMPTY_ERRORS } from 'src/actions/register';
+import { FALSE } from 'sass';
+import {
+  CHANGE_FIELD,
+  CHECK_EMPTY_FIELDS,
+  EMPTY_ERRORS,
+  REGISTRATION_SUCCES,
+  CHECK_PASSWORD,
+} from 'src/actions/register';
 
 const initialState = {
   email: '',
   password: '',
   username: '',
-  submitted: false,
+  registrationSucces: false,
   errors: [],
   passwordCheck: null,
 };
@@ -36,6 +43,7 @@ const subscription = (state = initialState, action = {}) => {
         errors: [],
       };
     }
+
     case CHECK_EMPTY_FIELDS: {
       if (action.fieldName === 'mail') {
         return {
@@ -64,6 +72,20 @@ const subscription = (state = initialState, action = {}) => {
           id: 'password',
           message: 'le champ password n\'est pas renseigné',
         }],
+      };
+    }
+
+    case REGISTRATION_SUCCES: {
+      return {
+        ...state,
+        registrationSucces: true,
+      };
+    }
+
+    case CHECK_PASSWORD: {
+      return {
+        ...state,
+        passwordCheck: action.passwordStatus,
       };
     }
     default:

@@ -2,6 +2,8 @@ export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const CHECK_EMPTY_FIELDS = 'CHECK_EMPTY_FIELDS';
 export const EMPTY_ERRORS = 'EMPTY_ERRORS';
 export const SUBMIT_REGISTRATION = 'SUBMIT_REGISTRATION';
+export const REGISTRATION_SUCCES = 'REGISTRATION_SUCCES';
+export const CHECK_PASSWORD = 'CHECK_PASSWORD';
 
 export const changedFields = (name, value) => ({
   type: CHANGE_FIELD,
@@ -20,4 +22,13 @@ export const emptyErrors = () => ({
 
 export const submitRegistration = () => ({
   type: SUBMIT_REGISTRATION,
+});
+
+export const checkValidPassword = (bool) => ({
+  type: CHECK_PASSWORD,
+  passwordStatus: bool,
+});
+
+export const registrationSucces = () => ({
+  type: REGISTRATION_SUCCES,
 });
