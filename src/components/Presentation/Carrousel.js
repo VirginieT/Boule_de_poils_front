@@ -1,9 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { displayNextProfile, displayPreviousProfile } from 'src/actions/carroussel';
+import { useEffect } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Carrousel = () => {
+  useEffect(() => {
+    autoChange();
+  }, []);
+
   const dispatch = useDispatch();
 
   const displayedProfile = useSelector((state) => state.Carroussel.displayProfile);
@@ -18,7 +23,9 @@ const Carrousel = () => {
     dispatch(displayPreviousProfile());
   };
 
-  console.log(allAnimalProfiles);
+  const autoChange = () => {
+    setInterval(nextSlide, 5000);
+  };
 
   return (
     <section className="slider">
