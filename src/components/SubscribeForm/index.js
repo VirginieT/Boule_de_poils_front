@@ -8,31 +8,28 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import { useDispatch, useSelector } from 'react-redux';
-import { changedFields, checkEmptyFields, emptyErrors } from 'src/actions/subscribe';
-import { log } from 'src/utils';
+import { changedFields, checkEmptyFields, emptyErrors } from 'src/actions/register';
+import { log, isPasswordOk } from 'src/utils';
 import './subscribeForm.scss';
 
 export default function SubscribeForm() {
   const dispatch = useDispatch();
 
-  const mail = useSelector((state) => (state.Subscription.email));
-  const username = useSelector((state) => (state.Subscription.username));
-  const password = useSelector((state) => (state.Subscription.password));
+  const mail = useSelector((state) => (state.Registration.email));
+  const username = useSelector((state) => (state.Registration.username));
+  const password = useSelector((state) => (state.Registration.password));
 
-  const errors = useSelector((state) => (state.Subscription.errors));
-  const checkPassword = useSelector((state) => (state.Subscription.passwordCheck));
+  const checkPassword = useSelector((state) => (state.Registration.passwordCheck));
+  const errors = useSelector((state) => (state.Registration.errors));
 
   const handleChange = (event) => {
     console.log(event.target.value);
     dispatch(changedFields(event.target.name, event.target.value));
   };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    log(mail);
-    log(username);
-    log(password);
-    dispatch(emptyErrors());
+  const checkFields = () => {
+    if (mail !== '' && username !== '' && password !== '') {
+      return true;
+    }
     if (mail === '') {
       dispatch(checkEmptyFields('mail'));
     }
@@ -42,8 +39,19 @@ export default function SubscribeForm() {
     if (password === '') {
       dispatch(checkEmptyFields('password'));
     }
-    if (errors.length === 0) {
-      log('on est là si tous les champs sont remplis');
+    return false;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    log(mail);
+    log(username);
+    log(password);
+    dispatch(emptyErrors());
+    checkFields();
+    if (checkFields && isPasswordOk(password)) {
+      // dispatch action to call the api and pass
+      // the datas for subscription
     }
   };
 
