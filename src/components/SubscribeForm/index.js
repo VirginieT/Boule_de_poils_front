@@ -14,6 +14,7 @@ import {
   checkEmptyFields,
   emptyErrors,
   checkValidPassword,
+  submitRegistration,
 } from 'src/actions/register';
 import { isPasswordOk } from 'src/utils';
 import './subscribeForm.scss';
@@ -60,6 +61,7 @@ export default function SubscribeForm() {
       // dispatch action to call the api and pass
       // the datas for subscription
       dispatch(checkValidPassword(true));
+      dispatch(submitRegistration());
     }
   };
 
@@ -75,9 +77,15 @@ export default function SubscribeForm() {
           alignItems: 'center',
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography
+          component="h1"
+          variant="h5"
+        >
           S'inscrire
         </Typography>
+        {registered === false && (
+          <Alert severity="error" className="registration__message--failed">Il y a eu un problème lors de l'inscription</Alert>
+        )}
         {!registered ? (
           <>
             {errors.length > 0

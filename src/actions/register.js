@@ -29,6 +29,7 @@ export const checkValidPassword = (bool) => ({
   passwordStatus: bool,
 });
 
-export const registrationSucces = () => ({
+export const registrationSucces = (status) => ({
   type: REGISTRATION_SUCCES,
+  registrationDone: status,
 });
