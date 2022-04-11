@@ -20,19 +20,25 @@ import {
   fetchGeoloc,
 } from '../../actions/formActions';
 
-export default function AddAnimalForm() {
+export default function AddAssoForm() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchGeoloc());
-  }, []);
+
+  const nameValue = useSelector((state) => state.AssoReducer.name);
+  const descriptionValue = useSelector((state) => state.AssoReducer.description);
+  const sirenValue = useSelector((state) => state.AssoReducer.siren);
+  const streetValue = useSelector((state) => state.AssoReducer.street);
+  const zipCodeValue = useSelector((state) => state.AssoReducer.zipCode);
+  const cityValue = useSelector((state) => state.AssoReducer.city);
+  const phoneNumberValue = useSelector((state) => state.AssoReducer.phoneNumber);
+  const emailValue = useSelector((state) => state.AssoReducer.email);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const streetSplit = streetValue.split(' ');
+    const street = streetSplit.join('+');
+    const zipCode = zipCodeValue.toString();
+    dispatch(fetchGeoloc(street, zipCode));
   };
 
   return (
@@ -47,7 +53,7 @@ export default function AddAnimalForm() {
         }}
       >
         <Typography component="h1" variant="h5">
-          Ajouter un animal
+          Enregistrer une association
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 2 }}>
           <TextField
@@ -55,9 +61,8 @@ export default function AddAnimalForm() {
             required
             id="outlined-required"
             label="Nom"
-            defaultValue=""
+            value={nameValue}
           />
-          
           <FormControl fullWidth>
             <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Genre</FormLabel>
             <RadioGroup

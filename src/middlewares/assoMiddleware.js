@@ -10,10 +10,16 @@ import {
 const assoMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_GEOLOC:
-      axios.get('https://api-adresse.data.gouv./search/?q=8+bd+du+port&postcode=44380', {})
+      // eslint-disable-next-line no-case-declarations
+      const query = {
+        street: action.streetQuery,
+        zipCode: action.zipCodeQuery,
+      };
+      // eslint-disable-next-line prefer-template
+      axios.get('https://api-adresse.data.gouv.fr/search/?q=' + query.street + '&postcode=' + query.zipCode, {})
         .then((response) => {
           // handle success
-          console.log(response.data.features[0].geometry.coordinates[0]);
+          console.log(response.data.features[0]);
           store.dispatch(saveFetchedLat(response.data.features[0].geometry.coordinates[1]));
           store.dispatch(saveFetchedLgt(response.data.features[0].geometry.coordinates[0]));
         })

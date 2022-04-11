@@ -1,84 +1,93 @@
 import {
-  CHANGE_AGE_FIELD,
-  CHANGE_GENDER_FIELD,
-  CHANGE_SPECIES_FIELD,
-  CHANGE_CHILD_FIELD,
-  CHANGE_OTHERS_FIELD,
-  CHANGE_GARDEN_FIELD,
-  CHANGE_LOC_FIELD,
-  CHANGE_STATUS_FIELD,
-  SAVE_GEOLOC,
+  CHANGE_NAME_FIELD,
+  CHANGE_DESCRIPTION_FIELD,
+  CHANGE_SIREN_FIELD,
+  CHANGE_STREET_FIELD,
+  CHANGE_ZIPCODE_FIELD,
+  CHANGE_CITY_FIELD,
+  CHANGE_PHONENUMBER_FIELD,
+  CHANGE_EMAIL_FIELD,
 } from 'src/actions/formActions';
 
+import {
+  SAVE_LAT,
+  SAVE_LGT,
+} from 'src/actions/assoActions';
+
 const initialState = {
-  species: 999,
-  gender: 2,
-  age: 4,
-  childCompatibility: 0,
-  otherAnimalCompatibility: 0,
-  gardenNeeded: 0,
-  status: 1,
-  department: 999,
-  geolocResults: [],
-  displayProfile: 0,
-  favorites: [],
-  showContact: false,
+  name: null,
+  description: null,
+  siren: null,
+  street: '15 avenue des Etats-Unis',
+  zipCode: 63300,
+  city: null,
+  phoneNumber: null,
+  email: null,
+  latitude: null,
+  longitude: null,
 };
 
 const assoReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_STATUS_FIELD:
+    case CHANGE_NAME_FIELD:
       return {
         ...state,
-        status: action.value,
+        name: action.value,
       };
 
-    case CHANGE_SPECIES_FIELD:
+    case CHANGE_DESCRIPTION_FIELD:
       return {
         ...state,
-        species: action.value,
+        description: action.value,
       };
 
-    case CHANGE_GENDER_FIELD:
+    case CHANGE_SIREN_FIELD:
       return {
         ...state,
-        gender: action.value,
+        siren: action.value,
       };
 
-    case CHANGE_AGE_FIELD:
+    case CHANGE_STREET_FIELD:
       return {
         ...state,
-        age: action.value,
+        street: action.value,
       };
 
-    case CHANGE_CHILD_FIELD:
+    case CHANGE_ZIPCODE_FIELD:
       return {
         ...state,
-        childCompatibility: action.value,
+        zipCode: action.value,
       };
 
-    case CHANGE_OTHERS_FIELD:
+    case CHANGE_CITY_FIELD:
       return {
         ...state,
-        otherAnimalCompatibility: action.value,
+        city: action.value,
       };
 
-    case CHANGE_GARDEN_FIELD:
+    case CHANGE_PHONENUMBER_FIELD:
       return {
         ...state,
-        gardenNeeded: action.value,
+        phoneNumber: action.value,
       };
 
-    case CHANGE_LOC_FIELD:
+    case CHANGE_EMAIL_FIELD:
       return {
         ...state,
-        department: action.value,
+        email: action.value,
       };
 
-    case SAVE_GEOLOC: {
+    case SAVE_LAT: {
       return {
         ...state,
-        geolocResults: action.datas,
+        latitude: action.datas,
+      };
+    }
+
+    case SAVE_LGT: {
+      return {
+        ...state,
+        longitude: action.datas,
       };
     }
 

@@ -11,18 +11,20 @@ export const SAVE_DEPARTMENT = 'SAVE_DEPARTEMENT';
 export const FETCH_SPECIES = 'FETCH_SPECIES';
 export const SAVE_SPECIES = 'SAVE_SPECIES';
 export const FETCH_GEOLOC = 'FETCH_GEOLOC';
-export const SAVE_GEOLOC = 'SAVE_GEOLOC';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const CHECK = 'CHECK';
 export const UNCHECK = 'UNCHECK';
 export const SPECIES_ERROR = 'SPECIES_ERROR';
-export const GENDER_ERROR = 'GENDER_ERROR';
 export const AGE_ERROR = 'AGE_ERROR';
-export const CHILD_ERROR = 'CHILD_ERROR';
-export const OTHERS_ERROR = 'OTHERS_ERROR';
-export const GARDEN_ERROR = 'GARDEN_ERROR';
 export const LOC_ERROR = 'DEPARTMENT_ERROR';
-export const CHECKBOX_ERROR = 'CHECKBOC_ERROR';
+export const CHANGE_NAME_FIELD = 'CHANGE_NAME_FIELD';
+export const CHANGE_DESCRIPTION_FIELD = 'CHANGE_DESCRIPTION_FIELD';
+export const CHANGE_SIREN_FIELD = 'CHANGE_SIREN_FIELD';
+export const CHANGE_STREET_FIELD = 'CHANGE_STREET_FIELD';
+export const CHANGE_ZIPCODE_FIELD = 'CHANGE_ZIPCODE_FIELD';
+export const CHANGE_CITY_FIELD = 'CHANGE_CITY_FIELD';
+export const CHANGE_PHONENUMBER_FIELD = 'CHANGE_PHONENUMBER_FIELD';
+export const CHANGE_EMAIL_FIELD = 'CHANGE_EMAIL_FIELD';
 
 export const changeChecked = () => ({
   type: CHECK,
@@ -84,13 +86,10 @@ export const formSubmit = () => ({
   type: SUBMIT_FORM,
 });
 
-export const fetchGeoloc = () => ({
+export const fetchGeoloc = (street, zipCode) => ({
   type: FETCH_GEOLOC,
-});
-
-export const saveFetchedGeoloc = (dataReceived) => ({
-  type: SAVE_GEOLOC,
-  datas: dataReceived,
+  streetQuery: street,
+  zipCodeQuery: zipCode,
 });
 
 export const fetchDepartments = () => ({
@@ -111,38 +110,8 @@ export const saveFetchedSpecies = (dataReceived) => ({
   datas: dataReceived,
 });
 
-export const changeCheckboxError = (key, newValue) => ({
-  type: CHECKBOX_ERROR,
-  species: key,
-  value: newValue,
-});
-
 export const changeSpeciesError = (key, newValue) => ({
   type: SPECIES_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeGenderError = (key, newValue) => ({
-  type: GENDER_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeChildError = (key, newValue) => ({
-  type: CHILD_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeOthersError = (key, newValue) => ({
-  type: OTHERS_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeGardenError = (key, newValue) => ({
-  type: GARDEN_ERROR,
   species: key,
   value: newValue,
 });
@@ -156,5 +125,53 @@ export const changeLocError = (key, newValue) => ({
 export const changeAgeError = (key, newValue) => ({
   type: AGE_ERROR,
   age: key,
+  value: newValue,
+});
+
+export const changeNameField = (key, newValue) => ({
+  type: CHANGE_NAME_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeDescritpionField = (key, newValue) => ({
+  type: CHANGE_DESCRIPTION_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeSirenField = (key, newValue) => ({
+  type: CHANGE_SIREN_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeStreetField = (key, newValue) => ({
+  type: CHANGE_STREET_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeZipcodeField = (key, newValue) => ({
+  type: CHANGE_ZIPCODE_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeCityField = (key, newValue) => ({
+  type: CHANGE_CITY_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changePhoneNumberField = (key, newValue) => ({
+  type: CHANGE_PHONENUMBER_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeEmailField = (key, newValue) => ({
+  type: CHANGE_EMAIL_FIELD,
+  species: key,
   value: newValue,
 });
