@@ -1,9 +1,23 @@
 import {
   MapContainer, TileLayer, Marker, Popup,
 } from 'react-leaflet';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { connexionAssociationApi } from '../../actions/association';
 import './assoList.scss';
+import Loader from '../Loader';
 
 const AssoList = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(connexionAssociationApi());
+  }, []);
+
+  const allAssociations = useSelector((state) => state.Association.apiresults);
+
+  console.log(allAssociations);
+
   return (
     <div className="assoInfo">
       <div className="assoInfo__map">
@@ -14,71 +28,23 @@ const AssoList = () => {
           />
         </MapContainer>
       </div>
-        <div className="assoInfo__list">
-          <div className="assoInfo__card">
-            <h3>DisneyLand</h3>
-            <p>Canards, souris et autres bêtes en tout genre, qui parlent !</p>
-            <ul className="assoInfo__contact">
-              <li>6 rue de la tourette</li>
-              <li>75000 Paris</li>
-              <li>08 36 65 65 65</li>
-              <li>vador@dark.fr</li>
-            </ul>
-          </div>
-          <div className="assoInfo__card">
-            <h3>DisneyLand</h3>
-            <p>Canards, souris et autres bêtes en tout genre, qui parlent !</p>
-            <ul className="assoInfo__contact">
-              <li>6 rue de la tourette</li>
-              <li>75000 Paris</li>
-              <li>08 36 65 65 65</li>
-              <li>vador@dark.fr</li>
-            </ul>
-          </div>
-          <div className="assoInfo__card">
-            <h3>DisneyLand</h3>
-            <p>Canards, souris et autres bêtes en tout genre, qui parlent !</p>
-            <ul className="assoInfo__contact">
-              <li>6 rue de la tourette</li>
-              <li>75000 Paris</li>
-              <li>08 36 65 65 65</li>
-              <li>vador@dark.fr</li>
-            </ul>
-          </div>
-          <div className="assoInfo__card">
-            <h3>DisneyLand</h3>
-            <p>Canards, souris et autres bêtes en tout genre, qui parlent !</p>
-            <ul className="assoInfo__contact">
-              <li>6 rue de la tourette</li>
-              <li>75000 Paris</li>
-              <li>08 36 65 65 65</li>
-              <li>vador@dark.fr</li>
-            </ul>
-          </div>
-          <div className="assoInfo__card">
-            <h3>DisneyLand</h3>
-            <p>Canards, souris et autres bêtes en tout genre, qui parlent !</p>
-            <ul className="assoInfo__contact">
-              <li>6 rue de la tourette</li>
-              <li>75000 Paris</li>
-              <li>08 36 65 65 65</li>
-              <li>vador@dark.fr</li>
-            </ul>
-          </div>
-          <div className="assoInfo__card">
-            <h3>DisneyLand</h3>
-            <p>Canards, souris et autres bêtes en tout genre, qui parlent !</p>
-            <ul className="assoInfo__contact">
-              <li>6 rue de la tourette</li>
-              <li>75000 Paris</li>
-              <li>08 36 65 65 65</li>
-              <li>vador@dark.fr</li>
-            </ul>
-          </div>
-        </div>
+      <div className="assoInfo__list">
+        {allAssociations.length > 0 ? (
+          allAssociations.map((association) => (
+            <div className="assoInfo__card" key={association.id}>
+              <h3>{association.name}</h3>
+              <p>{association.description}</p>
+              <ul className="assoInfo__contact">
+                <li className="assoInfo__el">{association.street}</li>
+                <li className="assoInfo__el">{association.zip_code} {association.city}</li>
+                <li className="assoInfo__el">{association.phone_number}</li>
+                <li className="assoInfo__el">{association.email}</li>
+              </ul>
+            </div>
+          ))
+        ) : <Loader />}
+      </div>
     </div>
-        
-      
   );
 };
 

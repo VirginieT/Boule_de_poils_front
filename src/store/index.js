@@ -6,10 +6,12 @@ import animalSearchedMiddleware from '../middlewares/animalSearchedMiddleware';
 
 import carrousselMiddleware from '../middlewares/carrousselMiddleware';
 
+import associationMiddleware from '../middlewares/associationMiddleware';
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
-  applyMiddleware(animalSearchedMiddleware, carrousselMiddleware),
+  applyMiddleware(animalSearchedMiddleware, carrousselMiddleware, associationMiddleware),
 );
 
 const store = createStore(reducer, enhancers);
