@@ -84,11 +84,25 @@ export default function SearchForm() {
     const action = changeGenderField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
+
+  const ageValidate = (ageVerify) => {
+    if (ageVerify >= 0 && ageVerify <= 4) {
+      const action = changeAgeError(ageError, false);
+      dispatch(action);
+    }
+    else {
+      const action = changeAgeError(ageError, true);
+      dispatch(action);
+    }
+  };
+
   const handleChangeAge = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeAgeField(name, inputValue);
     dispatch(action);
+    ageValidate(inputValue);
   };
+
   const handleChangeChild = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeChildField(name, parseInt(inputValue, 10));
@@ -104,10 +118,23 @@ export default function SearchForm() {
     const action = changeGardenField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
+
+  const locValidate = (locVerify) => {
+    if (locVerify >= 0 && locVerify < departments.length) {
+      const action = changeLocError(locError, false);
+      dispatch(action);
+    }
+    else {
+      const action = changeLocError(locError, true);
+      dispatch(action);
+    }
+  };
+
   const handleChangeLoc = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeLocField(name, parseInt(inputValue, 10));
     dispatch(action);
+    locValidate(inputValue);
   };
 
   const handleChangeStatus = () => {
@@ -128,32 +155,7 @@ export default function SearchForm() {
     }
   };
 
-  const ageValidate = () => {
-    if (ageValue >= 0 && ageValue <= 4) {
-      const action = changeAgeError(ageError, false);
-      dispatch(action);
-    }
-    else {
-      const action = changeAgeError(ageError, true);
-      dispatch(action);
-    }
-  };
-
-  const locValidate = () => {
-    if (locValue >= 0 && locValue < departments.length) {
-      const action = changeLocError(locError, false);
-      dispatch(action);
-    }
-    else {
-      const action = changeLocError(locError, true);
-      dispatch(action);
-    }
-  };
-
   const handleSubmit = (event) => {
-    speciesValidate();
-    ageValidate();
-    locValidate();
     event.preventDefault();
     // eslint-disable-next-line no-unused-vars
     const data = new FormData(event.currentTarget);
