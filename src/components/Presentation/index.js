@@ -1,48 +1,40 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchAnimals } from 'src/actions/animalSearched';
 import Carrousel from './Carrousel';
 import './presentation.scss';
 import './carrousel.scss';
 import Loader from '../Loader';
-
+import { connexionCarrousselApi } from '../../actions/carroussel';
 
 const Presentation = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAnimals());
+    dispatch(connexionCarrousselApi());
   }, []);
 
-  const displayedProfile = useSelector((state) => state.SearchedAnimals.displayProfile);
+  const displayedProfile = useSelector((state) => state.Carroussel.displayProfile);
 
   const animalProfile = useSelector((state) => (
-    state.SearchedAnimals.animalResults[displayedProfile]
+    state.Carroussel.apiresults[displayedProfile]
   ));
 
-  const allAnimalProfiles = useSelector((state) => (state.SearchedAnimals.animalResults));
+  const allAnimalProfiles = useSelector((state) => (state.Carroussel.apiresults));
 
-  const allAnimalsPictures = Object.keys(allAnimalProfiles);
-
-
-    console.log(allAnimalsPictures);
-
-
-    return (
-  <div className="box-presentation">
-    {allAnimalProfiles.length > 0 ? (
-      <>
-    <div className="firstbox">
-      <h2 className="firstbox__title">{animalProfile.name}</h2>
-      <h3 className="firstbox__subtitle">Subtitle</h3>
-      <p className="firstbox__text">{animalProfile.description}</p>
+  return (
+    <div className="box-presentation">
+      {allAnimalProfiles.length > 0 ? (
+        <>
+          <div className="firstbox">
+            <h2 className="firstbox__title">{animalProfile.name}</h2>
+            <h3 className="firstbox__subtitle">Subtitle</h3>
+            <p className="firstbox__text">{animalProfile.description}</p>
+          </div>
+          <div className="carrousel">
+            <Carrousel />
+          </div>
+        </>
+      ) : <Loader />}
     </div>
-    <div className="carrousel">
-      <Carrousel picture={ allAnimalProfiles } />
-    </div></>
-    ):<Loader/>}
-  
-    </div>
-
   );
 };
 

@@ -37,7 +37,7 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
         species: action.value,
       };
 
-      case CHANGE_GENDER_FIELD:
+    case CHANGE_GENDER_FIELD:
       return {
         ...state,
         gender: action.value,
@@ -49,25 +49,25 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
         age: action.value,
       };
 
-      case CHANGE_CHILD_FIELD:
+    case CHANGE_CHILD_FIELD:
       return {
         ...state,
         childCompatibility: action.value,
       };
 
-      case CHANGE_OTHERS_FIELD:
+    case CHANGE_OTHERS_FIELD:
       return {
         ...state,
         otherAnimalCompatibility: action.value,
       };
 
-      case CHANGE_GARDEN_FIELD:
+    case CHANGE_GARDEN_FIELD:
       return {
         ...state,
         gardenNeeded: action.value,
       };
 
-      case CHANGE_LOC_FIELD:
+    case CHANGE_LOC_FIELD:
       return {
         ...state,
         department: action.value,
