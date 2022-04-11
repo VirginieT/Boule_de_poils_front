@@ -5,11 +5,6 @@ const registrationMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_REGISTRATION:
       // connection to API sending username, password and mail
-      console.log({
-        mail: store.getState().Registration.email,
-        username: store.getState().Registration.username,
-        password: store.getState().Registration.password,
-      });
       axios.post('/user', {
         mail: store.getState().Registration.email,
         username: store.getState().Registration.username,
