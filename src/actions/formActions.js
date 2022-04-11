@@ -10,6 +10,8 @@ export const FETCH_DEPARTMENT = 'FETCH_DEPARTMENT';
 export const SAVE_DEPARTMENT = 'SAVE_DEPARTEMENT';
 export const FETCH_SPECIES = 'FETCH_SPECIES';
 export const SAVE_SPECIES = 'SAVE_SPECIES';
+export const FETCH_GEOLOC = 'FETCH_GEOLOC';
+export const SAVE_GEOLOC = 'SAVE_GEOLOC';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
 export const CHECK = 'CHECK';
 export const UNCHECK = 'UNCHECK';
@@ -80,6 +82,15 @@ export const changeAgeField = (key, newValue) => ({
 
 export const formSubmit = () => ({
   type: SUBMIT_FORM,
+});
+
+export const fetchGeoloc = () => ({
+  type: FETCH_GEOLOC,
+});
+
+export const saveFetchedGeoloc = (dataReceived) => ({
+  type: SAVE_GEOLOC,
+  datas: dataReceived,
 });
 
 export const fetchDepartments = () => ({
