@@ -32,9 +32,14 @@ const subscription = (state = initialState, action = {}) => {
           password: action.fieldValue,
         };
       }
+      if (action.fieldName === 'email') {
+        return {
+          ...state,
+          email: action.fieldValue,
+        };
+      }
       return {
         ...state,
-        email: action.fieldValue,
       };
     }
     case EMPTY_ERRORS: {
@@ -49,29 +54,29 @@ const subscription = (state = initialState, action = {}) => {
         return {
           ...state,
           errors: [...state.errors,
-            {
-              id: 'mail',
-              message: 'le champ email n\'est pas renseigné',
-            }],
+          {
+            id: 'mail',
+            message: 'le champ email n\'est pas renseigné',
+          }],
         };
       }
       if (action.fieldName === 'username') {
         return {
           ...state,
           errors: [...state.errors,
-            {
-              id: 'username',
-              message: 'le champ username n\'est pas renseigné',
-            }],
+          {
+            id: 'username',
+            message: 'le champ username n\'est pas renseigné',
+          }],
         };
       }
       return {
         ...state,
         errors: [...state.errors,
-          {
-            id: 'password',
-            message: 'le champ password n\'est pas renseigné',
-          }],
+        {
+          id: 'password',
+          message: 'le champ password n\'est pas renseigné',
+        }],
       };
     }
 
