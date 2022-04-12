@@ -32,7 +32,7 @@ const initialState = {
   gardenError: false,
   departmentError: false,
   checkboxError: false,
-  nameError: false,
+  nameError: true,
   descriptionError: false,
   sirenError: false,
   streetError: false,
@@ -40,7 +40,7 @@ const initialState = {
   cityError: false,
   phoneNumberError: false,
   emailError: false,
-  formResult: false,
+  formResult: null,
 };
 
 const formReducer = (state = initialState, action = {}) => {

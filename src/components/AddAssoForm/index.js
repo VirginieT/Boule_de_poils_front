@@ -107,7 +107,6 @@ export default function AddAssoForm() {
     sirenValidate(inputValue);
   };
 
-
   const streetValidate = (streetVerify) => {
     const streetFormat = /^[a-zA-Z0-9 .-]+$/;
     if (streetVerify.length > 5 && streetVerify.match(streetFormat)) {
