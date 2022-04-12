@@ -29,6 +29,7 @@ const initialState = {
   favorites: [],
   showContact: false,
 };
+// ternaire : x === 3 ? traitement si true : traitement si false.
 
 const searchedAnimalsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
