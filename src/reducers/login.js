@@ -2,7 +2,7 @@ import {
   CHANGE_FIELD,
 } from 'src/actions/register';
 
-import { LOGIN_SUCCES } from 'src/actions/login';
+import { LOGIN_SUCCES, LOGIN_FAILURE } from 'src/actions/login';
 
 const initialState = {
   emailLogin: '',
@@ -33,6 +33,11 @@ const loginReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         tokenUserConnected: action.tokenReceived,
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        tokenUserConnected: false,
       };
 
     default:

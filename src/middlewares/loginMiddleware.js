@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SUBMIT_LOGIN, loginSucces } from '../actions/login';
+import { SUBMIT_LOGIN, loginSucces, loginFailure } from '../actions/login';
 
 const loginMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,11 +16,12 @@ const loginMiddleware = (store) => (next) => (action) => {
         password: store.getState().Login.passwordLogin,
       })
         .then((response) => {
-          console.log(response.data.token);
+          console.log(response);
           store.dispatch(loginSucces(response.data.token));
         })
         .catch((error) => {
           console.log(error);
+          store.dispatch(loginFailure());
         });
       break;
     default:

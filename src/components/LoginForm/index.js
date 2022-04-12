@@ -49,7 +49,7 @@ export default function LoginForm() {
             severity="error"
             className="login--error"
           >
-            Connexion réussi
+            Connexion échouée
           </Alert>
         )}
         {(token === null || token === false) && (
