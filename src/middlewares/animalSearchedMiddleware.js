@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_ANIMALS, saveFetchedAnimals } from '../actions/animalSearched';
+import { FETCH_ANIMALS, FETCH_ALL_ANIMALS, saveFetchedAnimals } from '../actions/animalSearched';
 
 const animalSearchedMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -19,6 +19,20 @@ const animalSearchedMiddleware = (store) => (next) => (action) => {
           console.log(response.data);
           store.dispatch(saveFetchedAnimals(response.data));
           response.data.length === 0 ? console.log('y a rien mec !') : console.log(response.data);
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+        });
+
+      break;
+
+    case FETCH_ALL_ANIMALS:
+      axios.get('http://localhost:8081/api/animal', {})
+        .then((response) => {
+          // handle success
+          console.log(response.data);
+          store.dispatch(saveFetchedAnimals(response.data));
         })
         .catch((error) => {
           // handle error

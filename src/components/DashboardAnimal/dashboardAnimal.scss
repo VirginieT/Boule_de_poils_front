@@ -1,0 +1,11 @@
+.dashboard{
+  width: 80vw;
+
+  &__animal {
+    width: 75;
+  }
+
+  &__picture {
+    max-width: 100px;
+  }
+}
