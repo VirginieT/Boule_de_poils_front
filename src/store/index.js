@@ -15,7 +15,7 @@ const enhancers = composeEnhancers(
     registrationMiddleware
   ),
 
-
+);
 
 const store = createStore(reducer, enhancers);
 
