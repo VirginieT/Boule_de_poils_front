@@ -12,6 +12,7 @@ import AssoList from '../AssoList';
 import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
 import AddAnimalForm from '../AddAnimalForm';
+import AssoContactAdmin from '../AssoContactAdmin/assoContactAdmin';
 
 const theme = createTheme({
   palette: {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/add" element={<AddAnimalForm />} />
           <Route path="/conseils" element={<Advices />} />
           <Route path="/associations" element={<AssoList />} />
+          <Route path="/rejoindre" element={<AssoContactAdmin />} />
           <Route path="/signin" element={<SubscribeForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route

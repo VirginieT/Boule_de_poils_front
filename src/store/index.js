@@ -14,13 +14,7 @@ const enhancers = composeEnhancers(
     formMiddleware,
     registrationMiddleware,
   ),
-<<<<<<< HEAD
 );
-=======
-
-);
-
->>>>>>> Update-searchAnimalForm
 const store = createStore(reducer, enhancers);
 
 export default store;
