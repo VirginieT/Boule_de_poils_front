@@ -7,6 +7,8 @@ import AnimalDescription from './AnimalDescription';
 import AnimalPicture from './AnimalPicture';
 import AssociationContact from './AssociationContact';
 import ContactButton from './ContactButton';
+import Error from '../Error';
+
 
 const SearchedAnimals = () => {
   const dispatch = useDispatch();
@@ -44,7 +46,7 @@ const SearchedAnimals = () => {
             )}
         </>
       )
-        : <Loader />}
+        : <Error />}
     </div>
   );
 };

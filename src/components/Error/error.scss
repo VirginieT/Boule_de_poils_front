@@ -1,0 +1,114 @@
+@use 'src/styles/vars';
+
+
+
+
+.errorbox{
+
+background-color: vars.$cta_color_1  ;
+
+width: 100%;
+  height: 100vh;
+}
+
+
+h2{
+
+text-align: center;
+
+margin-bottom:0.2em; 
+padding-top:0.5em;
+margin-left: 1.3em;
+
+color:white;
+
+font-size: 100px;
+
+font-family: 'Press Start 2P', cursive;
+
+
+
+}
+
+
+.paragrapherror{
+
+  text-align: center;
+  margin-left: 5em;
+  color: white;
+  font-size: 20px;
+  padding-bottom:0.5em;
+}
+
+
+
+.errorpicture{
+
+width: 20%;
+
+margin:0  auto;
+
+display: block;
+
+}
+
+@media screen and (max-width:500px) {
+
+
+  .errorbox{
+
+    background-color: vars.$cta_color_1  ;
+    
+    width: 100%;
+      height: 100vh;
+    }
+    
+    
+    .titrerror{
+    
+    text-align: center;
+    
+    margin-bottom:0; 
+    padding-top:0;
+    margin-left:0;
+    margin-top: 0.5em;
+
+    color:white;
+    
+    font-size: 50px;
+    
+    font-family: 'Press Start 2P', cursive;
+    
+    
+    
+    }
+    
+    
+    .paragrapherror{
+    
+      text-align: center;
+      margin-left: 0;
+      color: white;
+      font-size: 20px;
+      padding-bottom:0.5em;
+    }
+    
+    
+    
+    .errorpicture{
+    
+    width: 80%;
+    
+    margin:0  auto;
+    
+    display: block;
+    
+    }
+
+
+
+
+
+
+
+}
