@@ -11,7 +11,7 @@ const animalSearchedMiddleware = (store) => (next) => (action) => {
         "childCompatibility": store.getState().SearchedAnimals.childCompatibility,
         "other_animal_compatibility": store.getState().SearchedAnimals.otherAnimalCompatibility,
         "garden_needed": store.getState().SearchedAnimals.gardenNeeded,
-        "status": 1,
+        "status": store.getState().SearchedAnimals.status,
         "department": store.getState().SearchedAnimals.department,
       } )
         .then((response) => {

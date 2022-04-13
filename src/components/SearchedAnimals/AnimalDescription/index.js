@@ -50,7 +50,7 @@ const AnimalDescription = ({
           <span
             className="animal__details animal__details--gender"
           >
-            {gender}
+            {gender === 0 ? 'Femelle' : 'Mâle'}
           </span>
           <span
             className="animal__details animal__details--age"
@@ -110,7 +110,7 @@ const AnimalDescription = ({
 AnimalDescription.propTypes = {
   age: PropTypes.number,
   description: PropTypes.string.isRequired,
-  gender: PropTypes.string.isRequired,
+  gender: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   child_compatibility: PropTypes.string.isRequired,
   garden_needed: PropTypes.string.isRequired,
