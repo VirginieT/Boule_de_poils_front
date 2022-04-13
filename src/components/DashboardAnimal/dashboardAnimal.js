@@ -55,14 +55,10 @@ const DashboardAnimal = () => {
                   <TableCell>{animal.garden_needed}</TableCell>
                   <TableCell>{animal.status}</TableCell>
                   <TableCell>{animal.description}</TableCell>
-<<<<<<< HEAD
                   <TableCell align="right">
                     <Button></Button>
                     <Button></Button>
                   </TableCell>
-=======
-                  <TableCell align="right">d</TableCell>
->>>>>>> feature-backOffice
                 </TableRow>
               ))}
             </TableBody>

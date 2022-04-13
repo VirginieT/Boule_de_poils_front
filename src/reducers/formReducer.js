@@ -29,16 +29,11 @@ const initialState = {
   departments: [],
   species: [],
   formSubmit: false,
-<<<<<<< HEAD
   childChecked: false,
   othersChecked: false,
   gardenChecked: false,
   availableChecked: false,
   speciesError: true,
-=======
-  checked: false,
-  speciesError: false,
->>>>>>> feature-addAssoForm
   genderError: false,
   ageError: false,
   childError: false,

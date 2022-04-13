@@ -9,11 +9,7 @@ const rootReducer = combineReducers({
   SearchedAnimals: searchedAnimalsReducer,
   Registration: registrationReducer,
   FormReducer: formReducer,
-<<<<<<< HEAD
-  Registration: registrationReducer,
-=======
   AssoReducer: assoReducer,
->>>>>>> feature-addAssoForm
 });
 
 export default rootReducer;

@@ -12,18 +12,13 @@ import AssoList from '../AssoList';
 import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
 import AddAnimalForm from '../AddAnimalForm';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import AssoContactAdmin from '../AssoContactAdmin/assoContactAdmin';
-=======
 import ManagerNav from '../ManagerNav';
 import DashboardAnimal from '../DashboardAnimal/dashboardAnimal';
 import DashboardAsso from '../DashboardAsso/dashboardAsso';
->>>>>>> feature-backOffice
-=======
 import AddAssoForm from '../AddAssoForm';
 import FormResult from '../FormResult';
->>>>>>> feature-addAssoForm
+
 
 const theme = createTheme({
   palette: {
@@ -52,26 +47,11 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <NavBar />
         <Routes>
-<<<<<<< HEAD
           <Route path="/manager/animal" element={<> <ManagerNav /> <DashboardAnimal /> </>} />
           <Route path="/manager/animal/add" element={<> <ManagerNav /> <AddAnimalForm /> </>} />
           <Route path="/manager/association" element={<> <ManagerNav /> <DashboardAsso /> </>} />
           <Route path="/manager/association/add" element={<> <ManagerNav /> <DashboardAsso /> </>} />
           <Route path="/add" element={<AddAnimalForm />} />
-=======
-          <Route
-            path="/add/association"
-            element={
-              formsubmit ? (
-                <FormResult />
-              )
-                : (
-                  <AddAssoForm />
-                )
-            }
-          />
-          <Route path="/add/animal" element={<AddAnimalForm />} />
->>>>>>> feature-addAssoForm
           <Route path="/conseils" element={<Advices />} />
           <Route path="/associations" element={<AssoList />} />
           <Route path="/rejoindre" element={<AssoContactAdmin />} />
