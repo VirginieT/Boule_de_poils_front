@@ -26,9 +26,10 @@ const Presentation = () => {
         <>
           <div className="firstbox">
             <h2 className="firstbox__title">{animalProfile.name}</h2>
-            <h3 className="firstbox__subtitle">Subtitle</h3>
+          
             <p className="firstbox__text">{animalProfile.description}</p>
           </div>
+          
           <div className="carrousel">
             <Carrousel />
           </div>

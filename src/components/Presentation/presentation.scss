@@ -4,14 +4,15 @@
   width: 50%;
   display: flex;
   margin: 1em auto;
-  background-color: vars.$back_color_1 ;
+  
   border-radius: 5px;
 }
 
 .carroussel{
 
   background-color: white;
-
+  width: 50%;
+  height:50%;
 
 }
 
@@ -23,6 +24,8 @@
    flex-direction: column;
    justify-content: center;
     color:white;
+    background-color: vars.$back_color_1 ;
+    
 
     &__title {
 
