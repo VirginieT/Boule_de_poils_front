@@ -14,9 +14,13 @@ const enhancers = composeEnhancers(
     formMiddleware,
     registrationMiddleware,
   ),
+<<<<<<< HEAD
 
 );
 
+=======
+);
+>>>>>>> feature-assoContactAdmin
 const store = createStore(reducer, enhancers);
 
 export default store;
