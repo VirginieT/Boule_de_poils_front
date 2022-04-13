@@ -19,6 +19,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
 import FormHelperText from '@mui/material/FormHelperText';
+import ListSubheader from '@mui/material/ListSubheader';
 
 import {
   changeSpeciesField,
@@ -375,9 +376,11 @@ export default function SearchForm() {
                       onChange={handleChangeLoc}
                       sx={{ mt: 2 }}
                     >
+                      <ListSubheader>Pays</ListSubheader>
                       <MenuItem value={0}>
                         <em>France entière</em>
                       </MenuItem>
+                      <ListSubheader>Départements</ListSubheader>
                       {departments.map((item) => (
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
@@ -397,9 +400,11 @@ export default function SearchForm() {
                       onChange={handleChangeLoc}
                       sx={{ mt: 2 }}
                     >
+                      <ListSubheader>Pays</ListSubheader>
                       <MenuItem value={0}>
                         <em>France entière</em>
                       </MenuItem>
+                      <ListSubheader>Départements</ListSubheader>
                       {departments.map((item) => (
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
