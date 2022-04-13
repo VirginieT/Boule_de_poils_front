@@ -165,7 +165,11 @@ export default function SearchForm() {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      id="search-form"
+    >
       <CssBaseline />
       <Box
         sx={{

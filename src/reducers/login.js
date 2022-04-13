@@ -8,6 +8,7 @@ const initialState = {
   emailLogin: '',
   passwordLogin: '',
   tokenUserConnected: null,
+  role: null,
 };
 
 const loginReducer = (state = initialState, action = {}) => {

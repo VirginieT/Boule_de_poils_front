@@ -87,16 +87,9 @@ export default function LoginForm() {
               Connection
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Mot de passe oublié ?
-                </Link>
-              </Grid>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Créer un compte !
-                </Link>
-              </Grid>
+              <Link href="/signin" variant="body2">
+                Pas encore inscrit ? Créer un compte !
+              </Link>
             </Grid>
           </Box>
         )}
