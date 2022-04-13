@@ -1,45 +1,48 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { displayNextProfile, displayPreviousProfile } from 'src/actions/carroussel';
+import { useEffect } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { SliderData } from './SliderData';
 
-const Carrousel = ({ slides }) => {
-  const [current, setCurrent] = useState(0);
-  const { length } = slides;
+const Carrousel = () => {
+  useEffect(() => {
+    autoChange();
+  }, []);
+
+  const dispatch = useDispatch();
+
+  const displayedProfile = useSelector((state) => state.Carroussel.displayProfile);
+
+  const allAnimalProfiles = useSelector((state) => (state.Carroussel.apiresults));
 
   const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
+    dispatch(displayNextProfile());
   };
 
   const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+    dispatch(displayPreviousProfile());
   };
 
-  if (!Array.isArray(slides) || slides.length <= 0) {
-    return null;
-  }
+  const autoChange = () => {
+    setInterval(nextSlide, 5000);
+  };
 
   return (
     <section className="slider">
-      <ArrowBackIosIcon className="left-arrow" onClick={prevSlide} />
-      <ArrowForwardIosIcon className="right-arrow" onClick={nextSlide} />
-      {SliderData.map((slide, index) => (
+      <ArrowBackIosIcon className="left-arrow" onClick={nextSlide} />
+      <ArrowForwardIosIcon className="right-arrow" onClick={prevSlide} />
+      {allAnimalProfiles.map((slide, index) => (
         <div
-          className={index === current ? 'slide active' : 'slide'}
-          key={index}
+          className={index === displayedProfile ? 'slide active' : 'slide'}
+          key={slide.id}
         >
-          {index === current && (
-            <img src={slide.image} alt="travel" className="image" />
+          {index === displayedProfile && (
+            <img src={slide.picture} alt="travel" className="image" />
           )}
         </div>
       ))}
     </section>
   );
-};
-
-Carrousel.propTypes = {
-  slides: PropTypes.array.isRequired,
 };
 
 export default Carrousel;

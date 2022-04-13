@@ -28,6 +28,8 @@ const initialState = {
   displayProfile: 0,
   favorites: [],
   showContact: false,
+  formSubmit: false,
+
 };
 // ternaire : x === 3 ? traitement si true : traitement si false.
 

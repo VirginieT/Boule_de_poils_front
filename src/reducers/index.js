@@ -6,6 +6,7 @@ import assoReducer from './assoReducer';
 import formReducer from './formReducer';
 import searchedAnimalsReducer from './searchedAnimals';
 import registrationReducer from './registration';
+import carrouselReducer from './Carroussel';
 
 const rootReducer = combineReducers({
   // nom du tiroir: reducer qui gère cette partie du state
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   Login: loginReducer,
   AssoReducer: assoReducer,
 
+  Carroussel: carrouselReducer,
 });
 
 export default rootReducer;

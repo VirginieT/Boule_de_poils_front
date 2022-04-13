@@ -1,21 +1,41 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import Carrousel from './Carrousel';
-import { SliderData } from './SliderData';
 import './presentation.scss';
 import './carrousel.scss';
+import Loader from '../Loader';
+import { connexionCarrousselApi } from '../../actions/carroussel';
 
-const Presentation = () => (
+const Presentation = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(connexionCarrousselApi());
+  }, []);
 
-  <div className="box-presentation">
-    <div className="firstbox">
-      <h2 className="firstbox__title">Title</h2>
-      <h3 className="firstbox__subtitle">Subtitle</h3>
-      <p className="firstbox__text">Vivamus euismod lectus in feugiat tempor. Nunc pulvinar ante sed iaculis pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer id laoreet urna. Nulla porta tristique lectus facilisis congue. Cras ut pharetra libero. Proin sed ullamcorper orci, eu tristique augue. Curabitur aliquet aliquet sollicitudin. Donec varius molestie magna, eu posuere massa porttitor et.</p>
+  const displayedProfile = useSelector((state) => state.Carroussel.displayProfile);
+
+  const animalProfile = useSelector((state) => (
+    state.Carroussel.apiresults[displayedProfile]
+  ));
+
+  const allAnimalProfiles = useSelector((state) => (state.Carroussel.apiresults));
+
+  return (
+    <div className="box-presentation">
+      {allAnimalProfiles.length > 0 ? (
+        <>
+          <div className="firstbox">
+            <h2 className="firstbox__title">{animalProfile.name}</h2>
+            <h3 className="firstbox__subtitle">Subtitle</h3>
+            <p className="firstbox__text">{animalProfile.description}</p>
+          </div>
+          <div className="carrousel">
+            <Carrousel />
+          </div>
+        </>
+      ) : <Loader />}
     </div>
-    <div className="carrousel">
-      <Carrousel slides={SliderData} />
-    </div>
-  </div>
-
-);
+  );
+};
 
 export default Presentation;
