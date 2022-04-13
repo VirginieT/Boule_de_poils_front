@@ -5,6 +5,7 @@ const registrationMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_REGISTRATION:
       // connection to API sending username, password and mail
+
       axios.post(
         'http://localhost:8081/api/user/form',
         {

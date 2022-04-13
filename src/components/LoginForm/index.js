@@ -6,15 +6,28 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  changedFields,
+} from 'src/actions/register';
+import { submitLogin } from 'src/actions/login';
+import './loginForm.scss';
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+  const mail = useSelector((state) => (state.Login.email));
+  const password = useSelector((state) => (state.Login.password));
+  const token = useSelector((state) => (state.Login.tokenUserConnected));
+
+  const handleChange = (event) => {
+    dispatch(changedFields(event.target.name, event.target.value));
+    // console.log(event.target.name, event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    dispatch(submitLogin());
   };
 
   return (
@@ -31,48 +44,63 @@ export default function LoginForm() {
         <Typography component="h1" variant="h5">
           Se connecter
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Adresse e-mail"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Mot de passe"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+        {token === false && (
+          <Alert
+            severity="error"
+            className="login--error"
           >
-            Connection
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Mot de passe oublié ?
+            Connexion échouée
+          </Alert>
+        )}
+        {(token === null || token === false) && (
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Adresse e-mail"
+              name="email-login"
+              autoComplete="email"
+              autoFocus
+              value={mail}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password-login"
+              label="Mot de passe"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={handleChange}
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Connection
+            </Button>
+            <Grid container>
+              <Link href="/signin" variant="body2">
+                Pas encore inscrit ? Créer un compte !
               </Link>
             </Grid>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Créer un compte !
-              </Link>
-            </Grid>
-          </Grid>
-        </Box>
+          </Box>
+        )}
+        {token && (
+          <Alert
+            severity="success"
+            className="login--succes"
+          >
+            Connexion réussi
+          </Alert>
+        )}
       </Box>
     </Container>
   );
