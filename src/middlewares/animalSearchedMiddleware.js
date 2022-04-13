@@ -17,12 +17,12 @@ const animalSearchedMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           // handle success
           console.log(response.data);
-          store.dispatch(saveFetchedAnimals(response.data));
-          response.data.length === 0 ? console.log('y a rien mec !') : console.log(response.data);
+          response.data.length === 0 ? store.dispatch(saveFetchedAnimals('void')) : store.dispatch(saveFetchedAnimals(response.data));
         })
         .catch((error) => {
           // handle error
           console.log(error);
+          store.dispatch(saveFetchedAnimals('error'));
         });
 
       break;

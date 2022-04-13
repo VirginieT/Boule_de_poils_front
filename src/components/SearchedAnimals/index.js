@@ -7,6 +7,7 @@ import AnimalDescription from './AnimalDescription';
 import AnimalPicture from './AnimalPicture';
 import AssociationContact from './AssociationContact';
 import ContactButton from './ContactButton';
+import NoResultAlert from './NoResultsAlert/noResultsAlert';
 
 const SearchedAnimals = () => {
   const dispatch = useDispatch();
@@ -24,29 +25,38 @@ const SearchedAnimals = () => {
 
   const showContact = useSelector((state) => (state.SearchedAnimals.showContact));
 
-  return (
-    <div
-      className="animal__profil"
-    >
-      {allAnimalProfiles.length > 0 ? (
-        <>
-          <Arrows />
-          <AnimalPicture picture={animalProfile.picture} />
-          <AnimalDescription {...animalProfile} />
-          <ContactButton
-            showContactValue={showContact}
-          />
-          {showContact
-            && (
-              <AssociationContact
-                {...animalProfile.association}
-              />
-            )}
-        </>
-      )
-        : <Loader />}
-    </div>
-  );
+  if (Array.isArray(allAnimalProfiles) && allAnimalProfiles.length > 0) {
+    return (
+      <div className="animal__profil">
+        <Arrows />
+        <AnimalPicture picture={animalProfile.picture} />
+        <AnimalDescription {...animalProfile} />
+        <ContactButton showContactValue={showContact} />
+        {showContact && (<AssociationContact {...animalProfile.association} />)}
+      </div>
+    );
+  }
+  else if (allAnimalProfiles === 'void') {
+    return (
+        <div className="animal__profil">
+          <NoResultAlert />
+        </div>
+      );
+    }
+    else if (allAnimalProfiles === 'error') {
+      return (
+        <div className="animal__profil">
+          <Error />
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="animal__profil">
+          <Loader />
+        </div>
+      );
+    }
 };
 
 export default SearchedAnimals;
