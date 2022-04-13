@@ -19,6 +19,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
 import FormHelperText from '@mui/material/FormHelperText';
+import ListSubheader from '@mui/material/ListSubheader';
 
 import {
   changeSpeciesField,
@@ -32,8 +33,14 @@ import {
   fetchDepartments,
   fetchSpecies,
   formSubmit,
-  changeChecked,
-  changeUnchecked,
+  changeChildChecked,
+  changeChildUnchecked,
+  changeOthersChecked,
+  changeOthersUnchecked,
+  changeGardenChecked,
+  changeGardenUnchecked,
+  changeAvailableChecked,
+  changeAvailableUnchecked,
   changeSpeciesError,
   changeAgeError,
   changeLocError,
@@ -50,7 +57,10 @@ export default function SearchForm() {
   const statusValue = useSelector((state) => state.SearchedAnimals.status);
   const departments = useSelector((state) => state.FormReducer.departments);
   const species = useSelector((state) => state.FormReducer.species);
-  const checked = useSelector((state) => state.FormReducer.checked);
+  const childChecked = useSelector((state) => state.FormReducer.childChecked);
+  const othersChecked = useSelector((state) => state.FormReducer.othersChecked);
+  const gardenChecked = useSelector((state) => state.FormReducer.gardenChecked);
+  const availableChecked = useSelector((state) => state.FormReducer.availableChecked);
   const speciesError = useSelector((state) => state.FormReducer.speciesError);
   const ageError = useSelector((state) => state.FormReducer.ageError);
   const locError = useSelector((state) => state.FormReducer.departmentError);
@@ -103,20 +113,58 @@ export default function SearchForm() {
     ageValidate(inputValue);
   };
 
-  const handleChangeChild = (event) => {
-    const { value: inputValue, name } = event.target;
-    const action = changeChildField(name, parseInt(inputValue, 10));
-    dispatch(action);
+  const handleChangeChild = () => {
+    let action = '';
+    if (childChecked === true) {
+      action = changeChildUnchecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeChildField('childCompatibility', 1);
+      dispatch(action);
+    }
+    else {
+      action = changeChildChecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeChildField('childCompatibility', 0);
+      dispatch(action);
+    }
   };
-  const handleChangeOthers = (event) => {
-    const { value: inputValue, name } = event.target;
-    const action = changeOthersField(name, parseInt(inputValue, 10));
-    dispatch(action);
+
+  const handleChangeOthers = () => {
+    let action = '';
+    if (othersChecked === true) {
+      action = changeOthersUnchecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeOthersField('otherAnimalCompatibility', 1);
+      dispatch(action);
+    }
+    else {
+      action = changeOthersChecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeOthersField('otherAnimalCompatibility', 0);
+      dispatch(action);
+    }
   };
-  const handleChangeGarden = (event) => {
-    const { value: inputValue, name } = event.target;
-    const action = changeGardenField(name, parseInt(inputValue, 10));
-    dispatch(action);
+
+  const handleChangeGarden = () => {
+    let action = '';
+    if (gardenChecked === true) {
+      action = changeGardenUnchecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeGardenField('gardenNeeded', 1);
+      dispatch(action);
+    }
+    else {
+      action = changeGardenChecked();
+      dispatch(action);
+      // eslint-disable-next-line no-restricted-globals
+      action = changeGardenField('gardenNeeded', 0);
+      dispatch(action);
+    }
   };
 
   const locValidate = (locVerify) => {
@@ -139,18 +187,18 @@ export default function SearchForm() {
 
   const handleChangeStatus = () => {
     let action = '';
-    if (checked === true) {
-      action = changeUnchecked();
+    if (availableChecked === true) {
+      action = changeAvailableUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField(status, 1);
+      action = changeStatusField('status', 1);
       dispatch(action);
     }
     else {
-      action = changeChecked();
+      action = changeAvailableChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField(status, 0);
+      action = changeStatusField('status', 0);
       dispatch(action);
     }
   };
@@ -288,49 +336,37 @@ export default function SearchForm() {
                     </Select>
                   </FormControl>
                 )}
-              <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Sociabilité avec les enfants</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="childrenCompatibility"
-                  value={childValue}
-                  onChange={handleChangeChild}
-                >
-                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
-                  <FormControlLabel value={1} control={<Radio />} label="Non" />
-                </RadioGroup>
-              </FormControl>
-              <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Sociabilité avec les autres animaux</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="otherAnimalCompatibility"
-                  value={othersValue}
-                  onChange={handleChangeOthers}
-                >
-                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
-                  <FormControlLabel value={1} control={<Radio />} label="Non" />
-                </RadioGroup>
-              </FormControl>
-              <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Accès à un jardin</FormLabel>
-                <RadioGroup
-                  row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="gardenNeeded"
-                  value={gardenValue}
-                  onChange={handleChangeGarden}
-                >
-                  <FormControlLabel value={0} control={<Radio />} label="Oui" />
-                  <FormControlLabel value={1} control={<Radio />} label="Non" />
-                </RadioGroup>
-              </FormControl>
+              <FormControlLabel
+                control={(
+                  <Checkbox id="checkbox_child" />
+
+                )}
+                label="Sociable avec les enfants"
+                value={childValue}
+                onChange={handleChangeChild}
+              />
+              <FormControlLabel
+                control={(
+                  <Checkbox id="checkbox_others" />
+
+                )}
+                label="Sociable avec les autres animaux"
+                value={othersValue}
+                onChange={handleChangeOthers}
+              />
+              <FormControlLabel
+                control={(
+                  <Checkbox id="checkbox_garden" />
+
+                )}
+                label="Besoin d'un accès à l'extérieur"
+                value={gardenValue}
+                onChange={handleChangeGarden}
+              />
               {locError
                 ? (
                   <FormControl fullWidth error>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Département</InputLabel>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Zone géographique</InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
@@ -340,9 +376,11 @@ export default function SearchForm() {
                       onChange={handleChangeLoc}
                       sx={{ mt: 2 }}
                     >
-                      <MenuItem value={999}>
-                        <em>Choisissez une département</em>
+                      <ListSubheader>Pays</ListSubheader>
+                      <MenuItem value={0}>
+                        <em>France entière</em>
                       </MenuItem>
+                      <ListSubheader>Départements</ListSubheader>
                       {departments.map((item) => (
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
@@ -352,7 +390,7 @@ export default function SearchForm() {
                 )
                 : (
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Département</InputLabel>
+                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Zone géographique</InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
@@ -362,9 +400,11 @@ export default function SearchForm() {
                       onChange={handleChangeLoc}
                       sx={{ mt: 2 }}
                     >
-                      <MenuItem value={999}>
-                        <em>Choisissez une département</em>
+                      <ListSubheader>Pays</ListSubheader>
+                      <MenuItem value={0}>
+                        <em>France entière</em>
                       </MenuItem>
+                      <ListSubheader>Départements</ListSubheader>
                       {departments.map((item) => (
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
