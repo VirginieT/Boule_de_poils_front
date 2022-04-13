@@ -11,6 +11,8 @@ import loginMiddleware from '../middlewares/loginMiddleware';
 
 import carrousselMiddleware from '../middlewares/carrousselMiddleware';
 
+import associationMiddleware from '../middlewares/associationMiddleware';
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
@@ -21,6 +23,7 @@ const enhancers = composeEnhancers(
     loginMiddleware,
     assoMiddleware,
     carrousselMiddleware,
+    associationMiddleware,
   ),
 );
 

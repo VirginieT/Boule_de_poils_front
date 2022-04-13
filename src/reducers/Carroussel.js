@@ -1,4 +1,4 @@
-import { SAVE_DATA, NEXT_PROFILE,   PREVIOUS_PROFILE } from 'src/actions/carroussel';
+import { SAVE_DATA, NEXT_PROFILE, PREVIOUS_PROFILE } from 'src/actions/carroussel';
 
 
 
