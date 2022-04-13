@@ -12,6 +12,13 @@ import AssoList from '../AssoList';
 import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
 import AddAnimalForm from '../AddAnimalForm';
+import AssoContactAdmin from '../AssoContactAdmin/assoContactAdmin';
+import ManagerNav from '../ManagerNav';
+import DashboardAnimal from '../DashboardAnimal/dashboardAnimal';
+import DashboardAsso from '../DashboardAsso/dashboardAsso';
+import AddAssoForm from '../AddAssoForm';
+import FormResult from '../FormResult';
+
 
 const theme = createTheme({
   palette: {
@@ -39,9 +46,14 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <NavBar />
         <Routes>
+          <Route path="/manager/animal" element={<> <ManagerNav /> <DashboardAnimal /> </>} />
+          <Route path="/manager/animal/add" element={<> <ManagerNav /> <AddAnimalForm /> </>} />
+          <Route path="/manager/association" element={<> <ManagerNav /> <DashboardAsso /> </>} />
+          <Route path="/manager/association/add" element={<> <ManagerNav /> <DashboardAsso /> </>} />
           <Route path="/add" element={<AddAnimalForm />} />
           <Route path="/conseils" element={<Advices />} />
           <Route path="/associations" element={<AssoList />} />
+          <Route path="/rejoindre" element={<AssoContactAdmin />} />
           <Route path="/signin" element={<SubscribeForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route
@@ -63,7 +75,7 @@ const App = () => {
           className="footer"
         >
           <h3>Qui sommes-nous ?</h3>
-          <h4>Mentions Légales</h4>
+          <h3>Rejoindre la plateforme</h3>
         </footer>
       </ThemeProvider>
     </div>

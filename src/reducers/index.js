@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import assoReducer from './assoReducer';
 import formReducer from './formReducer';
 import searchedAnimalsReducer from './searchedAnimals';
 import registrationReducer from './registration';
@@ -8,6 +9,7 @@ const rootReducer = combineReducers({
   SearchedAnimals: searchedAnimalsReducer,
   Registration: registrationReducer,
   FormReducer: formReducer,
+  AssoReducer: assoReducer,
 });
 
 export default rootReducer;
