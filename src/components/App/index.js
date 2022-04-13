@@ -19,6 +19,7 @@ import DashboardAsso from '../DashboardAsso/dashboardAsso';
 import AddAssoForm from '../AddAssoForm';
 import FormResult from '../FormResult';
 
+import Error from '../Error';
 
 const theme = createTheme({
   palette: {
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/rejoindre" element={<AssoContactAdmin />} />
           <Route path="/signin" element={<SubscribeForm />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/erreur" element={<Error />} />
           <Route
             path="/"
             element={
