@@ -1,3 +1,10 @@
-.animal__profil{
+.animal {
+  
+  &__profil{
   position: relative;
+  }
+
+  &__void {
+    text-align: center;
+  }
 }
