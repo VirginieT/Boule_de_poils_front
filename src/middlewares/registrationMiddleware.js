@@ -5,17 +5,21 @@ const registrationMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_REGISTRATION:
       // connection to API sending username, password and mail
-      axios.post('/user', {
-        mail: store.getState().Registration.email,
-        username: store.getState().Registration.username,
-        password: store.getState().Registration.password,
-      })
+
+      axios.post(
+        'http://localhost:8081/api/user/form',
+        {
+          email: store.getState().Registration.email,
+          pseudo: store.getState().Registration.username,
+          password: store.getState().Registration.password,
+        },
+      )
         .then((response) => {
           console.log(response);
           store.dispatch(registrationSucces(true));
         })
         .catch((error) => {
-          console.log(error, 'on est ici dans le catch là');
+          console.log(error);
           store.dispatch(registrationSucces(false));
         });
       break;

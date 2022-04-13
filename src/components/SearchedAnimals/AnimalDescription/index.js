@@ -50,7 +50,7 @@ const AnimalDescription = ({
           <span
             className="animal__details animal__details--gender"
           >
-            {gender}
+            {gender === 0 ? 'Femelle' : 'Mâle'}
           </span>
           <span
             className="animal__details animal__details--age"
@@ -74,7 +74,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec des enfants ?
         </p>
         <span className="animal__specificity--answer">
-          {child_compatibility === 'True' ? `${name} s'entend bien avec des enfants` : `${name} ne s'entend pas bien avec des enfants`}
+          {child_compatibility ? `${name} s'entend bien avec des enfants` : `${name} ne s'entend pas bien avec des enfants`}
         </span>
         <p
           className="animal__specificity"
@@ -82,7 +82,7 @@ const AnimalDescription = ({
           Cet animal est-il sociable/ compatible avec d'autres animaux ?
         </p>
         <span className="animal__specificity--answer">
-          {other_animal_compatibility === 'True' ? `${name} s' entend bien avec d'autres animaux` : `${name} ne s'entend pas bien avec d'autres animaux`}
+          {other_animal_compatibility ? `${name} s' entend bien avec d'autres animaux` : `${name} ne s'entend pas bien avec d'autres animaux`}
         </span>
         <p
           className="animal__specificity"
@@ -90,7 +90,7 @@ const AnimalDescription = ({
           Cet animal a-t-il besoin d'un espace extérieur ?
         </p>
         <span className="animal__specificity--answer">
-          {garden_needed === 'True' ? `${name} aura besoin d'un espace extérieur` : `${name} n'aura pas besoin d'un espace extérieur`}
+          {garden_needed ? `${name} aura besoin d'un espace extérieur` : `${name} n'aura pas besoin d'un espace extérieur`}
         </span>
 
         <p
@@ -110,12 +110,12 @@ const AnimalDescription = ({
 AnimalDescription.propTypes = {
   age: PropTypes.number,
   description: PropTypes.string.isRequired,
-  gender: PropTypes.string.isRequired,
+  gender: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  child_compatibility: PropTypes.string.isRequired,
-  garden_needed: PropTypes.string.isRequired,
+  child_compatibility: PropTypes.bool.isRequired,
+  garden_needed: PropTypes.bool.isRequired,
   status: PropTypes.number.isRequired,
-  other_animal_compatibility: PropTypes.string.isRequired,
+  other_animal_compatibility: PropTypes.bool.isRequired,
 };
 
 AnimalDescription.defaultProps = {

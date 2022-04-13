@@ -13,6 +13,7 @@ const initialState = {
   password: '',
   username: '',
   registrationSucces: null,
+
   errors: [],
   passwordCheck: null,
 };
@@ -68,6 +69,7 @@ const subscription = (state = initialState, action = {}) => {
             id: 'username',
             message: 'le champ username n\'est pas renseigné',
           }],
+
         };
       }
       return {
@@ -77,6 +79,7 @@ const subscription = (state = initialState, action = {}) => {
           id: 'password',
           message: 'le champ password n\'est pas renseigné',
         }],
+
       };
     }
 

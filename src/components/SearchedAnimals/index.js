@@ -1,6 +1,8 @@
+/* eslint-disable no-else-return */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAnimals } from 'src/actions/animalSearched';
+import { Link } from 'react-router-dom';
 import Loader from '../Loader';
 import Arrows from './Arrows';
 import AnimalDescription from './AnimalDescription';
@@ -24,29 +26,42 @@ const SearchedAnimals = () => {
 
   const showContact = useSelector((state) => (state.SearchedAnimals.showContact));
 
-  return (
-    <div
-      className="animal__profil"
-    >
-      {allAnimalProfiles.length > 0 ? (
-        <>
-          <Arrows />
-          <AnimalPicture picture={animalProfile.picture} />
-          <AnimalDescription {...animalProfile} />
-          <ContactButton
-            showContactValue={showContact}
-          />
-          {showContact
-            && (
-              <AssociationContact
-                {...animalProfile.association}
-              />
-            )}
-        </>
-      )
-        : <Loader />}
-    </div>
-  );
+  if (Array.isArray(allAnimalProfiles) && allAnimalProfiles.length > 0) {
+    return (
+      <div className="animal__profil">
+        <Arrows />
+        <AnimalPicture picture={animalProfile.picture} />
+        <AnimalDescription {...animalProfile} />
+        <ContactButton showContactValue={showContact} />
+        {showContact && (<AssociationContact {...animalProfile.association} />)}
+      </div>
+    );
+  }
+  else if (allAnimalProfiles === 'void') {
+    return (
+      <div className="animal__profil">
+        <h1 className="annimal__void">Navrés pour vous, mais les animaux que vous recherchiez semblent avoir trouvé leur famille pour la vie !</h1>
+        <h3><Link to="/">Effectuer une nouvelle recherche</Link></h3>
+        <img className="animal__picture" src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="animal's profile" />
+      </div>
+    );
+  }
+  else if (allAnimalProfiles === 'error') {
+    return (
+      <div className="animal__profil">
+        <h1 className="annimal__void">Oh non, votre requête semble avoir rencontré un pépin !</h1>
+        <h3><Link to="/">Effectuer une nouvelle recherche</Link></h3>
+        <img className="animal__picture" src="https://images.pexels.com/photos/127027/pexels-photo-127027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="animal's profile" />
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className="animal__profil">
+        <Loader />
+      </div>
+    );
+  }
 };
 
 export default SearchedAnimals;

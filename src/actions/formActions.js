@@ -10,24 +10,68 @@ export const FETCH_DEPARTMENT = 'FETCH_DEPARTMENT';
 export const SAVE_DEPARTMENT = 'SAVE_DEPARTEMENT';
 export const FETCH_SPECIES = 'FETCH_SPECIES';
 export const SAVE_SPECIES = 'SAVE_SPECIES';
+export const FETCH_GEOLOC = 'FETCH_GEOLOC';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
-export const CHECK = 'CHECK';
-export const UNCHECK = 'UNCHECK';
+export const CHILD_CHECK = 'CHILD_CHECK';
+export const CHILD_UNCHECK = 'CHILD_UNCHECK';
+export const OTHERS_CHECK = 'OTHERS_CHECK';
+export const OTHERS_UNCHECK = 'OTHERS_UNCHECK';
+export const GARDEN_CHECK = 'GARDEN_CHECK';
+export const GARDEN_UNCHECK = 'GARDEN_UNCHECK';
+export const AVAILABLE_CHECK = 'AVAILABLE_CHECK';
+export const AVAILABLE_UNCHECK = 'AVAILABLE_UNCHECK';
 export const SPECIES_ERROR = 'SPECIES_ERROR';
-export const GENDER_ERROR = 'GENDER_ERROR';
 export const AGE_ERROR = 'AGE_ERROR';
-export const CHILD_ERROR = 'CHILD_ERROR';
-export const OTHERS_ERROR = 'OTHERS_ERROR';
-export const GARDEN_ERROR = 'GARDEN_ERROR';
 export const LOC_ERROR = 'DEPARTMENT_ERROR';
-export const CHECKBOX_ERROR = 'CHECKBOC_ERROR';
+export const CHANGE_NAME_FIELD = 'CHANGE_NAME_FIELD';
+export const CHANGE_DESCRIPTION_FIELD = 'CHANGE_DESCRIPTION_FIELD';
+export const CHANGE_SIREN_FIELD = 'CHANGE_SIREN_FIELD';
+export const CHANGE_STREET_FIELD = 'CHANGE_STREET_FIELD';
+export const CHANGE_ZIPCODE_FIELD = 'CHANGE_ZIPCODE_FIELD';
+export const CHANGE_CITY_FIELD = 'CHANGE_CITY_FIELD';
+export const CHANGE_PHONENUMBER_FIELD = 'CHANGE_PHONENUMBER_FIELD';
+export const CHANGE_EMAIL_FIELD = 'CHANGE_EMAIL_FIELD';
+export const FORM_SUCCESS = 'FORM_SUCCESS';
+export const FORM_ISSUE = 'FORM_ISSUE';
+export const NAME_ERROR = 'NAME_ERROR';
+export const DESCRIPTION_ERROR = 'DESCRIPTION_ERROR';
+export const SIREN_ERROR = 'SIREN_ERROR';
+export const STREET_ERROR = 'STREET_ERROR';
+export const ZIPCODE_ERROR = 'ZIPCODE_ERROR';
+export const CITY_ERROR = 'CITY_ERROR';
+export const PHONENUMBER_ERROR = 'PHONENUMBER_ERROR';
+export const EMAIL_ERROR = 'EMAIL_ERROR';
 
-export const changeChecked = () => ({
-  type: CHECK,
+export const changeChildChecked = () => ({
+  type: CHILD_CHECK,
 });
 
-export const changeUnchecked = () => ({
-  type: UNCHECK,
+export const changeChildUnchecked = () => ({
+  type: CHILD_UNCHECK,
+});
+
+export const changeOthersChecked = () => ({
+  type: OTHERS_CHECK,
+});
+
+export const changeOthersUnchecked = () => ({
+  type: OTHERS_UNCHECK,
+});
+
+export const changeGardenChecked = () => ({
+  type: GARDEN_CHECK,
+});
+
+export const changeGardenUnchecked = () => ({
+  type: GARDEN_UNCHECK,
+});
+
+export const changeAvailableChecked = () => ({
+  type: AVAILABLE_CHECK,
+});
+
+export const changeAvailableUnchecked = () => ({
+  type: AVAILABLE_UNCHECK,
 });
 
 export const changeStatusField = (key, newValue) => ({
@@ -82,6 +126,12 @@ export const formSubmit = () => ({
   type: SUBMIT_FORM,
 });
 
+export const fetchGeoloc = (street, zipCode) => ({
+  type: FETCH_GEOLOC,
+  streetQuery: street,
+  zipCodeQuery: zipCode,
+});
+
 export const fetchDepartments = () => ({
   type: FETCH_DEPARTMENT,
 });
@@ -100,38 +150,8 @@ export const saveFetchedSpecies = (dataReceived) => ({
   datas: dataReceived,
 });
 
-export const changeCheckboxError = (key, newValue) => ({
-  type: CHECKBOX_ERROR,
-  species: key,
-  value: newValue,
-});
-
 export const changeSpeciesError = (key, newValue) => ({
   type: SPECIES_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeGenderError = (key, newValue) => ({
-  type: GENDER_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeChildError = (key, newValue) => ({
-  type: CHILD_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeOthersError = (key, newValue) => ({
-  type: OTHERS_ERROR,
-  species: key,
-  value: newValue,
-});
-
-export const changeGardenError = (key, newValue) => ({
-  type: GARDEN_ERROR,
   species: key,
   value: newValue,
 });
@@ -144,6 +164,110 @@ export const changeLocError = (key, newValue) => ({
 
 export const changeAgeError = (key, newValue) => ({
   type: AGE_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changeNameField = (key, newValue) => ({
+  type: CHANGE_NAME_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeDescriptionField = (key, newValue) => ({
+  type: CHANGE_DESCRIPTION_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeSirenField = (key, newValue) => ({
+  type: CHANGE_SIREN_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeStreetField = (key, newValue) => ({
+  type: CHANGE_STREET_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeZipCodeField = (key, newValue) => ({
+  type: CHANGE_ZIPCODE_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeCityField = (key, newValue) => ({
+  type: CHANGE_CITY_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changePhoneNumberField = (key, newValue) => ({
+  type: CHANGE_PHONENUMBER_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const changeEmailField = (key, newValue) => ({
+  type: CHANGE_EMAIL_FIELD,
+  species: key,
+  value: newValue,
+});
+
+export const formSuccess = () => ({
+  type: FORM_SUCCESS,
+});
+
+export const formIssue = () => ({
+  type: FORM_ISSUE,
+});
+
+export const changeNameError = (key, newValue) => ({
+  type: NAME_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changeDescriptionError = (key, newValue) => ({
+  type: DESCRIPTION_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changeSirenError = (key, newValue) => ({
+  type: SIREN_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changeStreetError = (key, newValue) => ({
+  type: STREET_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changeZipCodeError = (key, newValue) => ({
+  type: ZIPCODE_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changeCityError = (key, newValue) => ({
+  type: CITY_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changePhoneNumberError = (key, newValue) => ({
+  type: PHONENUMBER_ERROR,
+  age: key,
+  value: newValue,
+});
+
+export const changeEmailError = (key, newValue) => ({
+  type: EMAIL_ERROR,
   age: key,
   value: newValue,
 });
