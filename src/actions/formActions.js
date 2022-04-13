@@ -11,8 +11,14 @@ export const SAVE_DEPARTMENT = 'SAVE_DEPARTEMENT';
 export const FETCH_SPECIES = 'FETCH_SPECIES';
 export const SAVE_SPECIES = 'SAVE_SPECIES';
 export const SUBMIT_FORM = 'SUBMIT_FORM';
-export const CHECK = 'CHECK';
-export const UNCHECK = 'UNCHECK';
+export const CHILD_CHECK = 'CHILD_CHECK';
+export const CHILD_UNCHECK = 'CHILD_UNCHECK';
+export const OTHERS_CHECK = 'OTHERS_CHECK';
+export const OTHERS_UNCHECK = 'OTHERS_UNCHECK';
+export const GARDEN_CHECK = 'GARDEN_CHECK';
+export const GARDEN_UNCHECK = 'GARDEN_UNCHECK';
+export const AVAILABLE_CHECK = 'AVAILABLE_CHECK';
+export const AVAILABLE_UNCHECK = 'AVAILABLE_UNCHECK';
 export const SPECIES_ERROR = 'SPECIES_ERROR';
 export const GENDER_ERROR = 'GENDER_ERROR';
 export const AGE_ERROR = 'AGE_ERROR';
@@ -22,12 +28,36 @@ export const GARDEN_ERROR = 'GARDEN_ERROR';
 export const LOC_ERROR = 'DEPARTMENT_ERROR';
 export const CHECKBOX_ERROR = 'CHECKBOC_ERROR';
 
-export const changeChecked = () => ({
-  type: CHECK,
+export const changeChildChecked = () => ({
+  type: CHILD_CHECK,
 });
 
-export const changeUnchecked = () => ({
-  type: UNCHECK,
+export const changeChildUnchecked = () => ({
+  type: CHILD_UNCHECK,
+});
+
+export const changeOthersChecked = () => ({
+  type: OTHERS_CHECK,
+});
+
+export const changeOthersUnchecked = () => ({
+  type: OTHERS_UNCHECK,
+});
+
+export const changeGardenChecked = () => ({
+  type: GARDEN_CHECK,
+});
+
+export const changeGardenUnchecked = () => ({
+  type: GARDEN_UNCHECK,
+});
+
+export const changeAvailableChecked = () => ({
+  type: AVAILABLE_CHECK,
+});
+
+export const changeAvailableUnchecked = () => ({
+  type: AVAILABLE_UNCHECK,
 });
 
 export const changeStatusField = (key, newValue) => ({

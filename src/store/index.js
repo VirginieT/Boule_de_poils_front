@@ -12,10 +12,10 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     animalSearchedMiddleware,
     formMiddleware,
-    registrationMiddleware
+    registrationMiddleware,
   ),
 
-
+);
 
 const store = createStore(reducer, enhancers);
 

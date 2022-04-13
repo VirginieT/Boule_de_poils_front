@@ -2,8 +2,14 @@ import {
   SAVE_DEPARTMENT,
   SAVE_SPECIES,
   SUBMIT_FORM,
-  CHECK,
-  UNCHECK,
+  CHILD_CHECK,
+  CHILD_UNCHECK,
+  OTHERS_CHECK,
+  OTHERS_UNCHECK,
+  GARDEN_CHECK,
+  GARDEN_UNCHECK,
+  AVAILABLE_CHECK,
+  AVAILABLE_UNCHECK,
   SPECIES_ERROR,
   AGE_ERROR,
   LOC_ERROR,
@@ -13,8 +19,11 @@ const initialState = {
   departments: [],
   species: [],
   formSubmit: false,
-  checked: false,
-  speciesError: null,
+  childChecked: false,
+  othersChecked: false,
+  gardenChecked: false,
+  availableChecked: false,
+  speciesError: true,
   genderError: false,
   ageError: false,
   childError: false,
@@ -47,17 +56,59 @@ const formReducer = (state = initialState, action = {}) => {
       };
     }
 
-    case CHECK: {
+    case CHILD_CHECK: {
       return {
         ...state,
-        checked: true,
+        childChecked: true,
       };
     }
 
-    case UNCHECK: {
+    case CHILD_UNCHECK: {
       return {
         ...state,
-        checked: false,
+        childChecked: false,
+      };
+    }
+
+    case OTHERS_CHECK: {
+      return {
+        ...state,
+        othersChecked: true,
+      };
+    }
+
+    case OTHERS_UNCHECK: {
+      return {
+        ...state,
+        othersChecked: false,
+      };
+    }
+
+    case GARDEN_CHECK: {
+      return {
+        ...state,
+        gardenChecked: true,
+      };
+    }
+
+    case GARDEN_UNCHECK: {
+      return {
+        ...state,
+        gardenChecked: false,
+      };
+    }
+
+    case AVAILABLE_CHECK: {
+      return {
+        ...state,
+        availableChecked: true,
+      };
+    }
+
+    case AVAILABLE_UNCHECK: {
+      return {
+        ...state,
+        availableChecked: false,
       };
     }
 
