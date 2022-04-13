@@ -66,7 +66,7 @@ const App = () => {
           className="footer"
         >
           <h3>Qui sommes-nous ?</h3>
-          <h4>Mentions Légales</h4>
+          <h3>Rejoindre la plateforme</h3>
         </footer>
       </ThemeProvider>
     </div>
