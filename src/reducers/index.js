@@ -8,7 +8,6 @@ const rootReducer = combineReducers({
   SearchedAnimals: searchedAnimalsReducer,
   Registration: registrationReducer,
   FormReducer: formReducer,
-  Registration: registrationReducer,
 });
 
 export default rootReducer;
