@@ -172,7 +172,7 @@ export default function SubscribeForm() {
 
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="/login" variant="body2">
+                  <Link href="login" variant="body2">
                     Déjà inscrit ? Se connecter
                   </Link>
                 </Grid>
@@ -184,6 +184,7 @@ export default function SubscribeForm() {
             <Alert className="registration__message--succes" severity="success">
               <AlertTitle>Succès</AlertTitle>
               Inscription réussi !
+              Vous pouvez maintenant vous connecter <a className="registration__redirection--login" href="login"> ici</a>!
             </Alert>
           )}
       </Box>

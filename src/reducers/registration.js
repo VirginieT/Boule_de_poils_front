@@ -12,7 +12,7 @@ const initialState = {
   email: '',
   password: '',
   username: '',
-  registrationSucces: null,
+  registrationSucces: true,
   errors: [],
   passwordCheck: null,
 };
