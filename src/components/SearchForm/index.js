@@ -216,7 +216,6 @@ export default function SearchForm() {
     <Container
       component="main"
       maxWidth="xs"
-      sx={{ pb: '100px' }}
       id="search-form"
     >
       <CssBaseline />

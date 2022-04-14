@@ -2,7 +2,7 @@
 
 
 .assoInfo {
-  padding-top: 1em;
+  padding-top: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,26 +16,28 @@
     }
 
     &__card {
-      padding: 0.5vw;
-      width: 30%;
+      text-align: center;
+      padding: 1em;
+      width: 80vw;
       margin-bottom: 1em;
-
-    &__el:hover {
-      color: vars.$back_color_1;
+      border: 1px solid vars.$back_color_1;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px vars.$back_color_2;
     }
 
-      h3 {
+    &__name {
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 0.5em;
-      }
+    }
 
-      p {
+    &__description {
         margin-bottom: 0.5em;
-      }
+    }
 
-      li {
-        margin-bottom: 0.25em;
+    &__el {
+      &__email{
+        color: vars.$cta_color_2;
       }
     }
 }
@@ -50,69 +52,5 @@
 .leaflet-div-icon {
   background: transparent;
   border: none;
-}
-
-@media screen and (max-width: 768px) {
-  .assoInfo {
-    
-  
-      &__list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        padding: 1vw;
-      }
-  
-      &__card {
-        padding: 0.5vw;
-        width: 45%;
-        margin-bottom: 1em;
-      }
-  }
-}
-
-@media screen and (max-width: 640px) {
-
-  .leaflet-container {
-    height: 50vh;
-    width: 100vw;
-    border-radius: 0;
-    left: 0;
-  }
-
-  .assoInfo {
-    padding-top: 0;
-  
-    &__list {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      padding: 1vw;
-    }
-
-    &__card {
-      padding: 0.5vw;
-      width: 100%;
-      margin-bottom: 1em;
-    }
-  }  .assoInfo {
-    
-  
-      &__list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        padding: 1vw;
-      }
-  
-      &__card {
-        padding: 0.5vw;
-        width: 100%;
-        margin-bottom: 1em;
-      }
-  }
 }
 
