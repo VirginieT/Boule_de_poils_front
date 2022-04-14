@@ -25,9 +25,11 @@
   margin-top: 1em;
 }
 
-.registration__message--failed {
+.registration__message--failed,
+.error__messages--invalid-mail {
   margin-top: 1em;
 }
+
 .registration__redirection--login {
 
   text-decoration: underline;
