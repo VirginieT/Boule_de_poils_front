@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .slider {
-
+  position: absolute;
   height: 50vh;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
 
 .right-arrow {
   position: absolute;
-  right: 25px;
+  right: -10vw;
   font-size: 3rem;
   color: vars.$cta_color_2;
   z-index: 10;
@@ -27,7 +27,7 @@
 
 .left-arrow {
   position: absolute;
-  left: 25px;
+  left: -10vw;
   font-size: 3rem;
   color: vars.$cta_color_2;
   z-index: 10;
@@ -37,8 +37,6 @@
 
 .slide {
   position: absolute;
-  width: 100vw;
-  height: 100vw;
   opacity: 0;
   transition-duration: 1s ease;
   scale: 0.92;
@@ -46,8 +44,6 @@
 
 .slide.active {
   position: absolute;
-  width: 100vw;
-  height: 100vw;
   opacity: 1;
   transition-duration: 1s;
   transform: scale(1.00);

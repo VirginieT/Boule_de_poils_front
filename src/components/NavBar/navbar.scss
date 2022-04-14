@@ -13,7 +13,19 @@
   background-color: vars.$back_color_1;
   color: #FFF;
   box-shadow: 0px 1px 10px #999;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
+.logo__link {
+  height: 50px;
+}
+
+.navbar__title {
+  position: absolute;
+  left: 100px;
+  display: none;
+}
+
 .navbar__logo {
   height: 50px;
 }
@@ -46,6 +58,10 @@
     background: vars.$back_color_1;
     visibility: hidden;
     transition: all .8s ease-out;    
+  }
+
+  .navbar__title {
+    display: block;
   }
   
   .show-nav .navbar__links {    

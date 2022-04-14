@@ -9,6 +9,8 @@
   text-align: center;
   justify-self: flex-end;
   align-self: flex-end;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 
     &__link:hover {
       color: white;

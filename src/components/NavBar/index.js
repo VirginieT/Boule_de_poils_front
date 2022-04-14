@@ -17,7 +17,8 @@ const NavBar = () => {
 
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
-      <img className="navbar__logo" src={logo} alt="" />
+      <a href="/" label="homepage" className="logo__link"><img className="navbar__logo" src={logo} alt="" /></a>
+      <h1 className="navbar__title">Boules de poil</h1>
       <ul className="navbar__links">
         {connectedUser && (
         <li className="navbar__item slideInDown-1 ">
