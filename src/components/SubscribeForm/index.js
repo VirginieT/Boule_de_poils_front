@@ -67,7 +67,7 @@ export default function SubscribeForm() {
 
   return (
 
-    <Container component="main" maxWidth="xs">
+    <Container sx={{ pt: '90px' }} component="main" maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{
