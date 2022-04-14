@@ -2,13 +2,12 @@ import {
   CHANGE_FIELD,
 } from 'src/actions/register';
 
-import { LOGIN_SUCCES, LOGIN_FAILURE } from 'src/actions/login';
+import { LOGIN_SUCCES, LOGIN_FAILURE, LOGOUT } from 'src/actions/login';
 
 const initialState = {
   emailLogin: '',
   passwordLogin: '',
   tokenUserConnected: null,
-  role: null,
 };
 
 const loginReducer = (state = initialState, action = {}) => {
@@ -39,6 +38,13 @@ const loginReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         tokenUserConnected: false,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        tokenUserConnected: null,
+        emailLogin: '',
+        passwordLogin: '',
       };
 
     default:

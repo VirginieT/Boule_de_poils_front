@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from 'src/actions/login';
 
 import './navbar.scss';
 
 import logo from 'src/assets/img/logo_bdp_dark.png';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const connectedUser = useSelector((state) => (state.Login.tokenUserConnected));
-  const role = useSelector((state) => (state.Login.role));
 
   const [toggleMenu, setToggleMenu] = useState(false);
   const [largeur, setLargeur] = useState(window.innerWidth);
@@ -42,13 +44,31 @@ const NavBar = () => {
       </ul>
       {(toggleMenu || largeur > 500) && (
         <ul className="Navbar-Menu">
-
           {connectedUser && (<li className="items"><a href="/favorite">Mes Favoris</a></li>)}
           <li className="items"><a href="/#search-form">Rechercher un animal</a></li>
           <li className="items"><a href="/conseils">Conseils pour adoption</a></li>
           <li className="items"><a href="associations">Les associations</a></li>
-          {(role !== 'ROLE_USER' && role !== null) && (<li className="items"><a href="">Admin/compte user</a></li>)}
-          <li className="items"><a href="/login">Login</a></li>
+          {connectedUser ? (
+            <li>
+              <Link
+                to="/"
+                className="items"
+                onClick={() => (dispatch(logout()))}
+              >
+                Logout
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link
+                to="/login"
+                className="items"
+              >
+                Login
+              </Link>
+            </li>
+          )}
+
         </ul>
       )}
 

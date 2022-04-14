@@ -16,7 +16,6 @@ const rootReducer = combineReducers({
   FormReducer: formReducer,
   Login: loginReducer,
   AssoReducer: assoReducer,
-
   Carroussel: carrouselReducer,
   Association: associationReducer,
 });
