@@ -68,7 +68,7 @@ const App = () => {
                 : (
                   <>
                     <Presentation />
-                    <SearchForm />
+                    <SearchForm id="searchForm" />
                   </>
                 )
             }

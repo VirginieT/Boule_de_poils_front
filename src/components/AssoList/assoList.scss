@@ -6,6 +6,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+
+    &__title {
+      font-weight: bold;
+      font-size: large;
+      margin-bottom: 0.5em;
+    }
+
+    &__subtitle {
+      width: 90vw;
+      margin-bottom: 0.5em;
+    }
 
     &__list {
       display: flex;
@@ -54,3 +67,48 @@
   border: none;
 }
 
+@media only screen and (min-width: 425px) {
+  .assoInfo {
+    width: 90vw;
+
+    &__card {
+      
+      width: 75vw;
+    }
+    &__subtitle {
+      width: 90vw;
+      margin-bottom: 0.5em;
+    }
+  } 
+}
+
+@media only screen and (min-width: 768px) {
+  .assoInfo {
+    width: 85vw;
+
+    &__card {
+      
+      width: 40vw;
+    }
+    &__subtitle {
+      width: 80vw;
+      margin-bottom: 0.5em;
+    }
+  } 
+}
+
+@media only screen and (min-width: 1024px) {
+  .assoInfo {
+    width: 80vw;
+
+    &__subtitle {
+      width: 70vw;
+      margin-bottom: 0.5em;
+    }
+
+    &__card {
+      
+      width: 25vw;
+    }
+  } 
+}

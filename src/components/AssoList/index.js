@@ -22,6 +22,8 @@ const AssoList = () => {
   return (
     <div className="assoInfo">
       <CssBaseline />
+      <h2 className="assoInfo__title">Nos associations partenaires</h2>
+      <p className="assoInfo__subtitle">Retrouvez la liste des associations participants à la plateforme Boules de poil. Rien ne serait possible sans elles. Nous ne pouvons que saluer leur engagement auprès des animaux.</p>
       {/*<div className="assoInfo__map">
         <MapContainer center={[46.5, 2.6]} zoom={5}>
           <TileLayer

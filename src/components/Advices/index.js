@@ -10,7 +10,7 @@ const Advices = () => (
     <p className="advices__text">Adopter un animal est une chose, le garder en est une autre. Faisons le point sur ce qu’il faut savoir pour adopter un animal dans les meilleures conditions possible.</p>
     <div className="wrapper">
       <div className="one big-pic">
-        <img className="imgAdvices" src="https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+        <img src="https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
       </div>
       <div className="two long-text">
         <h3 className="advices__subtitle">Famille d’accueil avant d’être un foyer définitif</h3>

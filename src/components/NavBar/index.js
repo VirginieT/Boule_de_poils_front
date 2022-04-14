@@ -22,7 +22,7 @@ const NavBar = () => {
       <ul className="navbar__links">
         {connectedUser && (
         <li className="navbar__item slideInDown-1 ">
-          <a href="/" className="navbar__link">
+          <a href="/#searchForm" className="navbar__link">
             Mes favoris
           </a>
         </li>
