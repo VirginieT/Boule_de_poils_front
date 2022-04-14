@@ -49,3 +49,48 @@
   transition-duration: 1s;
   transform: scale(1.00);
 }
+
+@media only screen and (min-width: 600px) {
+  .slider__image {
+    max-width: 50vw;
+    height: 50vw;
+  }
+
+  .right-arrow {
+    right: 6vw;
+  }
+  
+  .left-arrow {
+    left: 6vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .slider__image {
+    max-width: 45vw;
+    height: 45vw;
+  }
+
+  .right-arrow {
+    right:10vw;
+  }
+  
+  .left-arrow {
+    left: 10vw;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .slider__image {
+    max-width: 30vw;
+    height: 30vw;
+  }
+
+  .right-arrow {
+    right:16vw;
+  }
+  
+  .left-arrow {
+    left: 16vw;
+  }
+}
