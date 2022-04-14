@@ -44,7 +44,8 @@ const NavBar = () => {
       </ul>
       {(toggleMenu || largeur > 500) && (
         <ul className="Navbar-Menu">
-          {connectedUser && (<li className="items"><a href="/favorite">Mes Favoris</a></li>)}
+          {/* {connectedUser &&
+          (<li className="items"><a href="/favorite">Mes Favoris</a></li>)} */}
           <li className="items"><a href="/#search-form">Rechercher un animal</a></li>
           <li className="items"><a href="/conseils">Conseils pour adoption</a></li>
           <li className="items"><a href="associations">Les associations</a></li>
