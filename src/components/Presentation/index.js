@@ -21,16 +21,14 @@ const Presentation = () => {
   const allAnimalProfiles = useSelector((state) => (state.Carroussel.apiresults));
 
   return (
-    <div className="box-presentation">
+    <div className="random">
       {allAnimalProfiles.length > 0 ? (
         <>
-          <div className="firstbox">
-            <h2 className="firstbox__title">{animalProfile.name}</h2>
-          
-            <p className="firstbox__text">{animalProfile.description}</p>
+          <div className="random__info">
+            <h2 className="random__name">{animalProfile.name}</h2>
+            <p className="random__description">{animalProfile.description}</p>
           </div>
-          
-          <div className="carrousel">
+          <div className="random__carrousel">
             <Carrousel />
           </div>
         </>
