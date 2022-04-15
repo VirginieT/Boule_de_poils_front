@@ -1,13 +1,17 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from 'src/actions/login';
+
+
 
 import './navbar.scss';
 
 import logo from 'src/assets/img/logo_bdp_dark.png';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const connectedUser = useSelector((state) => (state.Login.tokenUserConnected));
-  const role = useSelector((state) => (state.Login.role));
 
   const [showLinks, setShowLinks] = useState(false);
 
@@ -49,11 +53,26 @@ const NavBar = () => {
           </a>
         </li>
         )}
-        <li className="navbar__item slideInDown-6">
-          <a href="/login" className="navbar__link">
-            Login
-          </a>
-        </li>
+        {connectedUser ? (
+            <li>
+              <Link
+                to="/"
+                className="items"
+                onClick={() => (dispatch(logout()))}
+              >
+                Logout
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link
+                to="/login"
+                className="items"
+              >
+                Login
+              </Link>
+            </li>
+          )}
       </ul>
       <button type="button" className="navbar__burger" onClick={handleShowLinks}>
         <span className="burger-bar" />
