@@ -4,6 +4,7 @@ export const EMPTY_ERRORS = 'EMPTY_ERRORS';
 export const SUBMIT_REGISTRATION = 'SUBMIT_REGISTRATION';
 export const REGISTRATION_SUCCES = 'REGISTRATION_SUCCES';
 export const CHECK_PASSWORD = 'CHECK_PASSWORD';
+export const CHECK_MAIL = 'CHECK_MAIL';
 
 export const changedFields = (name, value) => ({
   type: CHANGE_FIELD,
@@ -32,4 +33,9 @@ export const checkValidPassword = (bool) => ({
 export const registrationSucces = (status) => ({
   type: REGISTRATION_SUCCES,
   registrationDone: status,
+});
+
+export const checkValidMail = (mailStatus) => ({
+  type: CHECK_MAIL,
+  emailStatus: mailStatus,
 });

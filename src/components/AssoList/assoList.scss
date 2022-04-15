@@ -2,10 +2,23 @@
 
 
 .assoInfo {
-  padding-top: 1em;
+  padding-top: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
+  align-items: center;
+
+    &__title {
+      font-weight: bold;
+      font-size: large;
+      margin-bottom: 0.5em;
+    }
+
+    &__subtitle {
+      width: 90vw;
+      margin-bottom: 0.5em;
+    }
 
     &__list {
       display: flex;
@@ -16,26 +29,28 @@
     }
 
     &__card {
-      padding: 0.5vw;
-      width: 30%;
+      text-align: center;
+      padding: 1em;
+      width: 80vw;
       margin-bottom: 1em;
-
-    &__el:hover {
-      color: vars.$back_color_1;
+      border: 1px solid vars.$back_color_1;
+      border-radius: 20px;
+      box-shadow: 5px 5px 5px vars.$back_color_2;
     }
 
-      h3 {
+    &__name {
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 0.5em;
-      }
+    }
 
-      p {
+    &__description {
         margin-bottom: 0.5em;
-      }
+    }
 
-      li {
-        margin-bottom: 0.25em;
+    &__el {
+      &__email{
+        color: vars.$cta_color_2;
       }
     }
 }
@@ -52,67 +67,48 @@
   border: none;
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (min-width: 425px) {
   .assoInfo {
-    
-  
-      &__list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        padding: 1vw;
-      }
-  
-      &__card {
-        padding: 0.5vw;
-        width: 45%;
-        margin-bottom: 1em;
-      }
-  }
+    width: 90vw;
+
+    &__card {
+      
+      width: 75vw;
+    }
+    &__subtitle {
+      width: 90vw;
+      margin-bottom: 0.5em;
+    }
+  } 
 }
 
-@media screen and (max-width: 640px) {
-
-  .leaflet-container {
-    height: 50vh;
-    width: 100vw;
-    border-radius: 0;
-    left: 0;
-  }
-
+@media only screen and (min-width: 768px) {
   .assoInfo {
-    padding-top: 0;
-  
-    &__list {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      padding: 1vw;
+    width: 85vw;
+
+    &__card {
+      
+      width: 40vw;
+    }
+    &__subtitle {
+      width: 80vw;
+      margin-bottom: 0.5em;
+    }
+  } 
+}
+
+@media only screen and (min-width: 1024px) {
+  .assoInfo {
+    width: 80vw;
+
+    &__subtitle {
+      width: 70vw;
+      margin-bottom: 0.5em;
     }
 
     &__card {
-      padding: 0.5vw;
-      width: 100%;
-      margin-bottom: 1em;
+      
+      width: 25vw;
     }
-  }  .assoInfo {
-    
-  
-      &__list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        padding: 1vw;
-      }
-  
-      &__card {
-        padding: 0.5vw;
-        width: 100%;
-        margin-bottom: 1em;
-      }
-  }
+  } 
 }
-

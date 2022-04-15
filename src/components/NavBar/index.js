@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from 'src/actions/login';
 
+
+
 import './navbar.scss';
 
 import logo from 'src/assets/img/logo_bdp_dark.png';
@@ -11,45 +13,47 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const connectedUser = useSelector((state) => (state.Login.tokenUserConnected));
 
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const [largeur, setLargeur] = useState(window.innerWidth);
+  const [showLinks, setShowLinks] = useState(false);
 
-  const toggleNavSmallScreen = () => {
-    setToggleMenu(!toggleMenu);
+  const handleShowLinks = () => {
+    setShowLinks(!showLinks);
   };
 
-  useEffect(() => {
-    const changeWidth = () => {
-      setLargeur(window.innerWidth);
-
-      if (window.innerWidth > 500) {
-        setToggleMenu(false);
-      }
-    };
-
-    window.addEventListener('resize', changeWidth);
-
-    return () => {
-      window.removeEventListener('resize', changeWidth);
-    };
-  }, []);
-
   return (
-    <div className="containerNav">
-
-      <ul className="alignement">
-
-        <li><img className="logobouledepoils" src={logo} alt="logo" /></li>
-        <li id="title">Boule de poils</li>
-      </ul>
-      {(toggleMenu || largeur > 500) && (
-        <ul className="Navbar-Menu">
-          {/* {connectedUser &&
-          (<li className="items"><a href="/favorite">Mes Favoris</a></li>)} */}
-          <li className="items"><a href="/#search-form">Rechercher un animal</a></li>
-          <li className="items"><a href="/conseils">Conseils pour adoption</a></li>
-          <li className="items"><a href="associations">Les associations</a></li>
-          {connectedUser ? (
+    <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
+      <a href="/" label="homepage" className="logo__link"><img className="navbar__logo" src={logo} alt="" /></a>
+      <h1 className="navbar__title">Boules de poil</h1>
+      <ul className="navbar__links">
+        {connectedUser && (
+        <li className="navbar__item slideInDown-1 ">
+          <a href="/#searchForm" className="navbar__link">
+            Mes favoris
+          </a>
+        </li>
+        )}
+        <li className="navbar__item slideInDown-2 ">
+          <a href="/" className="navbar__link">
+            Rechercher un animal
+          </a>
+        </li>
+        <li className="navbar__item slideInDown-3">
+          <a href="/conseils" className="navbar__link">
+            Conseils pour l'adoption
+          </a>
+        </li>
+        <li className="navbar__item slideInDown-4">
+          <a href="/associations" className="navbar__link">
+            Les associations
+          </a>
+        </li>
+        {(role !== 'ROLE_USER' && role !== null) && (
+        <li className="navbar__item slideInDown-5">
+          <a href="/login" className="navbar__link">
+            Admin/compte user
+          </a>
+        </li>
+        )}
+        {connectedUser ? (
             <li>
               <Link
                 to="/"
@@ -69,13 +73,11 @@ const NavBar = () => {
               </Link>
             </li>
           )}
-
-        </ul>
-      )}
-
-      <button type="button" onClick={toggleNavSmallScreen} className="btn">---</button>
-
-    </div>
+      </ul>
+      <button type="button" className="navbar__burger" onClick={handleShowLinks}>
+        <span className="burger-bar" />
+      </button>
+    </nav>
   );
 };
 

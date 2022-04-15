@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { displayNextProfile, displayPreviousProfile } from 'src/actions/carroussel';
+import { displayNextSlide, displayPreviousSlide } from 'src/actions/carroussel';
 import { useEffect } from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -16,11 +16,11 @@ const Carrousel = () => {
   const allAnimalProfiles = useSelector((state) => (state.Carroussel.apiresults));
 
   const nextSlide = () => {
-    dispatch(displayNextProfile());
+    dispatch(displayNextSlide());
   };
 
   const prevSlide = () => {
-    dispatch(displayPreviousProfile());
+    dispatch(displayPreviousSlide());
   };
 
   const autoChange = () => {
@@ -37,7 +37,7 @@ const Carrousel = () => {
           key={slide.id}
         >
           {index === displayedProfile && (
-            <img src={slide.picture} alt="travel" className="image" />
+            <img src={slide.picture} alt="travel" className="slider__image" />
           )}
         </div>
       ))}

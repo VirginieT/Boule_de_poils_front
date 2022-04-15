@@ -2,10 +2,9 @@ export const CONNEXION_CARROUSSEL_API = 'CONNEXION_CARROUSSEL_API';
 
 export const SAVE_DATA = 'SAVE_DATA';
 
-export const NEXT_PROFILE = 'NEXT_PROFILE';
+export const NEXT_SLIDE = 'NEXT_SLIDE';
 
-export const PREVIOUS_PROFILE = 'PREVIOUS_PROFILE';
-
+export const PREVIOUS_SLIDE = 'PREVIOUS_SLIDE';
 
 // Connexion avec l'api
 
@@ -24,10 +23,10 @@ export const saveData = (results) => ({
 
 });
 
-export const displayNextProfile = () => ({
-  type: NEXT_PROFILE,
+export const displayNextSlide = () => ({
+  type: NEXT_SLIDE,
 });
 
-export const displayPreviousProfile = () => ({
-  type: PREVIOUS_PROFILE,
+export const displayPreviousSlide = () => ({
+  type: PREVIOUS_SLIDE,
 });

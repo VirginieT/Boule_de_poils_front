@@ -1,4 +1,4 @@
-import { SAVE_DATA, NEXT_PROFILE, PREVIOUS_PROFILE } from 'src/actions/carroussel';
+import { SAVE_DATA, NEXT_SLIDE, PREVIOUS_SLIDE } from 'src/actions/carroussel';
 
 
 
@@ -25,7 +25,7 @@ const carrouselReducer = (state = initialState, action = {}) => {
       };
     }
   
-    case NEXT_PROFILE: {
+    case NEXT_SLIDE: {
         const newState = { ...state };
   
         const maxIndex = newState.displayProfile + 1 >= newState.apiresults.length
@@ -36,7 +36,7 @@ const carrouselReducer = (state = initialState, action = {}) => {
         return newState;
       }
   
-      case PREVIOUS_PROFILE: {
+      case PREVIOUS_SLIDE: {
         const newState = { ...state };
   
         const minIndex = newState.displayProfile - 1 < 0

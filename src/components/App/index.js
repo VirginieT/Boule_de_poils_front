@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import SearchedAnimals from '../SearchedAnimals';
 import SearchForm from '../SearchForm';
 import NavBar from '../NavBar';
+import Footer from '../Footer/footer';
 import Presentation from '../Presentation';
 import LoginForm from '../LoginForm';
 import AssoList from '../AssoList';
@@ -67,18 +68,13 @@ const App = () => {
                 : (
                   <>
                     <Presentation />
-                    <SearchForm />
+                    <SearchForm id="searchForm" />
                   </>
                 )
             }
           />
         </Routes>
-        <footer
-          className="footer"
-        >
-          <h3>Qui sommes-nous ?</h3>
-          <h3>Rejoindre la plateforme</h3>
-        </footer>
+        <Footer />
       </ThemeProvider>
     </div>
   );
