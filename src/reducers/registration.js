@@ -6,6 +6,7 @@ import {
   EMPTY_ERRORS,
   REGISTRATION_SUCCES,
   CHECK_PASSWORD,
+  CHECK_MAIL
 } from 'src/actions/register';
 
 const initialState = {
@@ -13,9 +14,9 @@ const initialState = {
   password: '',
   username: '',
   registrationSucces: null,
-
   errors: [],
   passwordCheck: null,
+  emailCheck: null,
 };
 
 const subscription = (state = initialState, action = {}) => {
@@ -67,7 +68,7 @@ const subscription = (state = initialState, action = {}) => {
           errors: [...state.errors,
           {
             id: 'username',
-            message: 'le champ username n\'est pas renseigné',
+            message: 'le champ nom dn\'utilisateur n\'est pas renseigné',
           }],
 
         };
@@ -77,7 +78,7 @@ const subscription = (state = initialState, action = {}) => {
         errors: [...state.errors,
         {
           id: 'password',
-          message: 'le champ password n\'est pas renseigné',
+          message: 'le champ mot de passe n\'est pas renseigné',
         }],
 
       };
@@ -94,6 +95,12 @@ const subscription = (state = initialState, action = {}) => {
       return {
         ...state,
         passwordCheck: action.passwordStatus,
+      };
+    }
+    case CHECK_MAIL: {
+      return {
+        ...state,
+        emailCheck: action.emailStatus,
       };
     }
     default:

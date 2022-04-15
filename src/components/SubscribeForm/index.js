@@ -15,8 +15,9 @@ import {
   emptyErrors,
   checkValidPassword,
   submitRegistration,
+  checkValidMail
 } from 'src/actions/register';
-import { isPasswordOk } from 'src/utils';
+import { isPasswordOk, isEmailOk } from 'src/utils';
 import './subscribeForm.scss';
 
 export default function SubscribeForm() {
@@ -27,6 +28,7 @@ export default function SubscribeForm() {
   const password = useSelector((state) => (state.Registration.password));
 
   const checkPassword = useSelector((state) => (state.Registration.passwordCheck));
+  const checkMail = useSelector((state) => (state.Registration.emailCheck));
   const errors = useSelector((state) => (state.Registration.errors));
   const registered = useSelector((state) => (state.Registration.registrationSucces));
 
@@ -56,6 +58,10 @@ export default function SubscribeForm() {
     checkFields();
     if (!isPasswordOk(password)) {
       dispatch(checkValidPassword(false));
+    }
+    if (!isEmailOk(mail)) {
+      console.log("hello");
+      dispatch(checkValidMail(false));
     }
     if (checkFields && isPasswordOk(password)) {
       // dispatch action to call the api and pass
@@ -128,6 +134,15 @@ export default function SubscribeForm() {
                     value={mail}
                     onChange={handleChange}
                   />
+                  {checkMail === false && (
+                    <Alert
+                      variant="outlined"
+                      severity="error"
+                      className="error__messages--invalid-mail"
+                    >
+                      <p>L'adresse mail n'est pas valide</p>
+                    </Alert>
+                  )}
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
