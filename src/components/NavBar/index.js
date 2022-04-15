@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import './navbar.scss';
 
 import logo from 'src/assets/img/logo_bdp_dark.png';
@@ -36,9 +36,14 @@ const NavBar = () => {
     <div className="containerNav">
 
       <ul className="alignement">
-
-        <li><img className="logobouledepoils" src={logo} alt="logo" /></li>
+      <li><Link to="/" label="homepage"><img className="logobouledepoils" src={logo} alt="logo" /></Link></li>
+        
+   
+        
         <li id="title">Boule de poils</li>
+
+
+        
       </ul>
       {(toggleMenu || largeur > 500) && (
         <ul className="Navbar-Menu">
