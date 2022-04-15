@@ -19,6 +19,7 @@ import DashboardAnimal from '../DashboardAnimal/dashboardAnimal';
 import DashboardAsso from '../DashboardAsso/dashboardAsso';
 import AddAssoForm from '../AddAssoForm';
 import FormResult from '../FormResult';
+import Team from '../Team/team';
 
 import Error from '../Error';
 
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/add" element={<AddAnimalForm />} />
           <Route path="/conseils" element={<Advices />} />
           <Route path="/associations" element={<AssoList />} />
+          <Route path="/equipe" element={<Team />} />
           <Route path="/rejoindre" element={<AssoContactAdmin />} />
           <Route path="/signin" element={<SubscribeForm />} />
           <Route path="/login" element={<LoginForm />} />

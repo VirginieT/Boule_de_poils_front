@@ -1,0 +1,91 @@
+.team {
+  padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+    &__title {
+      font-size: large;
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__card {
+      margin-bottom: 1em;
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__pic {
+      width: 40vw;
+      height: 40vw;
+      border-radius: 50%;
+      border: 1px solid black;
+      object-fit: cover;
+      box-shadow: 5px 5px 10px 2px black;
+      margin-bottom: 0.5em;
+    }
+     &__name {
+        font-size: large;
+        font-weight: bold;
+     }
+
+     &__role {
+       text-align: center;
+      width: 40vw;
+     }
+}
+
+@media only screen and (min-width: 426px) {
+  .team {
+    &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .team {
+    &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    }
+
+    &__card {
+      margin-bottom: 1em;
+      width: 30vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+     &__role {
+       text-align: center;
+        width: 30vw;
+     }
+
+     &__pic {
+       width: 20vw;
+       height: 20vw;
+       object-fit: cover;
+     }
+  }
+}

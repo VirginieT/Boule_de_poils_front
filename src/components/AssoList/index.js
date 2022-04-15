@@ -3,8 +3,8 @@ import {
 } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { connexionAssociationApi } from '../../actions/association';
 import CssBaseline from '@mui/material/CssBaseline';
+import { connexionAssociationApi } from '../../actions/association';
 import './assoList.scss';
 import Loader from '../Loader';
 
