@@ -49,6 +49,24 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <NavBar />
         <Routes>
+
+        <Route
+            path="/searchanimal"
+            element={
+              formsubmit ? (
+                <SearchedAnimals />
+              )
+                : (
+                  <>
+                    <Presentation />
+                    <SearchForm id="searchForm" />
+                  </>
+                )
+            }
+          />
+
+
+       
           <Route path="/manager/animal" element={<> <ManagerNav /> <DashboardAnimal /> </>} />
           <Route path="/manager/animal/add" element={<> <ManagerNav /> <AddAnimalForm /> </>} />
           <Route path="/manager/association" element={<> <ManagerNav /> <DashboardAsso /> </>} />
