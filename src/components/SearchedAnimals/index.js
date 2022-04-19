@@ -18,7 +18,7 @@ const SearchedAnimals = () => {
   useEffect(() => {
     dispatch(fetchAnimals());
   }, []);
-  
+
   function refreshPage() {
     window.location.reload(false);
   }
@@ -38,7 +38,7 @@ const SearchedAnimals = () => {
       <div className="animal__profil">
         <CssBaseline />
         <Arrows />
-        <AnimalPicture picture={animalProfile.picture} />
+        <AnimalPicture picture={animalProfile.imageName} />
         <AnimalDescription {...animalProfile} />
         <ContactButton showContactValue={showContact} />
         {showContact && (<AssociationContact {...animalProfile.association} />)}
