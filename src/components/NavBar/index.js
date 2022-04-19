@@ -21,7 +21,7 @@ const NavBar = () => {
 
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
-      <a href="/" label="homepage" className="logo__link"><img className="navbar__logo" src={logo} alt="" /></a>
+       <li><Link to="/" label="homepage"><img className="logobouledepoils" src={logo} alt="logo" /></Link></li>
       <h1 className="navbar__title">Boules de poil</h1>
       <ul className="navbar__links">
         {connectedUser && (
@@ -32,25 +32,25 @@ const NavBar = () => {
           </li>
         )}
         <li className="navbar__item slideInDown-2 ">
-          <a href="/" className="navbar__link">
+          <Link to="/searchanimal" className="navbar__link">
             Rechercher un animal
-          </a>
+          </Link>
         </li>
         <li className="navbar__item slideInDown-3">
-          <a href="/conseils" className="navbar__link">
+          <Link to="/conseils" className="navbar__link">
             Conseils pour l'adoption
-          </a>
+          </Link>
         </li>
         <li className="navbar__item slideInDown-4">
-          <a href="/associations" className="navbar__link">
+          <Link to="/associations" className="navbar__link">
             Les associations
-          </a>
+          </Link>
         </li>
         {(role !== 'ROLE_USER' && role !== null) && (
           <li className="navbar__item slideInDown-5">
-            <a href="/login" className="navbar__link">
+            <Link to="/login" className="navbar__link">
               Admin/compte user
-            </a>
+            </Link>
           </li>
         )}
         {connectedUser ? (
