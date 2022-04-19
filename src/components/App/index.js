@@ -17,10 +17,7 @@ import AssoContactAdmin from '../AssoContactAdmin/assoContactAdmin';
 import ManagerNav from '../ManagerNav';
 import DashboardAnimal from '../DashboardAnimal/dashboardAnimal';
 import DashboardAsso from '../DashboardAsso/dashboardAsso';
-import AddAssoForm from '../AddAssoForm';
-import FormResult from '../FormResult';
 import Team from '../Team/team';
-
 import Error from '../Error';
 
 const theme = createTheme({
@@ -50,7 +47,7 @@ const App = () => {
         <NavBar />
         <Routes>
 
-        <Route
+          <Route
             path="/searchanimal"
             element={
               formsubmit ? (
@@ -64,9 +61,6 @@ const App = () => {
                 )
             }
           />
-
-
-       
           <Route path="/manager/animal" element={<> <ManagerNav /> <DashboardAnimal /> </>} />
           <Route path="/manager/animal/add" element={<> <ManagerNav /> <AddAnimalForm /> </>} />
           <Route path="/manager/association" element={<> <ManagerNav /> <DashboardAsso /> </>} />
@@ -78,7 +72,10 @@ const App = () => {
           <Route path="/rejoindre" element={<AssoContactAdmin />} />
           <Route path="/signin" element={<SubscribeForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/erreur" element={<Error />} />
+          <Route
+            path="*"
+            element={<Error />}
+          />
           <Route
             path="/"
             element={
