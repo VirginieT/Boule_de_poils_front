@@ -12,7 +12,7 @@ const initialState = {
 
   description: '',
 
-  picture: '',
+  imageName: '',
 
 };
 

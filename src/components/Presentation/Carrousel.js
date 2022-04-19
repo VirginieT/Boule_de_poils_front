@@ -37,7 +37,7 @@ const Carrousel = () => {
           key={slide.id}
         >
           {index === displayedProfile && (
-            <img src={slide.picture} alt="travel" className="slider__image" />
+            <img src={slide.imageName} alt="travel" className="slider__image" />
           )}
         </div>
       ))}
