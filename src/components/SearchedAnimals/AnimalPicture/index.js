@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const AnimalPicture = ({ picture }) => (
   <img
     className="animal__picture"
-    src={picture}
+    src={'http://localhost:8081/images/animaux/' + picture}
     alt="animal's profile"
   />
 );
