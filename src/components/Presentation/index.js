@@ -26,11 +26,10 @@ const Presentation = () => {
         <>
           <div className="site__identity">
             <h1 className="site__maintitle">Boule de poils</h1>
-            <p>Bienvenue sur le site Boule de poils,
-              ici, tu trouveras plein d'animaux qui n'attendent
-              qu'un foyer aimant pour les accueillir !
-              Effectue une recherche et tut auras peut-être
-              la chance de tomber sur le profil de :
+            <p>Bienvenue sur le site Boule de poils, ici,
+              tu trouveras plein d'animaux qui n'attendent qu'un foyer
+              aimant pour les accueillir ! Effectue une recherche et
+              tu auras peut-être la chance de tomber sur le profil de :
             </p>
           </div>
 
@@ -41,11 +40,10 @@ const Presentation = () => {
           <div className="random__info">
             <div className="site__identity--medium">
               <h1 className="site__maintitle--medium">Boule de poils</h1>
-              <p>Bienvenue sur le site Boule de poils,
-                ici, tu trouveras plein d'animaux qui n'attendent
-                qu'un foyer aimant pour les accueillir !
-                Effectue une recherche et tut auras peut-être
-                la chance de tomber sur le profil de :
+              <p>Bienvenue sur le site Boule de poils, ici,
+                tu trouveras plein d'animaux qui n'attendent qu'un foyer
+                aimant pour les accueillir ! Effectue une recherche et
+                tu auras peut-être la chance de tomber sur le profil de :
               </p>
             </div>
             <h2 className="random__name">{animalProfile.name}</h2>

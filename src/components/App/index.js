@@ -50,7 +50,7 @@ const App = () => {
         <NavBar />
         <Routes>
 
-        <Route
+          <Route
             path="/searchanimal"
             element={
               formsubmit ? (
@@ -66,7 +66,7 @@ const App = () => {
           />
 
 
-       
+
           <Route path="/manager/animal" element={<> <ManagerNav /> <DashboardAnimal /> </>} />
           <Route path="/manager/animal/add" element={<> <ManagerNav /> <AddAnimalForm /> </>} />
           <Route path="/manager/association" element={<> <ManagerNav /> <DashboardAsso /> </>} />
