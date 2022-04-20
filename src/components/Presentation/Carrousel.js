@@ -18,7 +18,7 @@ const Carrousel = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 7000);
     return () => clearInterval(interval);
   });
 
@@ -28,8 +28,8 @@ const Carrousel = () => {
 
   return (
     <section className="carrousel">
-      <ArrowBackIosIcon className="left-arrow" onClick={prevSlide} />
-      <ArrowForwardIosIcon className="right-arrow" onClick={nextSlide} />
+      {/*<ArrowBackIosIcon className="left-arrow" onClick={prevSlide} />
+      <ArrowForwardIosIcon className="right-arrow" onClick={nextSlide} />*/}
       {allAnimalProfiles.map((slide, index) => (
         <div
           className={index === displayedProfile ? 'slide active' : 'slide'}
