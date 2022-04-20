@@ -191,14 +191,14 @@ export default function SearchForm() {
       action = changeAvailableUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 1);
+      action = changeStatusField('status', 0);
       dispatch(action);
     }
     else {
       action = changeAvailableChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 0);
+      action = changeStatusField('status', 1);
       dispatch(action);
     }
   };

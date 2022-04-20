@@ -23,7 +23,7 @@ const initialState = {
   childCompatibility: 1,
   otherAnimalCompatibility: 1,
   gardenNeeded: 1,
-  status: 1,
+  status: 0,
   department: 0,
   animalResults: [],
   displayProfile: 0,
