@@ -20,7 +20,6 @@ export const saveData = (results) => ({
   type: SAVE_DATA,
   datas: results,
 
-
 });
 
 export const displayNextSlide = () => ({
