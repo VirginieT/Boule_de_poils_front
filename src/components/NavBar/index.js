@@ -25,29 +25,29 @@ const NavBar = () => {
       <ul className="navbar__links">
         {connectedUser && (
           <li className="navbar__item slideInDown-1 " onClick={handleShowLinks}>
-            <Link href="/favoris" className="navbar__link">
+            <Link to="/favoris" className="navbar__link">
               Mes favoris
             </Link>
           </li>
         )}
-        <li className="navbar__item slideInDown-2 ">
-          <Link to="/" className="navbar__link" onClick={handleShowLinks}>
+        <li className="navbar__item slideInDown-2 " onClick={handleShowLinks}>
+          <Link to="/#searchForm" className="navbar__link">
             Rechercher un animal
           </Link>
         </li>
-        <li className="navbar__item slideInDown-3">
-          <Link to="/conseils" className="navbar__link" onClick={handleShowLinks}>
+        <li className="navbar__item slideInDown-3" onClick={handleShowLinks}>
+          <Link to="/conseils" className="navbar__link">
             Conseils pour l'adoption
           </Link>
         </li>
-        <li className="navbar__item slideInDown-4">
-          <Link to="/associations" className="navbar__link" onClick={handleShowLinks}>
+        <li className="navbar__item slideInDown-4" onClick={handleShowLinks}>
+          <Link to="/associations" className="navbar__link">
             Les associations
           </Link>
         </li>
         {(role !== 'ROLE_USER' && role !== null) && (
-          <li className="navbar__item slideInDown-5">
-            <Link to="/login" className="navbar__link" onClick={handleShowLinks}>
+          <li className="navbar__item slideInDown-5" onClick={handleShowLinks}>
+            <Link to="/login" className="navbar__link">
               Admin/compte user
             </Link>
           </li>
@@ -56,7 +56,7 @@ const NavBar = () => {
           <li className="navbar__item slideInDown-6" onClick={handleShowLinks}>
             <Link
               to="/"
-              className="navbar__link"
+              className="navbar__link items"
               onClick={() => (dispatch(logout()))}
             >
               Logout
@@ -66,7 +66,7 @@ const NavBar = () => {
           <li className="navbar__item slideInDown-6" onClick={handleShowLinks}>
             <Link
               to="/login"
-              className="navbar__link"
+              className="navbar__link items"
             >
               Login
             </Link>
