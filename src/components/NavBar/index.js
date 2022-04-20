@@ -24,36 +24,36 @@ const NavBar = () => {
       <h1 className="navbar__title">Boules de poil</h1>
       <ul className="navbar__links">
         {connectedUser && (
-          <li className="navbar__item slideInDown-1 ">
+          <li className="navbar__item slideInDown-1 " onClick={handleShowLinks}>
             <Link href="/favoris" className="navbar__link">
               Mes favoris
             </Link>
           </li>
         )}
         <li className="navbar__item slideInDown-2 ">
-          <Link to="/" className="navbar__link">
+          <Link to="/" className="navbar__link" onClick={handleShowLinks}>
             Rechercher un animal
           </Link>
         </li>
         <li className="navbar__item slideInDown-3">
-          <Link to="/conseils" className="navbar__link">
+          <Link to="/conseils" className="navbar__link" onClick={handleShowLinks}>
             Conseils pour l'adoption
           </Link>
         </li>
         <li className="navbar__item slideInDown-4">
-          <Link to="/associations" className="navbar__link">
+          <Link to="/associations" className="navbar__link" onClick={handleShowLinks}>
             Les associations
           </Link>
         </li>
         {(role !== 'ROLE_USER' && role !== null) && (
           <li className="navbar__item slideInDown-5">
-            <Link to="/login" className="navbar__link">
+            <Link to="/login" className="navbar__link" onClick={handleShowLinks}>
               Admin/compte user
             </Link>
           </li>
         )}
         {connectedUser ? (
-          <li className="navbar__item slideInDown-6">
+          <li className="navbar__item slideInDown-6" onClick={handleShowLinks}>
             <Link
               to="/"
               className="navbar__link"
@@ -63,7 +63,7 @@ const NavBar = () => {
             </Link>
           </li>
         ) : (
-          <li className="navbar__item slideInDown-6">
+          <li className="navbar__item slideInDown-6" onClick={handleShowLinks}>
             <Link
               to="/login"
               className="navbar__link"
