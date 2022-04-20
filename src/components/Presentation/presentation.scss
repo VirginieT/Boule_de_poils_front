@@ -17,6 +17,18 @@
     justify-content: center;
     align-items: center;
   }
+
+  &__name {
+    font-family: 'Arima Madurai', cursive;
+    font-size: 1.9em;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  &__description{
+    font-family: 'Arima Madurai', cursive;
+    font-size: 1.2em;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -115,14 +127,14 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .random{
+  .random {
     height: 40vw;
     width: 90vw;
   }
 }
 
 @media only screen and (min-width: 1280px) {
-  .random{
+  .random {
     height: 30vw;
     width: 80vw;
   }
@@ -130,21 +142,21 @@
 
 
 @media only screen and (min-width: 1440px) {
-  .random{
+  .random {
     height: 27vw;
     width: 80vw;
   }
 }
 
 @media only screen and (min-width: 1920px) {
-  .random{
+  .random {
     height: 21vw;
     width: 80vw;
   }
 }
 
 @media only screen and (min-width: 2560px) {
-  .random{
+  .random {
     height: 17.5vw;
     width: 40vw;
   }
