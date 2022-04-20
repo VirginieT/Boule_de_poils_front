@@ -8,13 +8,11 @@ const Carrousel = () => {
   const dispatch = useDispatch();
 
   const nextSlide = () => {
-    console.log('on execute cette fonction toutes les 5 secondes et quand on clique');
     clearInterval();
     dispatch(displayNextSlide());
   };
 
   const prevSlide = () => {
-    console.log('on execute cette fonction quand on clique');
     clearInterval();
     dispatch(displayPreviousSlide());
   };
