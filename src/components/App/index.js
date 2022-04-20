@@ -65,12 +65,10 @@ const App = () => {
             }
           />
 
-
-
           <Route path="/manager/animal" element={<> <ManagerNav /> <DashboardAnimal /> </>} />
           <Route path="/manager/animal/add" element={<> <ManagerNav /> <AddAnimalForm /> </>} />
           <Route path="/manager/association" element={<> <ManagerNav /> <DashboardAsso /> </>} />
-          <Route path="/manager/association/add" element={<> <ManagerNav /> <DashboardAsso /> </>} />
+          <Route path="/manager/association/add" element={<> <ManagerNav /> <AddAssoForm /> </>} />
           <Route path="/add" element={<AddAnimalForm />} />
           <Route path="/conseils" element={<Advices />} />
           <Route path="/associations" element={<AssoList />} />
@@ -78,7 +76,7 @@ const App = () => {
           <Route path="/rejoindre" element={<AssoContactAdmin />} />
           <Route path="/signin" element={<SubscribeForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/erreur" element={<Error />} />
+          <Route path="*" element={<Error />} />
           <Route
             path="/"
             element={
