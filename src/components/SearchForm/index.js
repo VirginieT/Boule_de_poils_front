@@ -155,14 +155,14 @@ export default function SearchForm() {
       action = changeGardenUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 1);
+      action = changeGardenField('gardenNeeded', 0);
       dispatch(action);
     }
     else {
       action = changeGardenChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 0);
+      action = changeGardenField('gardenNeeded', 1);
       dispatch(action);
     }
   };
@@ -363,7 +363,7 @@ export default function SearchForm() {
                   <Checkbox id="checkbox_garden" />
 
                 )}
-                label="Besoin d'un accès à l'extérieur"
+                label="Avez-vous un jardin ?"
                 value={gardenValue}
                 onChange={handleChangeGarden}
               />
