@@ -334,7 +334,7 @@ export default function SearchForm() {
                     >
                       <MenuItem value={0}>moins de 1 an</MenuItem>
                       <MenuItem value={1}>1 à 5 ans</MenuItem>
-                      <MenuItem value={2}>5 à 10 ans</MenuItem>
+                      <MenuItem value={2}>6 à 10 ans</MenuItem>
                       <MenuItem value={3}>plus de 10 ans</MenuItem>
                       <MenuItem value={4}>Indifférent</MenuItem>
                     </Select>
