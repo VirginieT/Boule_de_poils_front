@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from 'src/actions/login';
-
 
 import './navbar.scss';
 
@@ -21,18 +20,18 @@ const NavBar = () => {
 
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
-       <li><Link to="/" label="homepage"><img className="logo__link" src={logo} alt="logo" /></Link></li>
+      <Link to="/" label="homepage"><img className="logo__link" src={logo} alt="logo" /></Link>
       <h1 className="navbar__title">Boules de poil</h1>
       <ul className="navbar__links">
         {connectedUser && (
           <li className="navbar__item slideInDown-1 ">
-            <a href="/#searchForm" className="navbar__link">
+            <Link href="/favoris" className="navbar__link">
               Mes favoris
-            </a>
+            </Link>
           </li>
         )}
         <li className="navbar__item slideInDown-2 ">
-          <Link to="/searchanimal" className="navbar__link">
+          <Link to="/#searchForm" className="navbar__link">
             Rechercher un animal
           </Link>
         </li>
@@ -54,20 +53,20 @@ const NavBar = () => {
           </li>
         )}
         {connectedUser ? (
-          <li>
+          <li className="navbar__item slideInDown-6">
             <Link
               to="/"
-              className="items"
+              className="navbar__link"
               onClick={() => (dispatch(logout()))}
             >
               Logout
             </Link>
           </li>
         ) : (
-          <li>
+          <li className="navbar__item slideInDown-6">
             <Link
               to="/login"
-              className="items"
+              className="navbar__link"
             >
               Login
             </Link>
