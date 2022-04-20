@@ -3,6 +3,7 @@ import {
   PREVIOUS_PROFILE,
   DISPLAY_CONTACT,
   SAVE_ANIMALS,
+  EMPTY_ANIMAL_RESULTS,
 } from 'src/actions/animalSearched';
 import {
   CHANGE_AGE_FIELD,
@@ -117,6 +118,13 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         animalResults: action.datas,
+      };
+    }
+
+    case EMPTY_ANIMAL_RESULTS: {
+      return {
+        ...state,
+        animalResults: [],
       };
     }
 

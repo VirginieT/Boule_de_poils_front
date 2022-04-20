@@ -41,6 +41,7 @@ export const ZIPCODE_ERROR = 'ZIPCODE_ERROR';
 export const CITY_ERROR = 'CITY_ERROR';
 export const PHONENUMBER_ERROR = 'PHONENUMBER_ERROR';
 export const EMAIL_ERROR = 'EMAIL_ERROR';
+export const NOTSUBMIT_FORM = 'NOTSUBMIT_FORM';
 
 export const changeChildChecked = () => ({
   type: CHILD_CHECK,
@@ -124,6 +125,10 @@ export const changeAgeField = (key, newValue) => ({
 
 export const formSubmit = () => ({
   type: SUBMIT_FORM,
+});
+
+export const notSubmit = () => ({
+  type: NOTSUBMIT_FORM,
 });
 
 export const fetchGeoloc = (street, zipCode) => ({

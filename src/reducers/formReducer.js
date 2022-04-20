@@ -23,6 +23,7 @@ import {
   CITY_ERROR,
   PHONENUMBER_ERROR,
   EMAIL_ERROR,
+  NOTSUBMIT_FORM,
 } from 'src/actions/formActions';
 
 const initialState = {
@@ -135,6 +136,13 @@ const formReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         formSubmit: true,
+      };
+    }
+
+    case NOTSUBMIT_FORM: {
+      return {
+        ...state,
+        formSubmit: false,
       };
     }
 

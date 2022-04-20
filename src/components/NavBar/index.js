@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from 'src/actions/login';
+import { emptyAnimalResults } from 'src/actions/animalSearched';
+import { notSubmit } from 'src/actions/formActions';
 
 import './navbar.scss';
 
@@ -15,6 +17,8 @@ const NavBar = () => {
   const [showLinks, setShowLinks] = useState(false);
 
   const handleShowLinks = () => {
+    dispatch(emptyAnimalResults());
+    dispatch(notSubmit());
     setShowLinks(!showLinks);
   };
 
