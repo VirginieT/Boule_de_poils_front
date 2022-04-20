@@ -113,3 +113,25 @@
     top: 2vw;
   }
 }
+
+@media only screen and (min-width: 1525px) {
+
+  .slide {
+    top: -12.5vw;
+  }
+
+  .slider__image {
+    max-width: 600px;
+    max-height: 600px;
+  }
+
+  .right-arrow {
+    right:-12.5vw;
+    top: 2vw;
+  }
+  
+  .left-arrow {
+    left: -12.5vw;
+    top: 2vw;
+  }
+}
