@@ -3,7 +3,7 @@
 .random {
   display: flex;
   flex-direction: column;
-  padding-top: 90px;
+  margin-top: 100px;
 
   &__info {
     text-align: center;
@@ -42,7 +42,7 @@
     background-color: vars.$back_color_2;
     display: flex;
     width: 90vw;
-    padding-top: 90px;
+    padding: 1em;
     border-radius: 20px;
 
     &__info {
@@ -81,13 +81,15 @@
 }
 
 @media only screen and (min-width: 768px) {
+
   .random {
     flex-direction: row;
     justify-content: space-evenly;
     background-color: vars.$back_color_2;
     display: flex;
+    height: 60vh;
     width: 90vw;
-    padding-top: 90px;
+    padding: 1em;
     border-radius: 20px;
 
     &__info {
@@ -95,7 +97,7 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      width: 30vw;
+      width: 40vw;
     }
 
     &__carrousel {
@@ -112,6 +114,10 @@
 }
 
 @media only screen and (min-width: 1525px) {
+  .random{
+    height: 40vh;
+  }
+
   .random__info {
     margin-top: 5em;
   }

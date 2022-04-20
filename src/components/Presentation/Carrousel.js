@@ -27,7 +27,7 @@ const Carrousel = () => {
   const allAnimalProfiles = useSelector((state) => (state.Carroussel.apiresults));
 
   return (
-    <section className="slider">
+    <section className="carrousel">
       <ArrowBackIosIcon className="left-arrow" onClick={prevSlide} />
       <ArrowForwardIosIcon className="right-arrow" onClick={nextSlide} />
       {allAnimalProfiles.map((slide, index) => (

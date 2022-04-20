@@ -345,7 +345,7 @@ export default function SearchForm() {
                   <Checkbox id="checkbox_child" />
 
                 )}
-                label="Accepte le contact avec les enfants"
+                label="Avez-vous des enfants ?"
                 value={childValue}
                 onChange={handleChangeChild}
               />
@@ -354,7 +354,7 @@ export default function SearchForm() {
                   <Checkbox id="checkbox_others" />
 
                 )}
-                label="Accepte le contact avec d'autres animaux"
+                label="Avez-vous d'autres animaux ?"
                 value={othersValue}
                 onChange={handleChangeOthers}
               />

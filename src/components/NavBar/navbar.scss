@@ -6,7 +6,7 @@
   display:flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding:1rem;
   width: 100vw;
   min-height: 75px;
@@ -30,7 +30,10 @@
   height: 50px;
 }
 .navbar__links { 
-  display: flex;   
+  display: flex;
+  width: 75vw;
+  justify-content: space-evenly;
+
 }
 .navbar__link {
   padding: 0 0.3rem;
@@ -46,6 +49,10 @@
 }
 
 @media screen and (max-width:767px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
   .navbar__links {
     flex-direction: column;
     justify-content: center;
