@@ -119,14 +119,14 @@ export default function SearchForm() {
       action = changeChildUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 1);
+      action = changeChildField('childCompatibility', 0);
       dispatch(action);
     }
     else {
       action = changeChildChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 0);
+      action = changeChildField('childCompatibility', 1);
       dispatch(action);
     }
   };
@@ -137,14 +137,14 @@ export default function SearchForm() {
       action = changeOthersUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 1);
+      action = changeOthersField('otherAnimalCompatibility', 0);
       dispatch(action);
     }
     else {
       action = changeOthersChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 0);
+      action = changeOthersField('otherAnimalCompatibility', 1);
       dispatch(action);
     }
   };
@@ -345,7 +345,7 @@ export default function SearchForm() {
                   <Checkbox id="checkbox_child" />
 
                 )}
-                label="Sociable avec les enfants"
+                label="Accepte le contact avec les enfants"
                 value={childValue}
                 onChange={handleChangeChild}
               />
@@ -354,7 +354,7 @@ export default function SearchForm() {
                   <Checkbox id="checkbox_others" />
 
                 )}
-                label="Sociable avec les autres animaux"
+                label="Accepte le contact avec d'autres animaux"
                 value={othersValue}
                 onChange={handleChangeOthers}
               />
