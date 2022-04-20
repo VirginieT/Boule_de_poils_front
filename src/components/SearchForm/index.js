@@ -119,14 +119,14 @@ export default function SearchForm() {
       action = changeChildUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 1);
+      action = changeChildField('childCompatibility', 0);
       dispatch(action);
     }
     else {
       action = changeChildChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 0);
+      action = changeChildField('childCompatibility', 1);
       dispatch(action);
     }
   };
@@ -137,14 +137,14 @@ export default function SearchForm() {
       action = changeOthersUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 1);
+      action = changeOthersField('otherAnimalCompatibility', 0);
       dispatch(action);
     }
     else {
       action = changeOthersChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 0);
+      action = changeOthersField('otherAnimalCompatibility', 1);
       dispatch(action);
     }
   };
@@ -155,14 +155,14 @@ export default function SearchForm() {
       action = changeGardenUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 1);
+      action = changeGardenField('gardenNeeded', 0);
       dispatch(action);
     }
     else {
       action = changeGardenChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 0);
+      action = changeGardenField('gardenNeeded', 1);
       dispatch(action);
     }
   };
@@ -191,14 +191,14 @@ export default function SearchForm() {
       action = changeAvailableUnchecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 1);
+      action = changeStatusField('status', 0);
       dispatch(action);
     }
     else {
       action = changeAvailableChecked();
       dispatch(action);
       // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 0);
+      action = changeStatusField('status', 1);
       dispatch(action);
     }
   };
