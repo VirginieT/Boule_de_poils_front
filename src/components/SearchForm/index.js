@@ -147,7 +147,6 @@ export default function SearchForm() {
   };
 
   const handleChangeStatus = (event) => {
-    console.log(event.target.checked);
     if (event.target.checked) {
       dispatch(changeStatusField('status', 1));
     }
@@ -186,7 +185,7 @@ export default function SearchForm() {
             color="secondary"
             fullWidth
             sx={{ px: 0, py: 0 }}
-            >
+          >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"

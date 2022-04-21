@@ -14,8 +14,7 @@ const registrationMiddleware = (store) => (next) => (action) => {
           password: store.getState().Registration.password,
         },
       )
-        .then((response) => {
-          console.log(response);
+        .then(() => {
           store.dispatch(registrationSucces(true));
         })
         .catch((error) => {

@@ -1,19 +1,11 @@
 import { SAVE_DATA, NEXT_SLIDE, PREVIOUS_SLIDE } from 'src/actions/carroussel';
 
-
-
 const initialState = {
-
   displayProfile: 0,
-
   apiresults: [],
-
   name: '',
-
   description: '',
-
   imageName: '',
-
 };
 
 const carrouselReducer = (state = initialState, action = {}) => {

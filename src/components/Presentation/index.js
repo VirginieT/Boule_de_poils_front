@@ -32,20 +32,18 @@ const Presentation = () => {
               aimant pour les accueillir !
             </p>
             <p className="random__welcome">Effectue une recherche et
-              tu auras peut-être la chance de tomber sur le profil de :</p>
+              tu auras peut-être la chance de tomber sur le profil de :
+            </p>
           </div>
 
           <div className="random__carrousel">
             <Carrousel />
           </div>
-
-          
-            <div className="random__animal">
-              <h2 className="random__name">{animalProfile.name}</h2>
-              <p className="random__description">{animalProfile.description}</p>
-              <p className="random__more">...</p>
-            </div>
-          
+          <div className="random__animal">
+            <h2 className="random__name">{animalProfile.name}</h2>
+            <p className="random__description">{animalProfile.description}</p>
+            <p className="random__more">...</p>
+          </div>
         </>
       ) : <Loader />}
     </div>

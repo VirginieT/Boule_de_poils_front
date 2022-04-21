@@ -19,9 +19,8 @@ const NavBar = () => {
   const handleShowLinks = () => {
     dispatch(emptyAnimalResults());
     dispatch(notSubmit());
-    if (window.matchMedia("(max-width: 767px)").matches) {
+    if (window.matchMedia('(max-width: 767px)').matches) {
       setShowLinks(!showLinks);
-      console.log('coucou')
     }
   };
 
@@ -32,7 +31,7 @@ const NavBar = () => {
 
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
-      <Link to="/" label="homepage"><img className="logo__link" src={logo} alt="logo" onClick={handleLogo}/></Link>
+      <Link to="/" label="homepage"><img className="logo__link" src={logo} alt="logo" onClick={handleLogo} /></Link>
       <h1 className="navbar__title">Boule de poils</h1>
       <ul className="navbar__links">
         {connectedUser && (

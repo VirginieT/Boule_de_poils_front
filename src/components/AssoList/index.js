@@ -17,22 +17,12 @@ const AssoList = () => {
 
   const allAssociations = useSelector((state) => state.Association.apiresults);
 
-  console.log(allAssociations);
-
   return (
     <div className="assoInfo">
       <CssBaseline />
       <h2 className="assoInfo__title">Nos associations partenaires</h2>
       <p className="assoInfo__subtitle">Retrouvez la liste des associations participantes à la plateforme Boule de poils.</p>
       <p className="assoInfo__subtitle">Rien ne serait possible sans elles. Nous ne pouvons que saluer leur engagement auprès des animaux.</p>
-      {/*<div className="assoInfo__map">
-        <MapContainer center={[46.5, 2.6]} zoom={5}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-        </MapContainer>
-      </div>*/}
       <div className="assoInfo__list">
         {allAssociations.length > 0 ? (
           allAssociations.map((association) => (

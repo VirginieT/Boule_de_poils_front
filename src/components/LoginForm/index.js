@@ -22,7 +22,6 @@ export default function LoginForm() {
 
   const handleChange = (event) => {
     dispatch(changedFields(event.target.name, event.target.value));
-    // console.log(event.target.name, event.target.value);
   };
 
   const handleSubmit = (event) => {

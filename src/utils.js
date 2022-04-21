@@ -1,5 +1,3 @@
-export const log = (param) => console.log(param);
-
 const passwordHas8CharMin = (password) => password.length >= 8;
 
 const passwordHasUpperCaseChar = (password) => /[A-Z]/.test(password);

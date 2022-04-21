@@ -15,7 +15,7 @@ import {
   emptyErrors,
   checkValidPassword,
   submitRegistration,
-  checkValidMail
+  checkValidMail,
 } from 'src/actions/register';
 import { isPasswordOk, isEmailOk } from 'src/utils';
 import './subscribeForm.scss';
@@ -60,7 +60,6 @@ export default function SubscribeForm() {
       dispatch(checkValidPassword(false));
     }
     if (!isEmailOk(mail)) {
-      console.log("hello");
       dispatch(checkValidMail(false));
     }
     if (checkFields && isPasswordOk(password)) {

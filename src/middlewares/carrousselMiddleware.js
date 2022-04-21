@@ -8,7 +8,6 @@ const carrousselMiddleware = (store) => (next) => (action) => {
       axios.get('http://localhost:8081/api/animal/caroussel', {})
 
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(saveData(response.data));
         })
 

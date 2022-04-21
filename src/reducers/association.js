@@ -1,13 +1,9 @@
 import { SAVE_DATA_ASSOCIATION } from 'src/actions/association';
 
 const initialState = {
-
   apiresults: [],
   name: '',
-
   description: '',
-
-
 };
 
 const associationReducer = (state = initialState, action = {}) => {
