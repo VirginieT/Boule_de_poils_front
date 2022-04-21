@@ -19,7 +19,10 @@ const NavBar = () => {
   const handleShowLinks = () => {
     dispatch(emptyAnimalResults());
     dispatch(notSubmit());
-    setShowLinks(!showLinks);
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      setShowLinks(!showLinks);
+      console.log('coucou')
+    }
   };
 
   return (
