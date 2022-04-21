@@ -33,14 +33,6 @@ import {
   fetchDepartments,
   fetchSpecies,
   formSubmit,
-  changeChildChecked,
-  changeChildUnchecked,
-  changeOthersChecked,
-  changeOthersUnchecked,
-  changeGardenChecked,
-  changeGardenUnchecked,
-  changeAvailableChecked,
-  changeAvailableUnchecked,
   changeSpeciesError,
   changeAgeError,
   changeLocError,
@@ -57,10 +49,6 @@ export default function SearchForm() {
   const statusValue = useSelector((state) => state.SearchedAnimals.status);
   const departments = useSelector((state) => state.FormReducer.departments);
   const species = useSelector((state) => state.FormReducer.species);
-  const childChecked = useSelector((state) => state.FormReducer.childChecked);
-  const othersChecked = useSelector((state) => state.FormReducer.othersChecked);
-  const gardenChecked = useSelector((state) => state.FormReducer.gardenChecked);
-  const availableChecked = useSelector((state) => state.FormReducer.availableChecked);
   const speciesError = useSelector((state) => state.FormReducer.speciesError);
   const ageError = useSelector((state) => state.FormReducer.ageError);
   const locError = useSelector((state) => state.FormReducer.departmentError);
@@ -113,57 +101,30 @@ export default function SearchForm() {
     ageValidate(inputValue);
   };
 
-  const handleChangeChild = () => {
-    let action = '';
-    if (childChecked === true) {
-      action = changeChildUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 0);
-      dispatch(action);
+  const handleChangeChild = (event) => {
+    if (event.target.checked) {
+      dispatch(changeChildField('childCompatibility', 1));
     }
     else {
-      action = changeChildChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 1);
-      dispatch(action);
+      dispatch(changeChildField('childCompatibility', 0));
     }
   };
 
-  const handleChangeOthers = () => {
-    let action = '';
-    if (othersChecked === true) {
-      action = changeOthersUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 0);
-      dispatch(action);
+  const handleChangeOthers = (event) => {
+    if (event.target.checked) {
+      dispatch(changeOthersField('otherAnimalCompatibility', 1));
     }
     else {
-      action = changeOthersChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 1);
-      dispatch(action);
+      dispatch(changeOthersField('otherAnimalCompatibility', 0));
     }
   };
 
-  const handleChangeGarden = () => {
-    let action = '';
-    if (gardenChecked === true) {
-      action = changeGardenUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 0);
-      dispatch(action);
+  const handleChangeGarden = (event) => {
+    if (event.target.checked) {
+      dispatch(changeGardenField('gardenNeeded', 1));
     }
     else {
-      action = changeGardenChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 1);
-      dispatch(action);
+      dispatch(changeGardenField('gardenNeeded', 0));
     }
   };
 
@@ -185,21 +146,13 @@ export default function SearchForm() {
     locValidate(inputValue);
   };
 
-  const handleChangeStatus = () => {
-    let action = '';
-    if (availableChecked === true) {
-      action = changeAvailableUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 0);
-      dispatch(action);
+  const handleChangeStatus = (event) => {
+    console.log(event.target.checked);
+    if (event.target.checked) {
+      dispatch(changeStatusField('status', 1));
     }
     else {
-      action = changeAvailableChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 1);
-      dispatch(action);
+      dispatch(changeStatusField('status', 0));
     }
   };
 

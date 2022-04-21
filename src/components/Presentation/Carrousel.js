@@ -7,20 +7,15 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const Carrousel = () => {
   const dispatch = useDispatch();
 
-  const nextSlide = () => {
-    clearInterval();
-    dispatch(displayNextSlide());
-  };
+  // const nextSlide = () => {
+  //   clearInterval();
+  //   dispatch(displayNextSlide());
+  // };
 
-  const prevSlide = () => {
-    clearInterval();
-    dispatch(displayPreviousSlide());
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 7000);
-    return () => clearInterval(interval);
-  });
+  // useEffect(() => {
+  //   const interval = setInterval(nextSlide, 7000);
+  //   return () => clearInterval(interval);
+  // });
 
   const displayedProfile = useSelector((state) => state.Carroussel.displayProfile);
 
@@ -28,8 +23,6 @@ const Carrousel = () => {
 
   return (
     <section className="carrousel">
-      {/*<ArrowBackIosIcon className="left-arrow" onClick={prevSlide} />
-      <ArrowForwardIosIcon className="right-arrow" onClick={nextSlide} />*/}
       {allAnimalProfiles.map((slide, index) => (
         <div
           className={index === displayedProfile ? 'slide active' : 'slide'}

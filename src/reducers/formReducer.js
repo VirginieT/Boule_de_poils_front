@@ -2,14 +2,6 @@ import {
   SAVE_DEPARTMENT,
   SAVE_SPECIES,
   SUBMIT_FORM,
-  CHILD_CHECK,
-  CHILD_UNCHECK,
-  OTHERS_CHECK,
-  OTHERS_UNCHECK,
-  GARDEN_CHECK,
-  GARDEN_UNCHECK,
-  AVAILABLE_CHECK,
-  AVAILABLE_UNCHECK,
   SPECIES_ERROR,
   AGE_ERROR,
   LOC_ERROR,
@@ -25,15 +17,14 @@ import {
   EMAIL_ERROR,
   NOTSUBMIT_FORM,
 } from 'src/actions/formActions';
+import {
+  EMPTY_ANIMAL_RESULTS,
+} from 'src/actions/animalSearched';
 
 const initialState = {
   departments: [],
   species: [],
   formSubmit: false,
-  childChecked: false,
-  othersChecked: false,
-  gardenChecked: false,
-  availableChecked: false,
   speciesError: true,
   genderError: false,
   ageError: false,
@@ -73,62 +64,6 @@ const formReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         departmentError: action.value,
-      };
-    }
-
-    case CHILD_CHECK: {
-      return {
-        ...state,
-        childChecked: true,
-      };
-    }
-
-    case CHILD_UNCHECK: {
-      return {
-        ...state,
-        childChecked: false,
-      };
-    }
-
-    case OTHERS_CHECK: {
-      return {
-        ...state,
-        othersChecked: true,
-      };
-    }
-
-    case OTHERS_UNCHECK: {
-      return {
-        ...state,
-        othersChecked: false,
-      };
-    }
-
-    case GARDEN_CHECK: {
-      return {
-        ...state,
-        gardenChecked: true,
-      };
-    }
-
-    case GARDEN_UNCHECK: {
-      return {
-        ...state,
-        gardenChecked: false,
-      };
-    }
-
-    case AVAILABLE_CHECK: {
-      return {
-        ...state,
-        availableChecked: true,
-      };
-    }
-
-    case AVAILABLE_UNCHECK: {
-      return {
-        ...state,
-        availableChecked: false,
       };
     }
 
@@ -229,7 +164,12 @@ const formReducer = (state = initialState, action = {}) => {
         emailError: action.value,
       };
     }
-
+    case EMPTY_ANIMAL_RESULTS: {
+      return {
+        ...state,
+        speciesError: true,
+      };
+    }
     default:
       return state;
   }
