@@ -12,7 +12,7 @@ import './team.scss';
 const Team = () => (
   <div className="team">
     <CssBaseline />
-    <h2 className="team__title">L'équipe Boules de poil</h2>
+    <h2 className="team__title">L'équipe Boule de poils</h2>
     <div className="team__list">
       <div className="team__card">
         <img className="team__pic" src={AvatarJ} alt="Julien" />

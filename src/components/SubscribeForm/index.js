@@ -170,7 +170,7 @@ export default function SubscribeForm() {
                       Le mot de passe doit contenir au moins:
                       <li>8 charactères</li>
                       <li>1 chiffre</li>
-                      <li>1 charactère spéciales (@,*,- etc ...)</li>
+                      <li>1 caractère spécial (@,*,- etc ...)</li>
                       <li>1 majuscule</li>
                     </ul>
                   </Alert>
@@ -199,7 +199,7 @@ export default function SubscribeForm() {
           : (
             <Alert className="registration__message--succes" severity="success">
               <AlertTitle>Succès</AlertTitle>
-              Inscription réussi !
+              Inscription réussie !
               Vous pouvez maintenant vous connecter <a className="registration__redirection--login" href="login"> ici</a>!
             </Alert>
           )}
