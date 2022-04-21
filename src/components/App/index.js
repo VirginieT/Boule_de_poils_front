@@ -12,15 +12,8 @@ import LoginForm from '../LoginForm';
 import AssoList from '../AssoList';
 import Advices from '../Advices';
 import SubscribeForm from '../SubscribeForm';
-import AddAnimalForm from '../AddAnimalForm';
 import AssoContactAdmin from '../AssoContactAdmin/assoContactAdmin';
-import ManagerNav from '../ManagerNav';
-import DashboardAnimal from '../DashboardAnimal/dashboardAnimal';
-import DashboardAsso from '../DashboardAsso/dashboardAsso';
-import AddAssoForm from '../AddAssoForm';
-import FormResult from '../FormResult';
 import Team from '../Team/team';
-
 import Error from '../Error';
 
 const theme = createTheme({
@@ -49,27 +42,6 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <NavBar />
         <Routes>
-
-          <Route
-            path="/searchanimal"
-            element={
-              formsubmit ? (
-                <SearchedAnimals />
-              )
-                : (
-                  <>
-                    <Presentation />
-                    <SearchForm id="searchForm" />
-                  </>
-                )
-            }
-          />
-
-          <Route path="/manager/animal" element={<> <ManagerNav /> <DashboardAnimal /> </>} />
-          <Route path="/manager/animal/add" element={<> <ManagerNav /> <AddAnimalForm /> </>} />
-          <Route path="/manager/association" element={<> <ManagerNav /> <DashboardAsso /> </>} />
-          <Route path="/manager/association/add" element={<> <ManagerNav /> <AddAssoForm /> </>} />
-          <Route path="/add" element={<AddAnimalForm />} />
           <Route path="/conseils" element={<Advices />} />
           <Route path="/associations" element={<AssoList />} />
           <Route path="/equipe" element={<Team />} />

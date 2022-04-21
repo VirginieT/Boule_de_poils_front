@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 
 import loginReducer from './login';
-import assoReducer from './assoReducer';
 import formReducer from './formReducer';
 import searchedAnimalsReducer from './searchedAnimals';
 import registrationReducer from './registration';
@@ -14,7 +13,6 @@ const rootReducer = combineReducers({
   Registration: registrationReducer,
   FormReducer: formReducer,
   Login: loginReducer,
-  AssoReducer: assoReducer,
   Carroussel: carrouselReducer,
   Association: associationReducer,
 });
