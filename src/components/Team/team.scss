@@ -54,6 +54,22 @@
      }
 }
 
+.symfoLogo {
+  font-size: 3em;
+  position: relative;
+  top: -40vw;
+  right: -20vw;
+
+}
+
+.reactLogo {
+  font-size: 3em;
+  position: relative;
+  top: -40vw;
+  right: -20vw;
+  color: #0A66C2;
+}
+
 @media only screen and (min-width: 426px) {
   .team {
     &__list {
@@ -75,6 +91,22 @@
       height: 30vw;
       object-fit: cover;
     }
+  }
+
+  .symfoLogo {
+    font-size: 3em;
+    position: relative;
+    top: -25vw;
+    right: -10vw;
+  
+  }
+  
+  .reactLogo {
+    font-size: 3em;
+    position: relative;
+    top: -25vw;
+    right: -10vw;
+    color: #0A66C2;
   }
 }
 
@@ -110,5 +142,39 @@
        height: 15vw;
        object-fit: cover;
      }
+  }
+
+  .symfoLogo {
+    font-size: 2em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+  
+  }
+  
+  .reactLogo {
+    font-size: 2em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+    color: #0A66C2;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .symfoLogo {
+    font-size: 3em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+  
+  }
+  
+  .reactLogo {
+    font-size: 3em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+    color: #0A66C2;
   }
 }
