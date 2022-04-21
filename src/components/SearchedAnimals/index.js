@@ -35,14 +35,17 @@ const SearchedAnimals = () => {
 
   if (Array.isArray(allAnimalProfiles) && allAnimalProfiles.length > 0) {
     return (
-      <div className="animal__profil">
-        <CssBaseline />
+      <>
         <Arrows />
-        <AnimalPicture {...animalProfile} />
-        <AnimalDescription {...animalProfile} />
-        <ContactButton showContactValue={showContact} />
-        {showContact && (<AssociationContact {...animalProfile.association} />)}
-      </div>
+        <div className="animal__profil">
+          <CssBaseline />
+
+          <AnimalPicture {...animalProfile} />
+          <AnimalDescription {...animalProfile} />
+          <ContactButton showContactValue={showContact} />
+          {showContact && (<AssociationContact {...animalProfile.association} />)}
+        </div>
+      </>
     );
   }
   else if (allAnimalProfiles === 'void') {
