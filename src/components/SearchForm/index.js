@@ -158,21 +158,13 @@ export default function SearchForm() {
     locValidate(inputValue);
   };
 
-  const handleChangeStatus = () => {
-    let action = '';
-    if (availableChecked === true) {
-      action = changeAvailableUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 0);
-      dispatch(action);
+  const handleChangeStatus = (event) => {
+    console.log(event.target.checked);
+    if (event.target.checked) {
+      dispatch(changeStatusField('status', 1));
     }
     else {
-      action = changeAvailableChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeStatusField('status', 1);
-      dispatch(action);
+      dispatch(changeStatusField('status', 0));
     }
   };
 
