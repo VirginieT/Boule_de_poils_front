@@ -181,7 +181,12 @@ export default function SearchForm() {
         }}
       >
         <Accordion>
-          <Button variant="contained" fullWidth sx={{ px: 0, py: 0 }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            fullWidth
+            sx={{ px: 0, py: 0 }}
+            >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
@@ -213,7 +218,7 @@ export default function SearchForm() {
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
                     </Select>
-                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                    <FormHelperText>Merci de renseigner ce champ</FormHelperText>
                   </FormControl>
                 )
                 : (
@@ -270,7 +275,7 @@ export default function SearchForm() {
                       <MenuItem value={3}>plus de 10 ans</MenuItem>
                       <MenuItem value={4}>Indifférent</MenuItem>
                     </Select>
-                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                    <FormHelperText>Merci de renseigner ce champ</FormHelperText>
                   </FormControl>
                 )
                 : (
@@ -342,7 +347,7 @@ export default function SearchForm() {
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
                     </Select>
-                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                    <FormHelperText>Merci de renseigner ce champ</FormHelperText>
                   </FormControl>
                 )
                 : (
@@ -382,6 +387,7 @@ export default function SearchForm() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                color="secondary"
               >
                 Lancer la recherche
               </Button>

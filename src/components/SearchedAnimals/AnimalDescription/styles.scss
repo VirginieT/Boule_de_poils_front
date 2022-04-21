@@ -4,6 +4,8 @@
   position: relative;
   top: -1.5em;
 
+  
+
   .animal__caracteristics {
     position: relative;
     margin: 0 auto;
@@ -11,15 +13,20 @@
     background: vars.$medium_color;
     width: 90%;
     padding: vars.$smallPadding;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
 
     .animal__name {
       text-align: center;
-      font-size: vars.$mediumFontSize;
+      font-family: 'Arima Madurai', 'Roboto';
+      font-size: 2em;
+      font-weight: 700;
       padding: vars.$superSmallPadding
     }
 
     .animal__caracteristics--details {
-      font-size: vars.$baseFontSize;
+      font-family: 'Arima Madurai', 'Roboto';
+      font-weight: 700;
       display: flex;
       justify-content: space-between;
       padding: vars.$smallPadding vars.$mediumPadding;
@@ -46,6 +53,12 @@
     z-index: -1;
     margin: 0 auto;
     width: 90%;
+    font-family: 'Lato', 'Roboto';
+      font-size: 1em;
+      color: white;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+
     background-color: vars.$back_color_2;
     border-bottom-left-radius: vars.$mainBorderRadius;
     border-bottom-right-radius: vars.$mainBorderRadius;

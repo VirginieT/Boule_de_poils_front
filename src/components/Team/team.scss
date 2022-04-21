@@ -1,13 +1,16 @@
 .team {
-  padding-top: 90px;
+  padding-top: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
     &__title {
-      font-size: large;
-      font-weight: bold;
+      font-family: 'Arima Madurai', 'Roboto';
+      font-size: 2em;
+      font-weight: 700;
       margin-bottom: 1em;
+      width: 90vw;
+      text-align: center;
     }
 
     &__list {
@@ -24,23 +27,47 @@
       align-items: center;
     }
     &__pic {
-      width: 40vw;
-      height: 40vw;
+      width: 50vw;
+      height: 50vw;
       border-radius: 50%;
       border: 1px solid black;
       object-fit: cover;
-      box-shadow: 5px 5px 10px 2px black;
-      margin-bottom: 0.5em;
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;      margin-bottom: 0.5em;
     }
      &__name {
-        font-size: large;
-        font-weight: bold;
+      font-family: 'Arima Madurai', 'Roboto';
+      font-size: 1.5em;
+      font-weight: 700;
+      width: 90vw;
+      text-align: center;
      }
 
      &__role {
+      font-family: 'Lato', 'Roboto';
+      font-size: 1.2em;
        text-align: center;
       width: 40vw;
      }
+
+     &__ldkn {
+        color: #0A66C2;
+     }
+}
+
+.symfoLogo {
+  font-size: 3em;
+  position: relative;
+  top: -40vw;
+  right: -20vw;
+
+}
+
+.reactLogo {
+  font-size: 3em;
+  position: relative;
+  top: -40vw;
+  right: -20vw;
+  color: #0A66C2;
 }
 
 @media only screen and (min-width: 426px) {
@@ -52,6 +79,34 @@
     align-items: center;
     justify-content: center;
     }
+    &__name {
+      width: 50vw;
+     }
+
+     &__role {
+      width: 50vw;
+     }
+     &__pic {
+      width: 30vw;
+      height: 30vw;
+      object-fit: cover;
+    }
+  }
+
+  .symfoLogo {
+    font-size: 3em;
+    position: relative;
+    top: -25vw;
+    right: -10vw;
+  
+  }
+  
+  .reactLogo {
+    font-size: 3em;
+    position: relative;
+    top: -25vw;
+    right: -10vw;
+    color: #0A66C2;
   }
 }
 
@@ -83,9 +138,43 @@
      }
 
      &__pic {
-       width: 20vw;
-       height: 20vw;
+       width: 15vw;
+       height: 15vw;
        object-fit: cover;
      }
+  }
+
+  .symfoLogo {
+    font-size: 2em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+  
+  }
+  
+  .reactLogo {
+    font-size: 2em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+    color: #0A66C2;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .symfoLogo {
+    font-size: 3em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+  
+  }
+  
+  .reactLogo {
+    font-size: 3em;
+    position: relative;
+    top: -12vw;
+    right: -5vw;
+    color: #0A66C2;
   }
 }

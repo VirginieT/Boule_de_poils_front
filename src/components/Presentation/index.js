@@ -24,31 +24,28 @@ const Presentation = () => {
     <div className="random">
       {allAnimalProfiles.length > 0 ? (
         <>
-          <div className="site__identity">
-            <h1 className="site__maintitle">Boule de poils</h1>
-            <p>Bienvenue sur le site Boule de poils, ici,
+          <div className="random__identity">
+            <h1 className="random__title">Bienvenue sur le site Boule de poils</h1>
+            <p className="random__welcome">
+              Ici,
               tu trouveras plein d'animaux qui n'attendent qu'un foyer
-              aimant pour les accueillir ! Effectue une recherche et
-              tu auras peut-être la chance de tomber sur le profil de :
+              aimant pour les accueillir !
             </p>
+            <p className="random__welcome">Effectue une recherche et
+              tu auras peut-être la chance de tomber sur le profil de :</p>
           </div>
 
           <div className="random__carrousel">
             <Carrousel />
           </div>
 
-          <div className="random__info">
-            <div className="site__identity--medium">
-              <h1 className="site__maintitle--medium">Boule de poils</h1>
-              <p>Bienvenue sur le site Boule de poils, ici,
-                tu trouveras plein d'animaux qui n'attendent qu'un foyer
-                aimant pour les accueillir ! Effectue une recherche et
-                tu auras peut-être la chance de tomber sur le profil de :
-              </p>
+          
+            <div className="random__animal">
+              <h2 className="random__name">{animalProfile.name}</h2>
+              <p className="random__description">{animalProfile.description}</p>
+              <p className="random__more">...</p>
             </div>
-            <h2 className="random__name">{animalProfile.name}</h2>
-            <p className="random__description">{animalProfile.description}</p>
-          </div>
+          
         </>
       ) : <Loader />}
     </div>

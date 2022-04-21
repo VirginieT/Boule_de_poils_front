@@ -1,163 +1,142 @@
 @use 'src/styles/vars';
 
 .random {
+  width: 100vw;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 100px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 
-  &__info {
+  &__identity {
     text-align: center;
+    padding: 1em;
+  }
+
+  &__title {
+    font-family: 'Arima Madurai', 'Roboto';
+    font-size: 2em;
+    font-weight: 700;
+    display: none;
+  }
+
+  &__welcome {
+    font-family: 'Lato', 'Roboto';
+    font-size: 1.2em;
   }
 
   &__carrousel {
-    order: 0;
     height: 100vw;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
+  &__animal {
+    text-align: center;
+    padding: 1em;
+  }
+
   &__name {
     font-family: 'Arima Madurai', cursive;
-    font-size: 1.9em;
+    font-size: 1.5em;
     font-style: italic;
     font-weight: 600;
   }
 
   &__description{
-    font-family: 'Arima Madurai', cursive;
+    font-family: 'Lato', 'Roboto';
+    font-style: italic;
     font-size: 1.2em;
+    padding: 0.5em;
+    height: 15vw;
+    overflow: hidden;
+  }
+
+  &__more {
+    font-family: 'Lato', 'Roboto';
+    font-size: 2em;
+    font-weight: 700;
   }
 }
 
-@media only screen and (max-width: 600px) {
-  .site__maintitle {
-    display: none;
-  }
-
-  .site__identity {
-    padding: 1em;
-    text-align: center;
-  }
-
-  .site__identity--medium {
-    display: none;
-  }
-
-}
-
-@media only screen and (min-width: 600px) {
+@media screen and (min-width: 426px) {
   .random {
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: vars.$back_color_2;
-    display: flex;
     width: 90vw;
-    height: 70vw;
-    padding: 1em;
-    border-radius: 20px;
+    background-color: vars.$cta_color_1;
 
-    &__info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      padding: 1em;
-      width: 30vw;
+    &__carrousel {
+      width: 80vw;
+      height: 80vw;
     }
+
+    &__title {
+      display: block;
+    }
+
+    &__description{
+      height: 12vw;
+      overflow: hidden;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .random {
+    width: 80vw;
+    padding-bottom: 1.5em;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     &__carrousel {
       order: 1;
-      width: 50vw;
-      height: 50vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      width: 35vw;
+      height: 35vw;
     }
 
-    .site__identity {
+    &__animal {
+      width: 40%;
+    }
+
+    &__description{
+      height: 23vw;
+      overflow: hidden;
+      
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .random {
+    width: 60vw;
+    padding-bottom: 1.5em;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &__carrousel {
+      order: 1;
+      width: 25vw;
+      height: 25vw;
+    }
+
+    &__animal {
+      width: 40%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    &__description{
+      height: 50%;
+    }
+
+    &__more {
       display: none;
     }
-
-    .site__maintitle--medium {
-      font-size: 1.6em;
-      margin-bottom: 1em;
-      font-weight: bold;
-    }
-
-    .site__identity--medium p {
-      margin-bottom: 1.3em;
-    }
-  }
-}
-
-@media only screen and (min-width: 768px) {
-
-  .random {
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: vars.$back_color_2;
-    display: flex;
-    height: 70vw;
-    width: 90vw;
-    padding: 1em;
-    border-radius: 20px;
-
-    &__info {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      width: 40vw;
-    }
-
-    &__carrousel {
-      order: 1;
-      width: 30vw;
-      height: 30vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .random {
-    height: 40vw;
-    width: 90vw;
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  .random {
-    height: 30vw;
-    width: 80vw;
-  }
-}
-
-
-@media only screen and (min-width: 1440px) {
-  .random {
-    height: 27vw;
-    width: 80vw;
-  }
-}
-
-@media only screen and (min-width: 1920px) {
-  .random {
-    height: 21vw;
-    width: 80vw;
-  }
-}
-
-@media only screen and (min-width: 2560px) {
-  .random {
-    height: 17.5vw;
-    width: 40vw;
   }
 }
