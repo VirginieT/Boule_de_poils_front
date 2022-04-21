@@ -33,7 +33,7 @@ const Carrousel = () => {
           )}
         </div>
       ))}
-      </>
+      </section>
   );
 };
 
