@@ -99,7 +99,7 @@ export default function LoginForm() {
             severity="success"
             className="login--succes"
           >
-            Connexion réussi
+            Connexion réussie
           </Alert>
         )}
       </Box>

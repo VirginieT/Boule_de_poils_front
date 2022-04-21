@@ -265,7 +265,7 @@ export default function SearchForm() {
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
                     </Select>
-                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                    <FormHelperText>Merci de renseigner ce champ</FormHelperText>
                   </FormControl>
                 )
                 : (
@@ -322,7 +322,7 @@ export default function SearchForm() {
                       <MenuItem value={3}>plus de 10 ans</MenuItem>
                       <MenuItem value={4}>Indifférent</MenuItem>
                     </Select>
-                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                    <FormHelperText>Merci de renseigner ce champ</FormHelperText>
                   </FormControl>
                 )
                 : (
@@ -394,7 +394,7 @@ export default function SearchForm() {
                         <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
                       ))}
                     </Select>
-                    <FormHelperText>Merci de renseigner ce champs</FormHelperText>
+                    <FormHelperText>Merci de renseigner ce champ</FormHelperText>
                   </FormControl>
                 )
                 : (
