@@ -38,7 +38,7 @@ const SearchedAnimals = () => {
       <div className="animal__profil">
         <CssBaseline />
         <Arrows />
-        <AnimalPicture picture={animalProfile.imageName} />
+        <AnimalPicture {...animalProfile} />
         <AnimalDescription {...animalProfile} />
         <ContactButton showContactValue={showContact} />
         {showContact && (<AssociationContact {...animalProfile.association} />)}
