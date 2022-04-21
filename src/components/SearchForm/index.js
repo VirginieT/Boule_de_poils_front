@@ -113,40 +113,34 @@ export default function SearchForm() {
     ageValidate(inputValue);
   };
 
-  const handleChangeChild = () => {
-    let action = '';
-    if (childChecked === true) {
-      action = changeChildUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 0);
-      dispatch(action);
+  const handleChangeChild = (event) => {
+    console.log(event.target.checked);
+
+    if (event.target.checked) {
+      dispatch(changeChildField('childCompatibility', 1));
     }
     else {
-      action = changeChildChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeChildField('childCompatibility', 1);
-      dispatch(action);
+      dispatch(changeChildField('childCompatibility', 0));
     }
   };
 
-  const handleChangeOthers = () => {
-    let action = '';
-    if (othersChecked === true) {
-      action = changeOthersUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 0);
-      dispatch(action);
-    }
-    else {
-      action = changeOthersChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeOthersField('otherAnimalCompatibility', 1);
-      dispatch(action);
-    }
+  const handleChangeOthers = (event) => {
+
+    // let action = '';
+    // if (othersChecked === true) {
+    //   action = changeOthersUnchecked();
+    //   dispatch(action);
+    //   // eslint-disable-next-line no-restricted-globals
+    //   action = changeOthersField('otherAnimalCompatibility', 0);
+    //   dispatch(action);
+    // }
+    // else {
+    //   action = changeOthersChecked();
+    //   dispatch(action);
+    //   // eslint-disable-next-line no-restricted-globals
+    //   action = changeOthersField('otherAnimalCompatibility', 1);
+    //   dispatch(action);
+    // }
   };
 
   const handleChangeGarden = () => {

@@ -125,6 +125,14 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         animalResults: [],
+        species: 999,
+        gender: 2,
+        age: 4,
+        childCompatibility: 0,
+        otherAnimalCompatibility: 0,
+        gardenNeeded: 0,
+        status: 0,
+        department: 0,
       };
     }
 
