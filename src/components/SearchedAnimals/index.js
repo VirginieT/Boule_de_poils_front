@@ -50,7 +50,7 @@ const SearchedAnimals = () => {
       <div className="animal__profil">
         <CssBaseline />
         <h2 className="animal__void">Navrés pour vous, mais les animaux que vous recherchiez semblent avoir trouvé leur famille pour la vie !</h2>
-        <Button variant="contained" sx={{ mb: '1em', widht: 'sm' }} onClick={refreshPage}><a href="/#searchForm">Effectuer une nouvelle recherche</a></Button>
+        <Button  color="secondary" variant="contained" sx={{ mb: '1em', widht: 'sm' }} onClick={refreshPage}><a href="/#searchForm">Effectuer une nouvelle recherche</a></Button>
         <img className="animal__picture" src="https://images.pexels.com/photos/1462636/pexels-photo-1462636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="animal's profile" />
       </div>
     );
@@ -60,7 +60,7 @@ const SearchedAnimals = () => {
       <div className="animal__profil">
         <CssBaseline />
         <h1 className="annimal__void">Oh non, votre requête semble avoir rencontré un pépin !</h1>
-        <Button variant="contained" sx={{ mb: '1em', widht: 'sm' }} onClick={refreshPage}><a href="/#searchForm">Effectuer une nouvelle recherche</a></Button>
+        <Button color="secondary" variant="contained" sx={{ mb: '1em', widht: 'sm' }} onClick={refreshPage}><a href="/#searchForm">Effectuer une nouvelle recherche</a></Button>
         <img className="animal__picture" src="https://images.pexels.com/photos/127027/pexels-photo-127027.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="animal's profile" />
       </div>
     );

@@ -25,12 +25,14 @@ const Presentation = () => {
       {allAnimalProfiles.length > 0 ? (
         <>
           <div className="random__identity">
-            <h1 className="random__title">Boule de poils</h1>
-            <p className="random__welcome">Bienvenue sur le site Boule de poils, ici,
+            <h1 className="random__title">Bienvenue sur le site Boule de poils</h1>
+            <p className="random__welcome">
+              Ici,
               tu trouveras plein d'animaux qui n'attendent qu'un foyer
-              aimant pour les accueillir ! Effectue une recherche et
-              tu auras peut-être la chance de tomber sur le profil de :
+              aimant pour les accueillir !
             </p>
+            <p className="random__welcome">Effectue une recherche et
+              tu auras peut-être la chance de tomber sur le profil de :</p>
           </div>
 
           <div className="random__carrousel">
