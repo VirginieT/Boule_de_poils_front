@@ -228,7 +228,12 @@ export default function SearchForm() {
         }}
       >
         <Accordion>
-          <Button variant="contained" fullWidth sx={{ px: 0, py: 0 }}>
+          <Button
+            variant="contained"
+            color="secondary"
+            fullWidth
+            sx={{ px: 0, py: 0 }}
+            >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
@@ -429,6 +434,7 @@ export default function SearchForm() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                color="secondary"
               >
                 Lancer la recherche
               </Button>

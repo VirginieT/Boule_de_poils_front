@@ -8,10 +8,23 @@
   align-items: center;
   margin-top: 100px;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 
   &__identity {
     text-align: center;
     padding: 1em;
+  }
+
+  &__title {
+    font-family: 'Arima Madurai', 'Roboto';
+    font-size: 2em;
+    font-weight: 700;
+    display: none;
+  }
+
+  &__welcome {
+    font-family: 'Lato', 'Roboto';
+    font-size: 1.2em;
   }
 
   &__carrousel {
@@ -21,7 +34,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: greenyellow;
   }
 
   &__animal {
@@ -31,17 +43,24 @@
 
   &__name {
     font-family: 'Arima Madurai', cursive;
-    font-size: 1.9em;
+    font-size: 1.5em;
     font-style: italic;
     font-weight: 600;
   }
 
   &__description{
-    font-family: 'Arima Madurai', cursive;
+    font-family: 'Lato', 'Roboto';
+    font-style: italic;
     font-size: 1.2em;
     padding: 0.5em;
-    height: 19vw;
+    height: 15vw;
     overflow: hidden;
+  }
+
+  &__more {
+    font-family: 'Lato', 'Roboto';
+    font-size: 2em;
+    font-weight: 700;
   }
 }
 
@@ -53,6 +72,10 @@
     &__carrousel {
       width: 80vw;
       height: 80vw;
+    }
+
+    &__title {
+      display: block;
     }
 
     &__description{

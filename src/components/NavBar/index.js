@@ -25,7 +25,7 @@ const NavBar = () => {
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
       <Link to="/" label="homepage"><img className="logo__link" src={logo} alt="logo" onClick={handleShowLinks}/></Link>
-      <h1 className="navbar__title">Boules de poil</h1>
+      <h1 className="navbar__title">Boule de poils</h1>
       <ul className="navbar__links">
         {connectedUser && (
           <li className="navbar__item slideInDown-1 " onClick={handleShowLinks}>

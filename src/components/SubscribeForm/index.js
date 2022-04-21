@@ -181,6 +181,7 @@ export default function SubscribeForm() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                color="secondary"
               >
                 Inscription
               </Button>

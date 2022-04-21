@@ -15,7 +15,7 @@ const AssoContactAdmin = () => (
     <p className="join__text"> N'hésitez pas à prendre contact avec nous, afin d'enregistrer votre association, et ainsi d'élargir leur visbilité, en permettant à de potentiels adoptants de tout le pays de découvrir les animaux qui les attendent.</p>
     {/* eslint-disable-next-line max-len */}
     <p className="join__text">Pour celà rien de plus simple, envoyez un courreil à notre équipe qui se fera une joie d'accueillir votre demande</p>
-    <Button variant="contained" className="join__btn"><a href="mailto:admin@boulesdepoil.com?subject=Demande d'association">Nous contacter</a></Button>
+    <Button color="secondary" variant="contained" className="join__btn"><a href="mailto:admin@boulesdepoil.com?subject=Demande d'association">Nous contacter</a></Button>
   </div>
 );
 

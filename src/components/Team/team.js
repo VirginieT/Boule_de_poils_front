@@ -38,7 +38,7 @@ const Team = () => (
         <h4 className="team__role">Technical Advisor</h4>
       </div>
     </div>
-    <Button variant="contained" className="team__btn"><a href="mailto:admin@boulesdepoil.com">Nous contacter</a></Button>
+    <Button variant="contained" color="secondary" className="team__btn"><a href="mailto:admin@boulesdepoil.com">Nous contacter</a></Button>
   </div>
 );
 
