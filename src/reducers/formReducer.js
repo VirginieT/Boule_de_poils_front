@@ -25,6 +25,9 @@ import {
   EMAIL_ERROR,
   NOTSUBMIT_FORM,
 } from 'src/actions/formActions';
+import {
+  EMPTY_ANIMAL_RESULTS,
+} from 'src/actions/animalSearched';
 
 const initialState = {
   departments: [],
@@ -229,7 +232,12 @@ const formReducer = (state = initialState, action = {}) => {
         emailError: action.value,
       };
     }
-
+    case EMPTY_ANIMAL_RESULTS: {
+      return {
+        ...state,
+        speciesError: true,
+      };
+    }
     default:
       return state;
   }

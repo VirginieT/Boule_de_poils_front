@@ -114,8 +114,6 @@ export default function SearchForm() {
   };
 
   const handleChangeChild = (event) => {
-    console.log(event.target.checked);
-
     if (event.target.checked) {
       dispatch(changeChildField('childCompatibility', 1));
     }
@@ -125,39 +123,20 @@ export default function SearchForm() {
   };
 
   const handleChangeOthers = (event) => {
-
-    // let action = '';
-    // if (othersChecked === true) {
-    //   action = changeOthersUnchecked();
-    //   dispatch(action);
-    //   // eslint-disable-next-line no-restricted-globals
-    //   action = changeOthersField('otherAnimalCompatibility', 0);
-    //   dispatch(action);
-    // }
-    // else {
-    //   action = changeOthersChecked();
-    //   dispatch(action);
-    //   // eslint-disable-next-line no-restricted-globals
-    //   action = changeOthersField('otherAnimalCompatibility', 1);
-    //   dispatch(action);
-    // }
-  };
-
-  const handleChangeGarden = () => {
-    let action = '';
-    if (gardenChecked === true) {
-      action = changeGardenUnchecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 0);
-      dispatch(action);
+    if (event.target.checked) {
+      dispatch(changeOthersField('otherAnimalCompatibility', 1));
     }
     else {
-      action = changeGardenChecked();
-      dispatch(action);
-      // eslint-disable-next-line no-restricted-globals
-      action = changeGardenField('gardenNeeded', 1);
-      dispatch(action);
+      dispatch(changeOthersField('otherAnimalCompatibility', 0));
+    }
+  };
+
+  const handleChangeGarden = (event) => {
+    if (event.target.checked) {
+      dispatch(changeGardenField('gardenNeeded', 1));
+    }
+    else {
+      dispatch(changeGardenField('gardenNeeded', 0));
     }
   };
 
