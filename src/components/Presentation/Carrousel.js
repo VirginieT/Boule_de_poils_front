@@ -1,21 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { displayNextSlide, displayPreviousSlide } from 'src/actions/carroussel';
+import { displayNextSlide } from 'src/actions/carroussel';
 import { useEffect } from 'react';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Carrousel = () => {
   const dispatch = useDispatch();
 
-  // const nextSlide = () => {
-  //   clearInterval();
-  //   dispatch(displayNextSlide());
-  // };
+  const nextSlide = () => {
+    clearInterval();
+    dispatch(displayNextSlide());
+  };
 
-  // useEffect(() => {
-  //   const interval = setInterval(nextSlide, 7000);
-  //   return () => clearInterval(interval);
-  // });
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 7000);
+    return () => clearInterval(interval);
+  });
 
   const displayedProfile = useSelector((state) => state.Carroussel.displayProfile);
 
@@ -33,7 +31,7 @@ const Carrousel = () => {
           )}
         </div>
       ))}
-      </section>
+    </section>
   );
 };
 
