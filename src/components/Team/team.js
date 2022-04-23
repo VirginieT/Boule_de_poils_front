@@ -16,8 +16,10 @@ const Team = () => (
     <h2 className="team__title">L'équipe Boule de poils</h2>
     <div className="team__list">
       <div className="team__card">
-        <img className="team__pic" src={AvatarJ} alt="Julien" />
-        <FaSymfony className="symfoLogo" />
+        <div className="team__avatar">
+          <img className="team__pic" src={AvatarJ} alt="Julien" />
+          <FaSymfony className="symfoLogo" />
+        </div>
         <h3 className="team__name">Julien</h3>
         <h4 className="team__role">Product Owner / Lead Dev Back</h4>
         <div className="team__links">
@@ -26,8 +28,10 @@ const Team = () => (
         </div>
       </div>
       <div className="team__card">
-        <img className="team__pic" src={AvatarM} alt="Mathilde" />
-        <FaReact className="reactLogo" />
+        <div className="team__avatar">
+          <img className="team__pic" src={AvatarM} alt="Mathilde" />
+          <FaReact className="reactLogo" />
+        </div>
         <h3 className="team__name">Mathilde</h3>
         <h4 className="team__role">Scrum Master</h4>
         <div className="team__links">
@@ -36,8 +40,10 @@ const Team = () => (
         </div>
       </div>
       <div className="team__card">
+      <div className="team__avatar">
         <img className="team__pic" src={AvatarA} alt="Anthony" />
         <FaReact className="reactLogo" />
+      </div>  
         <h3 className="team__name">Anthony</h3>
         <h4 className="team__role">Lead Dev Front</h4>
         <div className="team__links">
@@ -46,8 +52,10 @@ const Team = () => (
         </div>
       </div>
       <div className="team__card">
+      <div className="team__avatar">
         <img className="team__pic" src={AvatarV} alt="Virginie" />
         <FaSymfony className="symfoLogo" />
+      </div>
         <h3 className="team__name">Virginie</h3>
         <h4 className="team__role">Git Master</h4>
         <div className="team__links">
@@ -56,8 +64,10 @@ const Team = () => (
         </div>
       </div>
       <div className="team__card">
+      <div className="team__avatar">
         <img className="team__pic" src={AvatarF} alt="François-Louis" />
         <FaReact className="reactLogo" />
+      </div>
         <h3 className="team__name">François-Louis</h3>
         <h4 className="team__role">Technical Advisor</h4>
         <div className="team__links">

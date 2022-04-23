@@ -52,26 +52,35 @@
      &__ldkn {
         color: #0A66C2;
      }
+
+     &__avatar {
+       height: 50vw;
+     }
 }
 
 .symfoLogo {
   font-size: 3em;
   position: relative;
-  top: -40vw;
-  right: -20vw;
+  top: -45vw;
+  right: -40vw;
 
 }
 
 .reactLogo {
   font-size: 3em;
   position: relative;
-  top: -40vw;
-  right: -20vw;
+  top: -45vw;
+  right: -40vw;
   color: #0A66C2;
+
 }
 
 @media only screen and (min-width: 426px) {
   .team {
+    &__card {
+      width: 40vw;
+    }
+
     &__list {
     display: flex;
     flex-direction: row;
@@ -91,13 +100,17 @@
       height: 30vw;
       object-fit: cover;
     }
+    &__avatar {
+      height: 30vw;
+      width: 30vw;
+    }
   }
 
   .symfoLogo {
     font-size: 3em;
     position: relative;
     top: -25vw;
-    right: -10vw;
+    right: -25vw;
   
   }
   
@@ -105,16 +118,16 @@
     font-size: 3em;
     position: relative;
     top: -25vw;
-    right: -10vw;
+    right: -25vw;
     color: #0A66C2;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
 
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1025px) {
   .team {
     &__list {
     display: flex;
@@ -126,10 +139,14 @@
 
     &__card {
       margin-bottom: 1em;
-      width: 30vw;
+      width: 27vw;
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    &__name {
+      width: 25vw;
     }
 
      &__role {
@@ -142,39 +159,51 @@
        height: 15vw;
        object-fit: cover;
      }
+
+     &__avatar {
+       height: 15vw;
+       width: 15vw;
+     }
   }
 
   .symfoLogo {
     font-size: 2em;
     position: relative;
-    top: -12vw;
-    right: -5vw;
+    top: -15vw;
+    right: -12vw;
   
   }
   
   .reactLogo {
     font-size: 2em;
     position: relative;
-    top: -12vw;
-    right: -5vw;
+    top: -15vw;
+    right: -12vw;
     color: #0A66C2;
   }
 }
 
 @media only screen and (min-width: 1440px) {
+  .team {
+    &__card {
+      width: 30vw;
+    }
+  }
+
+
   .symfoLogo {
     font-size: 3em;
     position: relative;
-    top: -12vw;
-    right: -5vw;
+    top: -13vw;
+    right: -12vw;
   
   }
   
   .reactLogo {
     font-size: 3em;
     position: relative;
-    top: -12vw;
-    right: -5vw;
+    top: -13vw;
+    right: -12vw;
     color: #0A66C2;
   }
 }
