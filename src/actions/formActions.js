@@ -35,12 +35,15 @@ export const PHONENUMBER_ERROR = 'PHONENUMBER_ERROR';
 export const EMAIL_ERROR = 'EMAIL_ERROR';
 export const NOTSUBMIT_FORM = 'NOTSUBMIT_FORM';
 
+// action to change the value of the status field's state with user chosen value
 
 export const changeStatusField = (key, newValue) => ({
   type: CHANGE_STATUS_FIELD,
   species: key,
   value: newValue,
 });
+
+// action to change the value of the species field's state
 
 export const changeSpeciesField = (key, newValue) => ({
   type: CHANGE_SPECIES_FIELD,

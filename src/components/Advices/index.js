@@ -4,13 +4,14 @@ import './advices.scss';
 
 const Advices = () => (
   <div className="advices">
+    {/* Tag for using material ui custom style */}
     <CssBaseline />
     <h2 className="advices__title">Quatre bons conseils pour adopter un animal de compagnie</h2>
     <h3 className="advices__subtitle">S’occuper d’un animal n’est pas chose aisée. Avant d’adopter un chat ou un chien de compagnie, il faut s’assurer d’en être capable et de réunir les bonnes conditions. Voici quelques conseils pour adopter un compagnon poilu et s’assurer de le garder toute sa vie.</h3>
     <p className="advices__text">Adopter un animal est une chose, le garder en est une autre. Faisons le point sur ce qu’il faut savoir pour adopter un animal dans les meilleures conditions possible.</p>
     <div className="wrapper">
       <div className="one big-pic">
-        <img src="https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+        <img src="https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Des chatons dans l'herbe" />
       </div>
       <div className="two long-text">
         <h3 className="advices__subtitle">Famille d’accueil avant d’être un foyer définitif</h3>
@@ -21,10 +22,10 @@ const Advices = () => (
         <p className="advices__text">S’occuper d’un animal représente des dépenses inévitables. Ce paramètre doit peser dans la décision d’adopter. Il est primordial de s’assurer d’avoir les moyens d’assumer le coût de l’adoption et de subvenir aux besoins d’un animal domestique. La dépense moyenne, chaque année, à 1 000 euros pour un chien et 800 euros pour un chat. Une somme non négligeable qui peut toutefois être allégée. Certains ont la chance d’avoir quelqu’un qui peut garder gratuitement le compagnon pendant les vacances par exemple. Les frais de nourriture ou de vétérinaire sont, eux, inévitables pour toute la vie la bête. En plus de l’investissement financier, c’est du temps qu’il faudra donner à ce partenaire de vie. Assurez-vous de pouvoir lui consacrer des moments privilégiés tous les jours.</p>
       </div>
       <div className="three small-pic">
-        <img src="https://images.pexels.com/photos/4588065/pexels-photo-4588065.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+        <img src="https://images.pexels.com/photos/4588065/pexels-photo-4588065.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Un lapin blanc" />
       </div>
       <div className="four small-pic">
-        <img src="https://images.pexels.com/photos/56733/pexels-photo-56733.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+        <img src="https://images.pexels.com/photos/56733/pexels-photo-56733.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Un perroquet vert" />
       </div>
       <div className="five large-text">
         <h3 className="advices__subtitle">Un animal adulte est tout aussi satisfaisant qu’un bébé</h3>
