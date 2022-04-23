@@ -21,6 +21,8 @@ import Checkbox from '@mui/material/Checkbox';
 import FormHelperText from '@mui/material/FormHelperText';
 import ListSubheader from '@mui/material/ListSubheader';
 
+// importation of actions used in the components
+
 import {
   changeSpeciesField,
   changeAgeField,
@@ -38,6 +40,8 @@ import {
   changeLocError,
 } from '../../actions/formActions';
 
+// association of local variables with states in reducers
+
 export default function SearchForm() {
   const speciesValue = useSelector((state) => state.SearchedAnimals.species);
   const genderValue = useSelector((state) => state.SearchedAnimals.gender);
@@ -54,10 +58,16 @@ export default function SearchForm() {
   const locError = useSelector((state) => state.FormReducer.departmentError);
 
   const dispatch = useDispatch();
+
+  // launch requests to the api for fetching datas of the species and departments at the component first mount 
+
   useEffect(() => {
     dispatch(fetchSpecies());
     dispatch(fetchDepartments());
   }, []);
+
+  // function to verify if the value of the species field is between 0 and the number of existing species in database
+  // change the associated error state in consequence
 
   const speciesValidate = (speciesVerify) => {
     if (speciesVerify >= 0 && speciesVerify <= species.length) {
@@ -70,6 +80,9 @@ export default function SearchForm() {
     }
   };
 
+  // function to change the value of species field's state as user selection
+  // call the validation function of the field
+
   const handleChangeSpecies = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeSpeciesField(name, inputValue);
@@ -77,11 +90,17 @@ export default function SearchForm() {
     speciesValidate(inputValue);
   };
 
+  // function to change the value of gender field's state as user selection
+  // use parseInt to transform the int value in string for api request
+
   const handleChangeGender = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeGenderField(name, parseInt(inputValue, 10));
     dispatch(action);
   };
+
+  // function to verify if the value of the age field is between 0 and 4
+  // change the associated error state in consequence
 
   const ageValidate = (ageVerify) => {
     if (ageVerify >= 0 && ageVerify <= 4) {
@@ -94,12 +113,17 @@ export default function SearchForm() {
     }
   };
 
+  // function to change the value of age field's state as user selection
+  // call the validation function of the field
+
   const handleChangeAge = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeAgeField(name, inputValue);
     dispatch(action);
     ageValidate(inputValue);
   };
+
+  // function to toggle the value of children compatibility field's state as checkbox is checked or not
 
   const handleChangeChild = (event) => {
     if (event.target.checked) {
@@ -110,6 +134,8 @@ export default function SearchForm() {
     }
   };
 
+  // function to toggle the value of other animals compatibility field's state as checkbox is checked or not
+
   const handleChangeOthers = (event) => {
     if (event.target.checked) {
       dispatch(changeOthersField('otherAnimalCompatibility', 1));
@@ -119,6 +145,8 @@ export default function SearchForm() {
     }
   };
 
+  // function to toggle the value of garden needed field's state as checkbox is checked or not
+
   const handleChangeGarden = (event) => {
     if (event.target.checked) {
       dispatch(changeGardenField('gardenNeeded', 1));
@@ -127,6 +155,9 @@ export default function SearchForm() {
       dispatch(changeGardenField('gardenNeeded', 0));
     }
   };
+
+  // function to verify if the value of the location field is between 0 and the number of existing departments in database
+  // change the associated error state in consequence
 
   const locValidate = (locVerify) => {
     if (locVerify >= 0 && locVerify < departments.length) {
@@ -139,12 +170,18 @@ export default function SearchForm() {
     }
   };
 
+  // function to change the value of location field's state as user selection
+  // use parseInt to transform the int value in string for api request
+  // call the validation function of the field
+
   const handleChangeLoc = (event) => {
     const { value: inputValue, name } = event.target;
     const action = changeLocField(name, parseInt(inputValue, 10));
     dispatch(action);
     locValidate(inputValue);
   };
+
+  // function to toggle the value of status field's state as checkbox is checked or not
 
   const handleChangeStatus = (event) => {
     if (event.target.checked) {
@@ -154,6 +191,10 @@ export default function SearchForm() {
       dispatch(changeStatusField('status', 0));
     }
   };
+
+  // function to submit the form
+  // verify if there is no error in each fields
+  // toggle the formSubmit's state value to launch the api call and component switching
 
   const handleSubmit = (event) => {
     event.preventDefault();

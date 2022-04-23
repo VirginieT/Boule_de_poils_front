@@ -16,6 +16,8 @@ import AssoContactAdmin from '../AssoContactAdmin/assoContactAdmin';
 import Team from '../Team/team';
 import Error from '../Error';
 
+// variable for material ui's custom style use
+
 const theme = createTheme({
   palette: {
     type: 'light',
@@ -48,7 +50,9 @@ const App = () => {
           <Route path="/rejoindre" element={<AssoContactAdmin />} />
           <Route path="/signin" element={<SubscribeForm />} />
           <Route path="/login" element={<LoginForm />} />
+          {/* redirect to 404 custom page for all other paths */}
           <Route path="*" element={<Error />} />
+          {/* show homepage components until the animal form is submited, then switch to results component */}
           <Route
             path="/"
             element={
