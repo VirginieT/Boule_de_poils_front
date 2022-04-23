@@ -42,7 +42,7 @@ const NavBar = () => {
           </li>
         )}
         <li className="navbar__item slideInDown-2 " onClick={handleShowLinks}>
-          <Link to="/#searchForm" className="navbar__link">
+          <Link to="/" className="navbar__link">
             Rechercher un animal
           </Link>
         </li>
