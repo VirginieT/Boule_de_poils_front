@@ -16,7 +16,7 @@ import {
   CHANGE_STATUS_FIELD,
 } from 'src/actions/formActions';
 
-const initialState = {
+export const initialState = {
   species: 999,
   gender: 2,
   age: 4,
@@ -30,11 +30,10 @@ const initialState = {
   favorites: [],
   showContact: false,
   formSubmit: false,
-
 };
 // ternaire : x === 3 ? traitement si true : traitement si false.
 
-const searchedAnimalsReducer = (state = initialState, action = {}) => {
+const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_STATUS_FIELD:
       return {
@@ -141,4 +140,4 @@ const searchedAnimalsReducer = (state = initialState, action = {}) => {
   }
 };
 
-export default searchedAnimalsReducer;
+export default reducer;

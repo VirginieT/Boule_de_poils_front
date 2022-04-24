@@ -241,11 +241,11 @@ export default function SearchForm() {
               {speciesError
                 ? (
                   <FormControl fullWidth error>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
+                    <InputLabel id="species-select-label-error" sx={{ mt: 1 }}>Espèce</InputLabel>
                     <Select
                       required
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="species-select-label-error"
+                      id="species-select-error"
                       value={speciesValue}
                       label="Espèces"
                       onChange={handleChangeSpecies}
@@ -263,11 +263,11 @@ export default function SearchForm() {
                 )
                 : (
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
+                    <InputLabel id="species-select-label" sx={{ mt: 1 }}>Espèce</InputLabel>
                     <Select
                       required
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="species-select-label"
+                      id="species-select"
                       value={speciesValue}
                       label="Espèces"
                       onChange={handleChangeSpecies}
@@ -283,10 +283,10 @@ export default function SearchForm() {
                   </FormControl>
                 )}
               <FormControl fullWidth>
-                <FormLabel id="demo-row-radio-buttons-group-label" sx={{ mt: 1 }}>Genre</FormLabel>
+                <FormLabel id="gender-radio-buttons-group-label" sx={{ mt: 1 }}>Genre</FormLabel>
                 <RadioGroup
                   row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
+                  aria-labelledby="gender-radio-buttons-group-label"
                   name="gender"
                   value={genderValue}
                   onChange={handleChangeGender}
@@ -299,10 +299,10 @@ export default function SearchForm() {
               {ageError
                 ? (
                   <FormControl fullWidth error>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Âge</InputLabel>
+                    <InputLabel id="age-select-label-error" sx={{ mt: 1 }}>Âge</InputLabel>
                     <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="age-select-label--error"
+                      id="age-select-error"
                       name="age"
                       value={ageValue}
                       label="Age"
@@ -320,10 +320,10 @@ export default function SearchForm() {
                 )
                 : (
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Âge</InputLabel>
+                    <InputLabel id="age-select-label" sx={{ mt: 1 }}>Âge</InputLabel>
                     <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="age-select-label"
+                      id="age-select"
                       name="age"
                       value={ageValue}
                       label="Age"
@@ -368,10 +368,10 @@ export default function SearchForm() {
               {locError
                 ? (
                   <FormControl fullWidth error>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Zone géographique</InputLabel>
+                    <InputLabel id="location-select-label-error" sx={{ mt: 1 }}>Zone géographique</InputLabel>
                     <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="location-select-label-error"
+                      id="location-select-error"
                       name="department"
                       value={locValue}
                       label="species"
@@ -392,10 +392,10 @@ export default function SearchForm() {
                 )
                 : (
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" sx={{ mt: 1 }}>Zone géographique</InputLabel>
+                    <InputLabel id="location-select-label" sx={{ mt: 1 }}>Zone géographique</InputLabel>
                     <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="location-select-label"
+                      id="location-select"
                       name="department"
                       value={locValue}
                       label="species"
