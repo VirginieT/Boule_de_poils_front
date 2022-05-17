@@ -1,5 +1,8 @@
 # Boule_de_poils_front
 
+![Capture d’écran 2022-05-17 223931](https://user-images.githubusercontent.com/92692968/168907489-29116cd9-8c55-4093-8c55-3a528dc272d7.png)
+
+
 Démonstration du projet visible dans cette vidéo, à partir de 9:10 min.
 https://www.youtube.com/watch?v=yBA6xYkmB5s
 
